@@ -19,7 +19,19 @@ class DatabaseSeeder extends Seeder
              'email' => 'thijs@example.com',
          ]);
 
-        \App\Models\Race::factory(10)->create();
+        \App\Models\Race::factory()->create([
+            'name' => 'Monza', 'location' => 'Monza', 'length' => 5.793,
+            'name' => 'Silverstone', 'location' => 'Silverstone', 'length' => 5.891,
+            'name' => 'Spa-Francorchamps', 'location' => 'Stavelot', 'length' => 7.004,
+            'name' => 'Monaco', 'location' => 'Monte Carlo', 'length' => 3.337,
+            'name' => 'Suzuka', 'location' => 'Suzuka', 'length' => 5.807,
+            'name' => 'Circuit of the Americas', 'location' => 'Austin', 'length' => 5.513,
+            'name' => 'Baku City Circuit', 'location' => 'Baku', 'length' => 6.003,
+            'name' => 'Melbourne Grand Prix Circuit', 'location' => 'Melbourne', 'length' => 5.303,
+            'name' => 'Shanghai International Circuit', 'location' => 'Shanghai', 'length' => 5.451,
+            'name' => 'Hockenheimring', 'location' => 'Hockenheim', 'length' => 4.574,
+            // Add more tracks here'
+            ]);
 
 
     }

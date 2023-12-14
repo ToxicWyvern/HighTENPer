@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('races', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
+            $table->id();
             $table->string("name");
             $table->string("location");
             $table->float("length");

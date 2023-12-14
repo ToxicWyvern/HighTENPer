@@ -6,7 +6,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Dashboard') }}
+                <button type="button" href="#">Create Leaderboard</button>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,8 +18,9 @@
                     @endif
 
                             <li class="nav-item">
-                                <a href="{{route('races.index')}}"> races</a>
+                                <a href="{{route('races.index')}}"> tracks</a>
                             </li>
+
 
                 </div>
             </div>
