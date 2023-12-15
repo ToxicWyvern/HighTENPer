@@ -16,14 +16,9 @@ class ScoreFactory extends Factory
     public function definition(): array
     {
         return [
-            'position' => fake()->unique()->randomFloat(0, 1, 22),
+            'scoreImage' => fake()->randomElement(['1.png', '2.png', '3.png', '4.png']),
             'driver' => fake()->firstName,
-            'team' => fake()->unique()->randomElement(['Red Bull Racing', 'Mercedes', 'Ferrari', 'McLaren', 'Aston Martin', 'Alpine', 'Williams', 'AlphaTauri', 'Alfa Romeo', 'Haas F1 Team']),
             'best' => fake()->time,
-            'time' => fake()->time,
-            'stops' => fake()->randomFloat(0,0, 80),
-            'grid' => fake()->randomFloat(0,1,22),
-            'points' => fake()->randomFloat(0,0,20),
         ];
     }
 }

@@ -17,7 +17,26 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory()->create([
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
+             'password'=> 'leaderboardboard',
          ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Ebram',
+            'email' => 'ebram@example.com',
+            'password'=> 'leaderboardboard',
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Pedro',
+            'email' => 'pedro@example.com',
+            'password'=> 'leaderboardboard',
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Nilo',
+            'email' => 'nilo@example.com',
+            'password'=> 'leaderboardboard',
+        ]);
 
         \App\Models\Race::factory()->create([
             'name' => 'Monza',

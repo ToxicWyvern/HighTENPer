@@ -14,14 +14,9 @@ return new class extends Migration
         Schema::create('scores', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained(table:'users');
             $table->foreignId('race_id')->constrained(table:'races');
-            $table->float("position");
+            $table->string("scoreImage");
             $table->string('driver');
-            $table->string("team");
             $table->time("best");
-            $table->time("time");
-            $table->float("stops");
-            $table->float("grid");
-            $table->float("points");
             $table->timestamps();
         });
     }
