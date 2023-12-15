@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\selectable;
-use App\Http\Requests\StoreselectableRequest;
-use App\Http\Requests\UpdateselectableRequest;
+use App\Models\tire;
+use App\Http\Requests\StoretireRequest;
+use App\Http\Requests\UpdatetireRequest;
 
-class SelectableController extends Controller
+class TireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class SelectableController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreselectableRequest $request)
+    public function store(StoretireRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class SelectableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(selectable $selectable)
+    public function show(tire $tire)
     {
         //
     }
@@ -43,7 +43,7 @@ class SelectableController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(selectable $selectable)
+    public function edit(tire $tire)
     {
         //
     }
@@ -51,7 +51,7 @@ class SelectableController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateselectableRequest $request, selectable $selectable)
+    public function update(UpdatetireRequest $request, tire $tire)
     {
         //
     }
@@ -59,7 +59,7 @@ class SelectableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(selectable $selectable)
+    public function destroy(tire $tire)
     {
         //
     }

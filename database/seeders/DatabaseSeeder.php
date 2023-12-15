@@ -91,6 +91,56 @@ class DatabaseSeeder extends Seeder
             // Add more tracks here'
 
 
+        \App\Models\team::factory()->create([
+            'team' => 'Red Bull Racing'
+        ]);
 
+        \App\Models\team::factory()->create([
+            'team' => 'Mercedes'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'McLaren'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Ferrari'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Aston Martin'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Alpine'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Williams'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'AlphaTauri'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Alfa Romeo'
+        ]);
+
+        \App\Models\team::factory()->create([
+            'team' => 'Haas F1 Team'
+        ]);
+
+        \App\Models\tire::factory()->create([
+            'tires' => 'Soft'
+        ]);
+
+        \App\Models\tire::factory()->create([
+            'tires' => 'Medium'
+        ]);
+
+        \App\Models\tire::factory()->create([
+            'tires' => 'Hard'
+        ]);
     }
 }

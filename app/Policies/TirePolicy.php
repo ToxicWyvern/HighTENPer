@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\selectable;
+use App\Models\tire;
 use Illuminate\Auth\Access\Response;
 
-class SelectablePolicy
+class TirePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class SelectablePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, selectable $selectable): bool
+    public function view(User $user, tire $tire): bool
     {
         return true;
     }
@@ -35,7 +35,7 @@ class SelectablePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, selectable $selectable): bool
+    public function update(User $user, tire $tire): bool
     {
         return true;
     }
@@ -43,7 +43,7 @@ class SelectablePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, selectable $selectable): bool
+    public function delete(User $user, tire $tire): bool
     {
         return true;
     }
@@ -51,7 +51,7 @@ class SelectablePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, selectable $selectable): bool
+    public function restore(User $user, tire $tire): bool
     {
         return true;
     }
@@ -59,7 +59,7 @@ class SelectablePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, selectable $selectable): bool
+    public function forceDelete(User $user, tire $tire): bool
     {
         return true;
     }

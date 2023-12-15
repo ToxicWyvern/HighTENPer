@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('selectables', function (Blueprint $table) {
+        Schema::create('tires', function (Blueprint $table) {
             $table->id();
+            $table->string('tire');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('selectables');
+        Schema::dropIfExists('tires');
     }
 };

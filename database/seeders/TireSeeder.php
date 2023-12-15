@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SelectableSeeder extends Seeder
+class TireSeeder extends Seeder
 {
     /**
      * Run the database seeds.
