@@ -132,15 +132,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\tire::factory()->create([
-            'tires' => 'Soft'
+            'tire' => 'Soft'
         ]);
 
         \App\Models\tire::factory()->create([
-            'tires' => 'Medium'
+            'tire' => 'Medium'
         ]);
 
         \App\Models\tire::factory()->create([
-            'tires' => 'Hard'
+            'tire' => 'Hard'
         ]);
     }
 }

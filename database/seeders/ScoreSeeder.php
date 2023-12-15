@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Score;
 use App\Models\User;
 use App\Models\Race;
+use App\Models\Tire;
+use App\Models\Team;
 
 class ScoreSeeder extends Seeder
 {
@@ -17,11 +19,15 @@ class ScoreSeeder extends Seeder
     {
         $user = User::first();
         $race = Race::first(); // Get a race (adjust this based on your application logic)
+        $tire = Tire::first();
+        $team = Team::first();
 
         if ($user) {
             \App\Models\Score::factory(10)->create([
                 'user_id' => $user->id,
                 'race_id' => $race->id,
+                'tire_id' => $tire->id,
+                'team_id' => $team->id,
             ]);
         } else {
             // Handle the case when no user is found

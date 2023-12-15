@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('scores', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained(table:'users');
-            $table->foreignId('race_id')->constrained(table:'races');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('race_id')->constrained('races');
+            $table->foreignId('tire_id')->constrained('tires'); // Fix: Add 'constrained' method for tire_id
+            $table->foreignId('team_id')->constrained('teams');
             $table->string("scoreImage");
             $table->string('driver');
             $table->time("best");
