@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('scores', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('race_id')->constrained();
+            $table->foreignId('user_id')->constrained(table:'users');
+            $table->foreignId('race_id')->constrained(table:'races');
             $table->float("position");
             $table->string('driver');
             $table->string("team");
-            $table->timestamp("best");
-            $table->float("time");
+            $table->time("best");
+            $table->time("time");
             $table->float("stops");
             $table->float("grid");
             $table->float("points");
+            $table->timestamps();
         });
     }
 

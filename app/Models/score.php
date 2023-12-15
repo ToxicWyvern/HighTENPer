@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class score extends Model
 {
+    public $timestamps = true;
+
     use HasFactory;
 }
