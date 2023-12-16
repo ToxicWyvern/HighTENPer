@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) { //maakt alle columns aan in de tabel 'users'
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('admin')->default(false); //zorgt er voor dat iedereen normaal gesproken geen admin is, behalve als het anders aangegeven is
             $table->timestamps();
         });
     }

@@ -12,31 +12,47 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\User::factory(10)->create();
+        // \App\Models\User::factory(10)->create(); //kan 10 fake users maken, maar aan 1 hebben we ook genoeg
+
+        //zorgt dat er altijd een account is voor Thijs, Ebram, Pedro, Nilo en een testuser
 
          \App\Models\User::factory()->create([
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
              'password'=> 'leaderboardboard',
+             'admin' => 1,
          ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Ebram',
             'email' => 'ebram@example.com',
             'password'=> 'leaderboardboard',
+            'admin' => 1,
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Pedro',
             'email' => 'pedro@example.com',
             'password'=> 'leaderboardboard',
+            'admin' => 1,
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Nilo',
             'email' => 'nilo@example.com',
             'password'=> 'leaderboardboard',
+            'admin' => 1,
         ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'testuser',
+            'email' => 'testuser@example.com',
+            'password'=> 'leaderboardboard',
+            'admin' => 0,
+        ]);
+
+
+        //maakt alle tracks aan die er op dit moment zijn in de game
 
         \App\Models\Race::factory()->create([
             'name' => 'Monza',
@@ -88,8 +104,9 @@ class DatabaseSeeder extends Seeder
             'location' => 'Hockenheim',
             'length' => 4.574,
             ]);
-            // Add more tracks here'
+            // Add more tracks here
 
+        //maakt alle teams aan die er op dit moment zijn in de game
 
         \App\Models\team::factory()->create([
             'team' => 'Red Bull Racing'

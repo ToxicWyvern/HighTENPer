@@ -16,25 +16,29 @@ class ScoreSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        $user = User::first();
-        $race = Race::first(); // Get a race (adjust this based on your application logic)
-        $tire = Tire::first();
-        $team = Team::first();
+    {   //haalt alle id's op (en naam voor de driver) uit andere tabellen
+        $users = User::pluck('id')->toArray();
+        $races = Race::pluck('id')->toArray();
+        $tires = Tire::pluck('id')->toArray();
+        $teams = Team::pluck('id')->toArray();
+        $names = User::pluck('name')->toArray();
 
-        if ($user) {
-            \App\Models\Score::factory(10)->create([
-                'user_id' => $user->id,
-                'race_id' => $race->id,
-                'tire_id' => $tire->id,
-                'team_id' => $team->id,
+        $count = count($users); //tel het aantal users
+
+        for ($i = 0; $i < $count; $i++) { //maak voor alle users een random scorelijst aan
+            \App\Models\Score::factory()->create([
+                'user_id' => $users[$i],
+                'race_id' => $this->getRandomId($races),
+                'tire_id' => $this->getRandomId($tires),
+                'team_id' => $this->getRandomId($teams),
+                'driver' => $names[$i],
             ]);
-        } else {
-            // Handle the case when no user is found
-            echo "No user found. Make sure you have at least one user in the database.";
         }
+    }
 
-
-
+    private function getRandomId(array $ids): int
+    {
+        return $ids[array_rand($ids)];
     }
 }
+

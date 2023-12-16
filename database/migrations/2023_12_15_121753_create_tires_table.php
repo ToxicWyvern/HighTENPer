@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tires', function (Blueprint $table) {
+        Schema::create('tires', function (Blueprint $table) {  //maakt alle columns aan in de tabel 'tires'
             $table->id();
             $table->string('tire');
             $table->timestamps();

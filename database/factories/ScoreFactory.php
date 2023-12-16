@@ -15,9 +15,8 @@ class ScoreFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+        return [ //fake data
             'scoreImage' => fake()->randomElement(['1.png', '2.png', '3.png', '4.png']),
-            'driver' => fake()->firstName,
             'best' => fake()->time,
         ];
     }

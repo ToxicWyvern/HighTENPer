@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('races', function (Blueprint $table) {
+        Schema::create('races', function (Blueprint $table) { //maakt alle columns aan in de tabel 'races'
             $table->id();
             $table->string("name");
             $table->string("location");
