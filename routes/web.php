@@ -16,10 +16,6 @@ use App\Http\Controllers\RaceController;
 
 
 //routes that everyone can acces
-Route::get('/check-auth', function () {
-    return auth()->check() ? 'Authenticated' : 'Not Authenticated';
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -47,6 +43,8 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 
 Route::get('/editProfile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.editProfile');
 
+
+//routes you need to be admin for
 Route::get('/admin/manage/leaderboards', function () {
     if (auth()->check() && auth()->user()->admin) {
         return view('admin.manageLeaderboards');

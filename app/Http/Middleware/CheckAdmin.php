@@ -13,7 +13,7 @@ class CheckAdmin
      *
      * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next) //de functie die checked of iemand een admin is of niet
     {
         if (auth()->check()) {
             return $next($request);
