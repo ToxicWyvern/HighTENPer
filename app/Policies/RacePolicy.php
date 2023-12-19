@@ -13,7 +13,7 @@ class RacePolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,6 +22,12 @@ class RacePolicy
     public function view(User $user, Race $race): bool
     {
         return true;
+//        if (/*$user, admin = false*/){
+//            return false;
+//        }
+//        else{
+//            return true;
+//        }
     }
 
     /**
