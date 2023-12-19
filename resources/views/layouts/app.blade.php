@@ -15,13 +15,15 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite('resources/css/app.css')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
+                    <img src="{{ asset('images/F1.png') }}" alt="Formula 1 Logo" height="5">
+                    <img src="{{ asset('images/F1Car.png') }}" alt="Formula 1 Car" height="30">
                     <ul class="nav nav navbar-expand-lg mx-auto ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
