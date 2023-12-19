@@ -47,18 +47,29 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 
 Route::get('/editProfile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.editProfile');
 
-//Route::middleware(['checkAdmin'])->group(function () {
-//    Route::get('/admin/dashboard', function () {
-//        return view('admin.dashboard');
-//    })->name('admin.dashboard');
-//});
+Route::get('/admin/manage/leaderboards', function () {
+    if (auth()->check() && auth()->user()->admin) {
+        return view('admin.manageLeaderboards');
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+})->middleware('auth')->name('admin.manageLeaderboards');
 
-//Route::get('/admin/dashboard', function () {
-//    return view('admin.dashboard');
-//})->name('admin.dashboard');
+Route::get('/admin/manage/users', function () {
+    if (auth()->check() && auth()->user()->admin) {
+        return view('admin.manageUsers');
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+})->middleware('auth')->name('admin.dashboard');
 
-//Route::get('/user-info', function () {
-//    return auth()->check() ? auth()->user() : 'Not Authenticated';
-//});
+Route::get('/admin/dashboard', function () {
+    if (auth()->check() && auth()->user()->admin) {
+        return view('admin.dashboard');
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+})->middleware('auth')->name('admin.dashboard');
+
 
 

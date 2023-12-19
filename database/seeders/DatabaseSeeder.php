@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
              'password'=> 'leaderboardboard',
-             'admin' => 1,
+             'admin' => true,
          ]);
 
         \App\Models\User::factory()->create([
