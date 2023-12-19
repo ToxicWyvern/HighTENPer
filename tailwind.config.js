@@ -5,8 +5,14 @@ module.exports = {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+
   theme: {
-    extend: {},
+    colors: {
+      "dark-blue": "#1D1D27",
+      pinky: "#FFC0CB",
+      goldy: "#FFCF1A",
+      whitesmoke: "#EEEEEE",
+    },
   },
   plugins: [],
 };
