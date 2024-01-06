@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}
-                <button type="button" href="#">Create Leaderboard</button>
+                    <a href="{{ route('showScoreForm') }}" class="button">Upload Leaderboard</a>
                 </div>
 
                 <div class="card-body">
@@ -17,9 +17,29 @@
                         </div>
                     @endif
 
-                            <li class="nav-item">
-                                <a href="{{route('races.index')}}"> tracks</a>
-                            </li>
+                        <h2>User's Best 5 Scores</h2>
+                        <table>
+                            <!-- Display the best 5 scores of the logged-in user -->
+                            <!-- Adjust this part based on your actual column names -->
+                            @foreach($userBestFiveScores as $score)
+                                <tr>
+                                    <td>{{ $score->driver }}</td>
+                                    <td>{{ $score->best }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+
+                        <h2>User's Last 5 Uploaded Scores</h2>
+                        <table>
+                            <!-- Display the last 5 scores uploaded by the logged-in user -->
+                            <!-- Adjust this part based on your actual column names -->
+                            @foreach($userLastFiveScores as $score)
+                                <tr>
+                                    <td>{{ $score->driver }}</td>
+                                    <td>{{ $score->best }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
 
 
                 </div>
@@ -28,3 +48,6 @@
     </div>
 </div>
 @endsection
+
+<!-- home.blade.php -->
+

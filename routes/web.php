@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RaceController;
+use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TireController;
+use App\Http\Controllers\UploadLeaderboardController;
+use App\Http\Controllers\UploadedLeaderboardsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +22,8 @@ use App\Http\Controllers\RaceController;
 
 
 //routes that everyone can acces
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\ScoreController::class, 'welcome']);
+
 
 Route::get('/leaderboard', function () {
     return view('leaderboards.mainLeaderboard');
@@ -28,14 +33,18 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/successful', function () {
+    return view('successful');
+});
+
 Route::resource('races', RaceController::class);
 
 //routes you need to be logged in for (use: Route::get('/[route here]', [App\Http\Controllers\[controllerName here]Controller::class, 'index'])->name('[view name here]'); )
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ScoreController::class, 'home']);
 
-Route::get('/uploadLeaderboard', [App\Http\Controllers\UploadLeaderboardController::class, 'index'])->name('leaderboards.uploadLeaderboard');
+//Route::get('/uploadLeaderboard', [App\Http\Controllers\UploadLeaderboardController::class, 'index'])->name('leaderboards.uploadLeaderboard');
 
 Route::get('/history', [App\Http\Controllers\UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards');
 
@@ -69,5 +78,9 @@ Route::get('/admin/dashboard', function () {
     }
 })->middleware('auth')->name('admin.dashboard');
 
+Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore');
+Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm');
 
-
+//Route::get('/admin/dashboard', [ScoreController::class, 'SelectRace'])->name('SelectRace');
+//
+//Route::post('/admin/dashboard', [ScoreController::class, 'updateRaceId'])->name('updateRaceId');

@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class score extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'race_id',
+        'tire_id',
+        'team_id',
+        'scoreImage',
+        'driver',
+        'best',
+        'verified',
+    ];
+
     public $timestamps = true;
     public function user() {
         return $this->belongsTo(user::class);
