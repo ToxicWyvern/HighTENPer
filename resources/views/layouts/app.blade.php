@@ -26,7 +26,7 @@
                 </div>
                 <div class="flex items-center">
              <img src="{{ asset('images/F1.png') }}" class="w-15 h-5 -ml-15" alt="Formula 1 Logo" height="5">
-             <img src="{{ asset('images/F1Car.png') }}" class="flex w-30 h-10 ml-3" alt="Formula 1 Logo" height="5">
+             <img src="{{ asset('images/F1Car.png') }}" class="flex w-2000 h-10 ml-3" alt="Formula 1 Logo" height="5">
                 </div>
             <div class="flex items-center">
                 <a class="navbar-brand" href="{{ url('/') }}">
