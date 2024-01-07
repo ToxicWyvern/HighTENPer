@@ -22,6 +22,27 @@
                             </li>
 
 
+                        <h2>User's Best 5 Scores</h2>
+                        <table>
+                            @foreach($userBestFiveScores as $score)
+                                <tr>
+                                    <td>{{ $score->driver }}</td>
+                                    <td>{{ $score->best }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+
+                        <h2>User's Last 5 Uploaded Scores</h2>
+                        <table>
+                            @foreach($userLastFiveScores as $score)
+                                <tr>
+                                    <td>{{ $score->driver }}</td>
+                                    <td>{{ $score->best }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+
+
                 </div>
             </div>
         </div>

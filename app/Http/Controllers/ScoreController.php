@@ -2,65 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\score;
-use App\Http\Requests\StorescoreRequest;
-use App\Http\Requests\UpdatescoreRequest;
+use App\Models\Score;
+use Illuminate\Support\Facades\Auth;
 
 class ScoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function welcome()
     {
-        //
+        // Fetch the best 10 scores from all users
+        $bestTenScores = Score::orderBy('best', 'asc')->take(5)->get();
+
+        // Output a message if $bestTenScores is empty
+        if ($bestTenScores->isEmpty()) {
+            dd('No scores found.'); // This will stop execution and display the message
+        }
+
+        // Pass the data to the welcome view
+        return view('welcome')->with('bestTenScores', $bestTenScores);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function home()
     {
-        //
-    }
+        // Get the currently logged-in user
+        $user = Auth::user();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorescoreRequest $request)
-    {
-        //
-    }
+        //Fetch the best 5 scores of the logged-in user
+        $userBestFiveScores = $user->scores()->orderBy('best', 'asc')->take(3)->get();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(score $score)
-    {
-        //
-    }
+        // Fetch the last 5 scores uploaded by the logged-in user
+        $userLastFiveScores = $user->scores()->orderBy('created_at', 'desc')->take(3)->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(score $score)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatescoreRequest $request, score $score)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(score $score)
-    {
-        //
+        // Pass the data to the home view
+        return view('home', [
+            'userBestFiveScores' => $userBestFiveScores,
+            'userLastFiveScores' => $userLastFiveScores,
+        ]);
     }
 }

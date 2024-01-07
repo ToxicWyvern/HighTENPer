@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
              'password'=> 'leaderboardboard',
-             'admin' => true,
+             'admin' => 1,
          ]);
 
         \App\Models\User::factory()->create([
@@ -159,5 +159,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\tire::factory()->create([
             'tire' => 'Hard'
         ]);
+
+        //$this->call(ScoreSeeder::class);
     }
 }
