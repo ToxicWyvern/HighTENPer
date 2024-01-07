@@ -148,6 +148,9 @@ class DatabaseSeeder extends Seeder
             'team' => 'Haas F1 Team'
         ]);
 
+
+        //maakt alle tires aan
+
         \App\Models\tire::factory()->create([
             'tire' => 'Soft'
         ]);
@@ -159,7 +162,5 @@ class DatabaseSeeder extends Seeder
         \App\Models\tire::factory()->create([
             'tire' => 'Hard'
         ]);
-
-        //$this->call(ScoreSeeder::class);
     }
 }

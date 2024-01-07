@@ -17,10 +17,9 @@
                         </div>
                     @endif
 
-                        <h2>User's Best 5 Scores</h2>
+                        <h2>{{ Auth::user()->name }}'s Best 5 Scores</h2>
                         <table>
-                            <!-- Display the best 5 scores of the logged-in user -->
-                            <!-- Adjust this part based on your actual column names -->
+                            <!-- Toon de beste 5 scores van de ingelogde gebruiker -->
                             @foreach($userBestFiveScores as $score)
                                 <tr>
                                     <td>{{ $score->driver }}</td>
@@ -29,10 +28,9 @@
                             @endforeach
                         </table>
 
-                        <h2>User's Last 5 Uploaded Scores</h2>
+                        <h2>{{ Auth::user()->name }}'s Last 5 Uploaded Scores</h2>
                         <table>
-                            <!-- Display the last 5 scores uploaded by the logged-in user -->
-                            <!-- Adjust this part based on your actual column names -->
+                            <!-- Toon de laatste 5 scores geüpload door de ingelogde gebruiker -->
                             @foreach($userLastFiveScores as $score)
                                 <tr>
                                     <td>{{ $score->driver }}</td>
@@ -48,6 +46,4 @@
     </div>
 </div>
 @endsection
-
-<!-- home.blade.php -->
 

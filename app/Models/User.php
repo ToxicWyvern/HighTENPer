@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * De eigenschappen die massaal toegewezen kunnen worden.
      *
      * @var array<int, string>
      */
@@ -27,7 +26,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * De eigenschappen die verborgen moeten worden bij serialisatie.
      *
      * @var array<int, string>
      */
@@ -37,7 +36,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * De eigenschappen die gecast moeten worden.
      *
      * @var array<string, string>
      */
@@ -47,7 +46,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Hash the user's password before saving to the database.
+     * Hash het wachtwoord van de gebruiker voor het opslaan in de database.
      *
      * @param array $attributes
      * @return void
@@ -61,6 +60,11 @@ class User extends Authenticatable
         });
     }
 
+    /**
+     * Definieer een één-op-veel relatie met het Score model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function scores()
     {
         return $this->hasMany(Score::class, 'user_id');

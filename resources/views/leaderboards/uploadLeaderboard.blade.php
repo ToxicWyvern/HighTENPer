@@ -97,18 +97,6 @@
                                 </div>
                             </div>
                         </form>
-
-{{--                        <script>--}}
-{{--                            function validateBestLapTime() {--}}
-{{--                                var input = document.getElementById('best_lap_time');--}}
-{{--                                var regex = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;--}}
-
-{{--                                if (!regex.test(input.value)) {--}}
-{{--                                    alert('Invalid format. Please enter a valid time in MM:SS:MS format.');--}}
-{{--                                    input.value = ''; // Clear the invalid input--}}
-{{--                                }--}}
-{{--                            }--}}
-{{--                        </script>--}}
                     </div>
                 </div>
             </div>
