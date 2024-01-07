@@ -14,43 +14,54 @@ use App\Http\Controllers\UploadedLeaderboardsController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Hier kun je webroutes registreren voor je applicatie. Deze routes worden
+| geladen door de RouteServiceProvider en worden allemaal toegewezen aan de
+| "web" middleware-groep. Maak iets geweldigs!
 |
 */
 
+// Routes die voor iedereen toegankelijk zijn
+Route::get('/', [ScoreController::class, 'welcome']);
 
+<<<<<<< HEAD
 //routes that everyone can acces
 Route::get('/', [App\Http\Controllers\ScoreController::class, 'welcome']);
 
+=======
+Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
+>>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 
-Route::get('/leaderboard', function () {
-    return view('leaderboards.mainLeaderboard');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', function () { return view('contact'); });
 
 Route::resource('races', RaceController::class);
 
-//routes you need to be logged in for (use: Route::get('/[route here]', [App\Http\Controllers\[controllerName here]Controller::class, 'index'])->name('[view name here]'); )
+// Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', [App\Http\Controllers\ScoreController::class, 'home']);
+=======
+Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
+>>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 
-Route::get('/uploadLeaderboard', [App\Http\Controllers\UploadLeaderboardController::class, 'index'])->name('leaderboards.uploadLeaderboard');
+Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
 
-Route::get('/history', [App\Http\Controllers\UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.Profile');
+Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
 
-Route::get('/editProfile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.editProfile');
+Route::get('/successful', function () { return view('successful'); })->middleware('auth');
 
+Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
+<<<<<<< HEAD
 
 //routes you need to be admin for
+=======
+Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
+
+// Routes waarvoor je admin moet zijn
+>>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 Route::get('/admin/manage/leaderboards', function () {
     if (auth()->check() && auth()->user()->admin) {
         return view('admin.manageLeaderboards');
@@ -74,6 +85,3 @@ Route::get('/admin/dashboard', function () {
         abort(403, 'Unauthorized.');
     }
 })->middleware('auth')->name('admin.dashboard');
-
-
-

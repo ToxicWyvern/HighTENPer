@@ -148,6 +148,9 @@ class DatabaseSeeder extends Seeder
             'team' => 'Haas F1 Team'
         ]);
 
+
+        //maakt alle tires aan
+
         \App\Models\tire::factory()->create([
             'tire' => 'Soft'
         ]);
