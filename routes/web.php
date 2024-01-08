@@ -29,7 +29,6 @@ Route::get('/contact', function () { return view('contact'); });
 
 Route::resource('races', RaceController::class);
 
-
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 Auth::routes();
 
@@ -46,9 +45,6 @@ Route::get('/successful', function () { return view('successful'); })->middlewar
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
-
-
-
 
 // Routes waarvoor je admin moet zijn
 Route::get('/admin/manage/leaderboards', function () {
@@ -74,5 +70,3 @@ Route::get('/admin/dashboard', function () {
         abort(403, 'Unauthorized.');
     }
 })->middleware('auth')->name('admin.dashboard');
-
-

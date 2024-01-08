@@ -66,13 +66,13 @@ class User extends Authenticatable
 
 
     /**
-     * Definieer een één-op-veel relatie met het Score model.
+     * Definieer een veel-op-veel relatie met het Score model.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
 
      public function scores()
      {
-         return $this->belongsToMany(Score::class, 'scores_users');
+         return $this->hasMany(Score::class);
      }
 }

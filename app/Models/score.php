@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Score extends Model
+class score extends Model
 {
     /**
      * De eigenschappen die massaal toegewezen kunnen worden.
@@ -35,9 +35,9 @@ class Score extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class, 'scores_users');
+        return $this->belongsTo(User::class);
     }
 
     /**

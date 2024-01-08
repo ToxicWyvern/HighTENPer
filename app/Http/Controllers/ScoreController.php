@@ -29,6 +29,7 @@ class ScoreController extends Controller
         $user = Auth::user();
         $userBestFiveScores = $user->scores()->orderBy('best', 'asc')->take(5)->get();
         $userLastFiveScores = $user->scores()->orderBy('created_at', 'desc')->take(5)->get();
+
         return view('home', [
             'userBestFiveScores' => $userBestFiveScores,
             'userLastFiveScores' => $userLastFiveScores,
