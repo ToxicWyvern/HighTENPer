@@ -3,6 +3,7 @@
 @import "register.css";
 @import "password-reset.css";
 @import "leaderboard.css";
+@import "footer.css";
 
 * {
     margin: 0;
@@ -57,9 +58,4 @@ body {
     padding: 10px 5px;
     width: 20%;
     font-weight: bold;
-}
-
-footer {
-    background-color: #000;
-    height: 250px;
 }

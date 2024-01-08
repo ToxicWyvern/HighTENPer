@@ -81,6 +81,21 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer>
+        <div class="footer-logo">
+            <img src="images/f1registration.png" alt="logo" class="footer-logo-img">
+        </div>
+        <div class="footer-menu">
+            <h3>Meer zien?</h3>
+            <ul>
+                <li><a href="#">Leaderboards</a></li>
+                <li><a href="#">De regels</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Contact ons</a></li>
+
+            </ul>
+        </div>
+    </footer>
     </div>
 </body>
 </html>

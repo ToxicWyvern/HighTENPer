@@ -1,5 +1,5 @@
-.header{
-    background-color: #1D1D27;
+.header {
+    background-color: #1d1d27;
     height: 100px;
     width: 100%;
     display: flex;
@@ -7,15 +7,15 @@
     align-items: center;
     padding: 50px;
     list-style: none;
+    margin-bottom: 50px;
 }
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    
 }
-.nav-items{
+.nav-items {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -23,10 +23,10 @@
     width: 100%;
     list-style: none;
 }
-.nav-logo{
+.nav-logo {
     padding-left: 10px;
 }
-.nav-link{
+.nav-link {
     text-decoration: none;
     color: whitesmoke;
     font-size: 20px;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -27,8 +27,9 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-
+            @endif --}}
+@extends('layouts.app')
+@section('content')
         <main>
             <section class="hero-container">
             <div class="hero">
@@ -67,12 +68,7 @@
                 </div>
         </section>
     </main>
+@endsection
 
-    <footer>
-        <div class="logo">
-            <img src="./public/images/f1registration.png" alt="logo" class="logo-img">
-        </div>
-    </footer>
-        </div>
-    </body>
-</html>
+
+
