@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use Illuminate\Auth\Notifications\ResetPassword;
+
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -19,8 +22,12 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
-    public function boot(): void
-    {
-        //
-    }
+
+public function boot(): void
+{
+    ResetPassword::createUrlUsing(function (User $user, string $token) {
+        return 'https://example.com/reset-password?token='.$token;
+    });
+}
+
 }

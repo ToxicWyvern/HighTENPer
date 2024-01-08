@@ -8,9 +8,9 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\UploadedLeaderboardsController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\ResetPasswordController;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,10 +82,8 @@ Route::get('/admin/dashboard', function () {
 //Pasword reset
 
 
-Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])
     ->middleware('guest')->name('password.email');
 
-
-    Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])
-        ->middleware('guest')->name('password.update');
-    
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
+    ->middleware('guest')->name('password.update'); 

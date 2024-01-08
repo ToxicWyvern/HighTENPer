@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Score extends Model
+class score extends Model
 {
     /**
      * De eigenschappen die massaal toegewezen kunnen worden.
