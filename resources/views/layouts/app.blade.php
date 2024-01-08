@@ -9,12 +9,13 @@
 
     <title> F1Registration</title>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -30,7 +31,7 @@
                 </div>
             <div class="flex items-center">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    
+
                     <ul class="nav nav navbar-expand-lg mx-auto ">
                         <li class="nav-item">
                             <a class="text-whitesmoke nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
@@ -41,7 +42,7 @@
                         <li class="nav-item">
                             <a class="text-whitesmoke nav-link" href="{{ url('/contact') }}">Contact</a>
                         </li>
-                        
+
                 </a>
             </div>
             <div class="flex items-center">

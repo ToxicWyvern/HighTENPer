@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +69,18 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<section class="login-container">
+        <div class="login">
+            <h3>Login</h3>
+            <div class="form">
+                <form action="#">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Wachtwoord">
+                    <a href="#">Wachtwoord vergeten</a>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </section>
 @endsection
