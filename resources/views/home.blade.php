@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@import ('')
 @section('content')
 
 <div class="container">
@@ -20,8 +20,6 @@
                             <li class="nav-item">
                                 <a href="{{route('races.index')}}"> tracks</a>
                             </li>
-
-
                 </div>
             </div>
         </div>

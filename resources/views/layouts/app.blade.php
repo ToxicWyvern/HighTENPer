@@ -20,42 +20,29 @@
 </head>
 <body>
     <div id="app">
-        <nav class="bg-dark-blue">
-            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-              <div class="relative flex h-16 items-center justify-between">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                </div>
-                <div class="flex items-center">
-             <img src="{{ asset('images/F1.png') }}" class="w-15 h-5 -ml-15" alt="Formula 1 Logo" height="5">
-             <img src="{{ asset('images/F1Car.png') }}" class="flex w-2000 h-10 ml-3" alt="Formula 1 Logo" height="5">
-                </div>
-            <div class="flex items-center">
-                <a class="navbar-brand" href="{{ url('/') }}">
-
-                    <ul class="nav nav navbar-expand-lg mx-auto ">
-                        <li class="nav-item">
-                            <a class="text-whitesmoke nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
+        <nav class="header">
+            <div class="container">
+                    <img class="nav-logo"src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
+                    <div class="nav-items">
+                        <li class="item1">
+                            <a class="nav-link"  href="{{ url('/') }}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="text-whitesmoke nav-link" href="{{ url('/board') }}">Leaderboards</a>
+                        <li class="item2">
+                            <a class="nav-link" href="{{ url('/board') }}">Leaderboards</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="text-whitesmoke nav-link" href="{{ url('/contact') }}">Contact</a>
-                        </li>
-
-                </a>
+                        <li class="item3">
+                            <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                        </div>
+            </li>
             </div>
-            <div class="flex items-center">
-                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-tog gler-icon"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-            </div
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-
                     <!-- Right Side Of Navbar -->
-                    <div class=" text-whitesmoke">
-
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -64,7 +51,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -84,7 +70,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
                                 </div>
                             </li>
                         @endguest

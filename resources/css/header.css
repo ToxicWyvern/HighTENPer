@@ -1,26 +1,33 @@
-header {
-    background-color: #1d1d27;
+.header{
+    background-color: #1D1D27;
+    height: 100px;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid white;
-    margin-bottom: 100px;
-}
-.logo-img {
-    height: 50px;
-}
-header ul {
+    padding: 50px;
     list-style: none;
 }
-header a {
-    color: white;
-    text-decoration: none;
-}
-
-header a {
-    padding: 0px 10px;
-}
-.menu-list ul {
+.container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+.nav-items{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+}
+.nav-logo{
+    padding-left: 10px;
+}
+.nav-link{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
 }
