@@ -1,6 +1,7 @@
 @import "login.css";
 @import "header.css";
 @import "register.css";
+@import "password-reset.css";
 
 * {
     margin: 0;
