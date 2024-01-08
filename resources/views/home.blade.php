@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@import ('')
 @section('content')
 
 <div class="container">

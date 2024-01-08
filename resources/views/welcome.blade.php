@@ -12,12 +12,6 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
-
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> bf6ccf2c33828dbe1b1a238c1e47b81aadad72f7
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
@@ -43,8 +37,8 @@
                 <button>Registreer nu -></button>
             </div>
         </section>
-        <div class="section-heading">
-            <h1>Bekijk de races van ... Abu Dhabi</h1>
+        <div class="leaderboard-heading-primary">
+            <h1>Bekijk de races van Abu Dhabi</h1>
         </div>
         <section class="leaderboard-container">
                 <div class="leaderboard">

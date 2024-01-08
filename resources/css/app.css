@@ -2,6 +2,7 @@
 @import "header.css";
 @import "register.css";
 @import "password-reset.css";
+@import "leaderboard.css";
 
 * {
     margin: 0;
@@ -56,63 +57,6 @@ body {
     padding: 10px 5px;
     width: 20%;
     font-weight: bold;
-}
-
-.leaderboard {
-    background-color: rgb(120, 120, 120);
-    height: 500px;
-    width: 1200px;
-    margin-bottom: 50px;
-}
-
-.leaderboard-property {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background-color: rgb(255, 255, 255);
-    font-size: 28px;
-    text-align: center;
-}
-
-.leaderboard h1 {
-    color: white;
-    font-size: 40px;
-}
-
-.leaderboard-container {
-    display: flex;
-    justify-content: center;
-}
-
-.section-heading {
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.rank,
-.time,
-.driver,
-.team,
-.tires {
-    border: 2px solid red;
-    font-weight: bold;
-}
-
-.leaderboard-value {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-}
-
-.rank-value,
-.time-value,
-.driver-value,
-.team-value,
-.tires-value {
-    background-color: white;
-    font-size: 25px;
-    text-align: center;
-    border: 1px solid black;
 }
 
 footer {
