@@ -41,7 +41,7 @@ form input {
     color: black;
     font-weight: bold;
 }
-input[type="submit"] {
+.btn-login {
     padding: 20px 30px;
     width: 50%;
     border-radius: 10px;
