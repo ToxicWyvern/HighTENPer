@@ -42,7 +42,7 @@ input[type="password"] {
     border: none;
     color: #353839;
 }
-input[type="submit"] {
+.btn-register {
     padding: 20px 30px;
     width: 50%;
     border-radius: 10px;

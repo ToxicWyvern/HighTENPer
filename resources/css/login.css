@@ -5,7 +5,7 @@
 }
 
 .login {
-    height: 500px;
+    height: 550px;
     width: 500px;
     background-color: #fe365e;
     border-radius: 30px;
@@ -41,6 +41,18 @@ form input {
     color: black;
     font-weight: bold;
 }
+
+.form-check-input {
+    width: 10%;
+}
+
+.remember-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .btn-login {
     padding: 20px 30px;
     width: 50%;
