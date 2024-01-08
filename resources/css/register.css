@@ -1,0 +1,85 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register {
+    height: 700px;
+    width: 500px;
+    background-color: #fe365e;
+    border-radius: 30px;
+}
+
+.register h3 {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    text-transform: uppercase;
+    padding: 30px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 20px 30px;
+    width: 70%;
+    border-radius: 10px;
+    border: none;
+    color: #353839;
+}
+input[type="submit"] {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffd000;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.choosefile {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 130px;
+    color: #353839;
+
+    border-radius: 10px;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #ffd000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #000000;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    content: "Upload profielfoto";
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #ffe209;
+    color: black;
+}
