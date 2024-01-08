@@ -6,14 +6,6 @@
 <h2>Best 10 Scores</h2>
 <table>
     <!-- Display the best 10 scores -->
-<<<<<<< HEAD
-    @foreach($bestTenScores as $score)
-        <tr>
-            <td>{{ $score->driver }}</td>
-            <td>{{ $score->best }}</td>
-        </tr>
-    @endforeach
-=======
     @if ($bestTenScores->isEmpty())
         <td><strong>{{'No scores found.'}}</strong></td>
     @else
@@ -35,7 +27,6 @@
             </tr>
         @endforeach
     @endif
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 </table>
 </html>
 @endsection
