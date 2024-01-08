@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Middleware;
 
+
+namespace App\Http\Middleware;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;

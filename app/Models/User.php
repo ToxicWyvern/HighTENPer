@@ -2,20 +2,13 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
-//use Illuminate\Contracts\Auth\CanResetPassword
-=======
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
+use Illuminate\Contracts\Auth\CanResetPassword;
 
 class User extends Authenticatable
 {
@@ -54,11 +47,10 @@ class User extends Authenticatable
     ];
 
     /**
-<<<<<<< HEAD
+
      * Hash the user's password before saving to the database.
-=======
      * Hash het wachtwoord van de gebruiker voor het opslaan in de database.
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
+
      *
      * @param array $attributes
      * @return void
@@ -72,16 +64,15 @@ class User extends Authenticatable
         });
     }
 
-<<<<<<< HEAD
-=======
+
     /**
      * Definieer een één-op-veel relatie met het Score model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
-    public function scores()
-    {
-        return $this->hasMany(Score::class, 'user_id');
-    }
+
+     public function scores()
+     {
+         return $this->belongsToMany(Score::class, 'scores_users');
+     }
 }

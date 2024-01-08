@@ -8,6 +8,9 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\UploadedLeaderboardsController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,26 +26,17 @@ use App\Http\Controllers\UploadedLeaderboardsController;
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [ScoreController::class, 'welcome']);
 
-<<<<<<< HEAD
-//routes that everyone can acces
-Route::get('/', [App\Http\Controllers\ScoreController::class, 'welcome']);
-
-=======
 Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 
 Route::get('/contact', function () { return view('contact'); });
 
 Route::resource('races', RaceController::class);
 
+
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', [App\Http\Controllers\ScoreController::class, 'home']);
-=======
 Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 
 Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
 
@@ -54,14 +48,12 @@ Route::get('/successful', function () { return view('successful'); })->middlewar
 
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
-<<<<<<< HEAD
-
-//routes you need to be admin for
-=======
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
 
+
+
+
 // Routes waarvoor je admin moet zijn
->>>>>>> 8fd7b8e7b7fc354e4afac39713d9c939bc43734e
 Route::get('/admin/manage/leaderboards', function () {
     if (auth()->check() && auth()->user()->admin) {
         return view('admin.manageLeaderboards');
@@ -85,3 +77,15 @@ Route::get('/admin/dashboard', function () {
         abort(403, 'Unauthorized.');
     }
 })->middleware('auth')->name('admin.dashboard');
+
+
+//Pasword reset
+
+
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])
+    ->middleware('guest')->name('password.email');
+
+
+    Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])
+        ->middleware('guest')->name('password.update');
+    
