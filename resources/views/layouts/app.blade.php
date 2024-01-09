@@ -22,18 +22,21 @@
     <div id="app">
         <nav class="header">
             <div class="container">
-                    <img class="nav-logo"src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
+                    <img class="nav-logo" src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
                     <div class="nav-items">
-                        <li class="item1">
-                            <a class="nav-link"  href="{{ url('/') }}">Home</a>
-                        </li>
-                        <li class="item2">
-                            <a class="nav-link" href="{{ url('/board') }}">Leaderboards</a>
-                        </li>
-                        <li class="item3">
-                            <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                        <ul>
+                            <li class="item1">
+                                <a class="nav-link"  href="{{ url('/') }}">Home</a>
+                            </li>
+                            <li class="item2">
+                                <a class="nav-link" href="{{ url('/board') }}">Leaderboards</a>
+                            </li>
+                            <li class="item3">
+                                <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                            </li>
+                        </ul>
                         </div>
-            </li>
+
             </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -75,9 +78,8 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
         </nav>
-
+    </div>
         <main class="py-4">
             @yield('content')
         </main>
@@ -96,6 +98,5 @@
             </ul>
         </div>
     </footer>
-    </div>
 </body>
 </html>
