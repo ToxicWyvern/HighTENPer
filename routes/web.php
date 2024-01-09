@@ -9,6 +9,7 @@ use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\UploadedLeaderboardsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\AdminController;
 */
 
 // Routes die voor iedereen toegankelijk zijn
-Route::get('/', [ScoreController::class, 'welcome']);
+Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
 Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
 

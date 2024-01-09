@@ -17,8 +17,18 @@ class ScoreController extends Controller
      */
     public function welcome()
     {
-        $bestTenScores = Score::orderBy('best', 'asc')->take(10)->get();
-        return view('welcome', compact('bestTenScores'));
+        // Get the ID of the currently active race
+        $activeRaceId = Race::where('active', true)->value('id');
+
+        // Fetch the best ten scores for the active race
+        $getBestTenScores = Score::whereHas('race', function ($query) use ($activeRaceId) {
+            $query->where('id', $activeRaceId);
+        })
+            ->orderBy('best', 'asc')
+            ->take(10)
+            ->get();
+
+        return $getBestTenScores;
     }
 
     /**
