@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-//use Illuminate\Contracts\Auth\CanResetPassword
+use Illuminate\Contracts\Auth\CanResetPassword;
+//use Illuminate\Contracts\Auth\CanResetPasswordA
 
 class User extends Authenticatable
 {
@@ -74,5 +75,12 @@ class User extends Authenticatable
     public function scores()
     {
         return $this->hasMany(Score::class, 'user_id');
+ 
     }
+
+    public function sendPasswordResetNotification($token)
+{
+    $this->notify(new \App\Notifications\ForgotPasswordNotification($token));
+}
+    
 }

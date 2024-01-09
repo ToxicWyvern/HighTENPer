@@ -9,7 +9,7 @@ use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\UploadedLeaderboardsController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth\ForgotPasswordController;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
@@ -79,11 +79,5 @@ Route::get('/admin/dashboard', function () {
 })->middleware('auth')->name('admin.dashboard');
 
 
-//Pasword reset
 
 
-Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])
-    ->middleware('guest')->name('password.email');
-
-    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
-    ->middleware('guest')->name('password.update'); 

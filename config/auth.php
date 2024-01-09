@@ -58,18 +58,23 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
-    'providers' => [
+    'passwords' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
+    
+
+        'providers' => [
+            'users' => [
+                'driver' => 'eloquent',
+                'model' => App\Models\User::class,
+            ],
+        ],
+         
+    
 
     /*
     |--------------------------------------------------------------------------
