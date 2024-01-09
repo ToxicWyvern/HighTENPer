@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("location");
             $table->float("length");
+            $table->boolean("active")->default(false);
             $table->timestamps();
         });
     }

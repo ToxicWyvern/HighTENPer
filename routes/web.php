@@ -8,6 +8,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\UploadedLeaderboardsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,26 +48,14 @@ Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
 
 // Routes waarvoor je admin moet zijn
-Route::get('/admin/manage/leaderboards', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.manageLeaderboards');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.manageLeaderboards');
+Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
+    ->middleware('auth')
+    ->name('admin.manageLeaderboards');
 
-Route::get('/admin/manage/users', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.manageUsers');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.dashboard');
+Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
+    ->middleware('auth')
+    ->name('admin.manageUsers');
 
-Route::get('/admin/dashboard', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.dashboard');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('admin.dashboard');
