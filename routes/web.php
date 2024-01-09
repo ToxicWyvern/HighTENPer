@@ -25,7 +25,7 @@ use App\Http\Controllers\LeaderboardController;
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
-Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
+Route::get('/leaderboard', function () { return view('leaderboards.boards'); });
 
 Route::get('/contact', function () {
     return view('contact');
@@ -40,7 +40,7 @@ Auth::routes();
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 //Auth::routes();
 
-Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
+Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
 

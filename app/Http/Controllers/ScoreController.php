@@ -15,7 +15,7 @@ class ScoreController extends Controller
     /**
      * Toont de beste 10 scores van alle gebruikers op de welkomstpagina.
      */
-    public function welcome()
+    public function home()
     {
         // Get the ID of the currently active race
         $activeRaceId = Race::where('active', true)->value('id');
@@ -32,15 +32,15 @@ class ScoreController extends Controller
     }
 
     /**
-     * Toont op de homepagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
+     * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
      */
-    public function home()
+    public function dashboard()
     {
         $user = Auth::user();
         $userBestFiveScores = $user->scores()->orderBy('best', 'asc')->take(5)->get();
         $userLastFiveScores = $user->scores()->orderBy('created_at', 'desc')->take(5)->get();
 
-        return view('home', [
+        return view('dashboard', [
             'userBestFiveScores' => $userBestFiveScores,
             'userLastFiveScores' => $userLastFiveScores,
         ]);
