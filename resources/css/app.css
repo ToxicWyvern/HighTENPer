@@ -4,6 +4,7 @@
 @import "password-reset.css";
 @import "leaderboard.css";
 @import "footer.css";
+@import "contact.css";
 
 * {
     margin: 0;
