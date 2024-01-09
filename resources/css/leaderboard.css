@@ -1,8 +1,8 @@
 .leaderboard {
-    background-color: rgb(205, 205, 205);
-    border: 1px solid red;
+    /* background-color: rgb(0, 0, 0); */
+    /* border: 1px solid red; */
 
-    height: 500px;
+    height: 270px;
     width: 1200px;
     margin-bottom: 50px;
 }
@@ -10,8 +10,9 @@
 .leaderboard-property {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background-color: #0f0f0f;
+    background-color: #e10600;
     color: whitesmoke;
+    font-weight: bold;
     font-size: 24px;
     text-align: center;
 }
@@ -41,7 +42,8 @@
 .driver,
 .team,
 .tires {
-    border: 2px solid red;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid rgb(0, 0, 0);
 }
 
 .leaderboard-value {
@@ -54,8 +56,9 @@
 .driver-value,
 .team-value,
 .tires-value {
-    background-color: white;
+    background-color: #ffffff;
     font-size: 20px;
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    border-right: 1px solid rgb(50, 50, 50);
 }

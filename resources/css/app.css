@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: #1d1d27;
+    background-color: #15151e;
 }
 
 .hero-container {
@@ -24,7 +24,7 @@ body {
 }
 
 .hero {
-    background-image: linear-gradient(to bottom, #fe365ee7, #fe365e4a),
+    background-image: linear-gradient(to bottom, #e10700c1, #e107009e),
         url("/public/images/hero-img.jpg");
     background-position: center;
     background-repeat: no-repeat;
