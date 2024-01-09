@@ -27,12 +27,18 @@ Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.inde
 
 Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
 
-Route::get('/contact', function () { return view('contact'); });
+Route::get('/contact', function () {
+    return view('contact');
+});
 
-Route::resource('races', RaceController::class);
+Auth::routes();
+
+//Route::get('/contact', function () { return view('contact'); });
+
+//Route::resource('races', RaceController::class);
 
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
 

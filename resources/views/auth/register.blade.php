@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -81,5 +81,44 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<section class="register-container">
+      <div class="register">
+        <h3>Registreer nu</h3>
+        <div class="form">
+          <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <input id="name" type="text" placeholder="Naam"class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input id="email" type="email" placeholder="E-mail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input id="password" type="password" placeholder="Wachtwoord"class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input id="password-confirm" placeholder="Wachtwoord bevestigen"type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+            <div class="choosefile">
+                <label for="file">Upload profielfoto</label>
+                <input type="file">
+            </div>
+
+            <button type="submit" class="btn-register">
+                {{ __('Register') }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
 @endsection

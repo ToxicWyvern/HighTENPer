@@ -19,6 +19,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+
 <div id="app">
     <nav class="header">
         <div class="container">
@@ -98,5 +99,6 @@
         </ul>
     </div>
 </footer>
+
 </body>
 </html>
