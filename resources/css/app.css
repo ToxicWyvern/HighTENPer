@@ -7,6 +7,7 @@
 @import "contact.css";
 @import "dashboard.css";
 @import "succes.css";
+@import "uploadRace.css";
 
 * {
     margin: 0;

@@ -3,7 +3,7 @@
 @section('content')
 <div class="succes-container">
     <div class="succes">
-      <img src="checked.png" alt="succes-image" class="succes-img" />
+      <img src="images/checked.png" alt="succes-image" class="succes-img" />
       <h1>Successfully Uploaded!</h1>
       <p>
         The entered score is still being considered.<br />

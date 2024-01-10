@@ -25,7 +25,9 @@ use App\Http\Controllers\LeaderboardController;
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
-Route::get('/leaderboard', function () { return view('leaderboards.boards'); });
+Route::get('/leaderboard', function () {
+    return view('leaderboards.boards');
+});
 
 Route::get('/contact', function () {
     return view('contact');
@@ -48,7 +50,9 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profi
 
 Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
 
-Route::get('/successful', function () { return view('successful'); })->middleware('auth');
+Route::get('/successful', function () {
+    return view('successful');
+})->middleware('auth');
 
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 

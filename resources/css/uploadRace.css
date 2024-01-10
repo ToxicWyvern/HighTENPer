@@ -1,0 +1,109 @@
+.uploadRace-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploadRace {
+    height: 850px;
+    width: 550px;
+    background-color: #e10600;
+    border-radius: 30px;
+}
+
+.uploadRace h3 {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-label {
+    font-size: 20px;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #ffd000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #000000;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    content: "Upload profielfoto";
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #ffe209;
+    color: black;
+}
+
+.choosefile {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 130px;
+    color: #353839;
+
+    border-radius: 10px;
+}
+
+.form-control {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+form input {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-uploadRace {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffd000;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
