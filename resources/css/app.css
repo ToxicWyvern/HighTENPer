@@ -5,6 +5,8 @@
 @import "leaderboard.css";
 @import "footer.css";
 @import "contact.css";
+@import "dashboard.css";
+@import "succes.css";
 
 * {
     margin: 0;

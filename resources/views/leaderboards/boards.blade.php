@@ -2,7 +2,12 @@
 @section('content')
 
 <h1 class="leaderboard-heading">Leaderboard Abu Dhabi</h1>
+<div class="addRaceBtn">
+    <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
+</div>
+
 <section class="leaderboard-container">
+
                 <div class="leaderboard">
                     <div class="leaderboard-property">
                         <div class="rank">Rank</div>
