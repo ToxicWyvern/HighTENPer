@@ -32,12 +32,13 @@
     font-size: 20px;
 }
 
-ul {
+.nav-items ul {
     display: flex;
     list-style: none;
     justify-content: space-around;
 }
 
-ul li {
+.nav-items ul li {
     padding: 0px 15px;
+    list-style: none;
 }

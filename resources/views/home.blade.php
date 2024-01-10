@@ -7,7 +7,7 @@
             <div class="hero">
                 <h1>Welkom bij <br> Formule 1 Registratie</h1>
                 <p>Race tegen je vrienden <br> en hou de races bij</p>
-                <button href="#">Registreer nu -></button>
+                <button href="/register">Registreer nu -></button>
             </div>
         </section>
         <div class="leaderboard-heading-primary">
