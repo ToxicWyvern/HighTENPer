@@ -1,3 +1,4 @@
+/* Dit is een Import waarbij per pagina de styling is gedaan in een aparte file  */
 @import "login.css";
 @import "header.css";
 @import "register.css";
@@ -18,6 +19,7 @@
 body {
     background-color: #15151e;
 }
+/* Dit zijn de stylings van de homepage wanneer je de website opent */
 
 .hero-container {
     display: flex;
