@@ -4,7 +4,7 @@
     <div class="addRaceBtn">
         <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
     </div>
-
+{{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
     <form method="post" action="{{ route('process.scores') }}">
         @csrf
         <label for="race">Search Leaderboards By Track:</label>
@@ -15,9 +15,18 @@
         </select>
         <button type="submit">Search</button>
     </form>
+    {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
     @if(isset($bestTenScores))
         <h1 class="leaderboard-heading">Leaderboard for {{ $selectedRaceName }}</h1>
+
+        {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+        @if ($bestTenScores->isEmpty())
+            <tr>
+                <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
+            </tr>
+        @else
+            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
         <section class="leaderboard-container">
             <div class="leaderboard">
@@ -47,6 +56,7 @@
                 @endforeach
             </div>
         </section>
+        @endif
     @endif
 
 @endsection

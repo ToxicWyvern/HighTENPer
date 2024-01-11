@@ -15,11 +15,19 @@
     <div class="user-history-boards">
       <div class="user-best-score-history">
         <h3 class="user-history-heading">{{auth::user() -> name}}'s best 5 scores</h3>
+          {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+          @if ($userBestFiveScores->isEmpty())
+              <tr>
+                  <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
+              </tr>
+          @else
+              {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         <div class="user-history-table">
           <div class="user-history-track">Track</div>
           <div class="user-history-time">Time</div>
           <div class="user-history-created_at">Created_at</div>
         </div>
+
           @foreach($userBestFiveScores as $score)
         <div class="user-history-value">
               <div class="user-history-track-value">{{ $score->race->name}}</div>
@@ -27,15 +35,23 @@
               <div class="user-history-created_at-value">{{ $score->created_at }}</div>
         </div>
           @endforeach
+          @endif
       </div>
       <div class="user-best-score-history">
         <h3 class="user-history-heading">{{auth::user() -> name}}'s 5 last uploaded scores</h3>
-
+          {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+          @if ($userLastFiveScores->isEmpty())
+              <tr>
+                  <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
+              </tr>
+          @else
+              {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         <div class="user-history-table">
           <div class="user-history-track">Track</div>
           <div class="user-history-time">Time</div>
           <div class="user-history-created_at">Created_at</div>
         </div>
+
           @foreach($userLastFiveScores as $score)
         <div class="user-history-value">
             <div class="user-history-track-value">{{ $score->race->name}}</div>
@@ -43,7 +59,7 @@
             <div class="user-history-created_at-value">{{ $score->created_at }}</div>
         </div>
           @endforeach
-
+          @endif
       </div>
     </div>
   </section>
