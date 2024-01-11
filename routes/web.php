@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
-use App\Http\Controllers\UploadedLeaderboardsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaderboardController;
 
@@ -42,8 +41,6 @@ Auth::routes();
 //Auth::routes();
 
 Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
-
-Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
