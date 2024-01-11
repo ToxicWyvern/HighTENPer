@@ -22,9 +22,8 @@
         <section class="leaderboard-container">
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
             @if ($getBestTenScores->isEmpty())
-                <tr>
-                    <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
-                </tr>
+            <h1 class="heading-noScore">No scores found.</h1>
+
             @else
                 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
                     <div class="leaderboard">
