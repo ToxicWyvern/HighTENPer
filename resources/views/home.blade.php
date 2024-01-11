@@ -6,7 +6,7 @@
             <section class="hero-container">
             <div class="hero">
                 <h1>Welkom bij <br> Formule 1 Registratie</h1>
-                <p>Race tegen je vrienden <br> en hou de races bij</p>
+                <p>Race tegen je vrienden <br> en houdt de scores bij</p>
                 @guest
                 @if (Route::has('register'))
                 <button href="{{ route('register') }}">Registreer nu -></button>
