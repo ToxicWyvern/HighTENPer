@@ -7,7 +7,13 @@
             <div class="hero">
                 <h1>Welkom bij <br> Formule 1 Registratie</h1>
                 <p>Race tegen je vrienden <br> en hou de races bij</p>
-                <button href="/register">Registreer nu -></button>
+{{--                @guest--}}
+{{--                @if (Route::has('register'))--}}
+                <button href="{{ route('register') }}">Registreer nu -></button>
+{{--                @endif--}}
+{{--                @else--}}
+{{--                    <button href="/uploadLeaderboard">Registreer nu -></button>--}}
+{{--                @endguest--}}
             </div>
         </section>
         <div class="leaderboard-heading-primary">
