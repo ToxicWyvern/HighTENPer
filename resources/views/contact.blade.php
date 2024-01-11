@@ -1,6 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
+<!-- Dit is een pagina waarin je de contact formulier ziet en daarbij kan je direct een mail sturen  -->
 <section class="contact-container">
       <div class="contact">
         <h3>Contact ons</h3>

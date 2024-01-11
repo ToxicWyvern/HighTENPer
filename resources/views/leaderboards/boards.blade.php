@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+<!-- Dit is een knop om een nieuwe race toe te voevgen  -->
     <div class="addRaceBtn">
         <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
     </div>

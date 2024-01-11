@@ -9,7 +9,7 @@
     </div>
 @endif
 @section('content')
-
+<!-- Dit is een pagina waarin je de race doormiddel van een formulier in kan voeren.-->
     <div class="card-body">
         @if(session('success'))
             <div class="alert alert-success">
