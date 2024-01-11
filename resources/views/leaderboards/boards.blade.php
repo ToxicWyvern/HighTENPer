@@ -1,39 +1,52 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="leaderboard-heading">Leaderboard Abu Dhabi</h1>
-<div class="addRaceBtn">
-    <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
-</div>
+    <div class="addRaceBtn">
+        <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
+    </div>
 
-<section class="leaderboard-container">
+    <form method="post" action="{{ route('process.scores') }}">
+        @csrf
+        <label for="race">Search Leaderboards By Track:</label>
+        <select name="race_id" id="race">
+            @foreach($races as $raceId => $raceName)
+                <option value="{{ $raceId }}">{{ $raceName }}</option>
+            @endforeach
+        </select>
+        <button type="submit">Search</button>
+    </form>
 
+    @if(isset($bestTenScores))
+        <h1 class="leaderboard-heading">Leaderboard for {{ $selectedRaceName }}</h1>
 
-                <div class="leaderboard">
-                    <div class="leaderboard-property">
-                        <div class="rank">Rank</div>
-                        <div class="time">Time</div>
-                        <div class="driver">Driver</div>
-                        <div class="team">Team</div>
-                        <div class="tires">Tires</div>
-                    </div>
-                    <div class="leaderboard-value">
-                        <div class="rank-value"># 1</div>
-                        <div class="time-value">1:20:15</div>
-                        <div class="driver-value">Niloyan</div>
-                        <div class="team-value">Red Bull</div>
-                        <div class="tires-value">Hard</div>
-                    </div>
-                    <div class="leaderboard-value">
-                        <div class="rank-value"># 2</div>
-                        <div class="time-value">1:31:25</div>
-                        <div class="driver-value">Ebram</div>
-                        <div class="team-value">Mercedes</div>
-                        <div class="tires-value">Hard</div>
-                    </div>
-
+        <section class="leaderboard-container">
+            <div class="leaderboard">
+                <div class="leaderboard-property">
+                    <div class="rank">Rank</div>
+                    <div class="driver">Driver</div>
+                    <div class="time">Time</div>
+                    <div class="team">Team</div>
+                    <div class="tires">Tires</div>
                 </div>
+                @foreach($bestTenScores as $score)
+                    <div class="leaderboard-value">
+                        @if($score->verified == 0)
+                            <div class="rank-value"><strong>#{{ $loop->iteration }}</strong></div>
+                            <div class="driver-value"><strong>{{ $score->driver }}</strong></div>
+                            <div class="time-value"><strong>{{ $score->best }}</strong></div>
+                            <div class="team-value"><strong>{{ $teams[$score->team_id] }}</strong></div>
+                            <div class="tires-value"><strong>{{ $tires[$score->tire_id] }}</strong></div>
+                        @else
+                            <div class="rank-value">#{{ $loop->iteration }}</div>
+                            <div class="driver-value">{{ $score->driver }}</div>
+                            <div class="time-value">{{ $score->best }}</div>
+                            <div class="team-value">{{ $teams[$score->team_id] }}</div>
+                            <div class="tires-value">{{ $tires[$score->tire_id] }}</div>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
         </section>
+    @endif
 
-
-        @endsection
+@endsection

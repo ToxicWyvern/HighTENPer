@@ -25,9 +25,8 @@ use App\Http\Controllers\LeaderboardController;
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
-Route::get('/leaderboard', function () {
-    return view('leaderboards.boards');
-});
+Route::get('/leaderboard', [ScoreController::class, 'showScoresForm']);
+Route::post('/leaderboard', [ScoreController::class, 'processScores'])->name('process.scores');
 
 Route::get('/contact', function () {
     return view('contact');

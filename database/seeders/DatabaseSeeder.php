@@ -81,11 +81,11 @@ class DatabaseSeeder extends Seeder
             'date'=>'24-04-19'
         ]);
         \App\Models\Race::factory()->create([
-            'name' => 'USA',
+            'name' => 'Miami (USA)',
             'date'=>'24-05-03'
         ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Italy',
+            'name' => 'Emilia Romagna',
             'date'=>'24-05-17'
         ]);
         \App\Models\Race::factory()->create([
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'date'=>'24-06-28'
         ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Great-Britain',
+            'name' => 'United Kingdom',
             'date'=>'24-07-05'
         ]);
         \App\Models\Race::factory()->create([
@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
             'date'=>'24-09-20'
         ]);
         \App\Models\Race::factory()->create([
-            'name' => 'USA',
+            'name' => 'Austin (USA)',
             'date'=>'24-10-18'
         ]);
         \App\Models\Race::factory()->create([
@@ -145,7 +145,7 @@ class DatabaseSeeder extends Seeder
             'date'=>'24-11-01'
         ]);
         \App\Models\Race::factory()->create([
-            'name' => 'USA',
+            'name' => 'Las Vegas (USA)',
             'date'=>'24-11-21'
         ]);
         \App\Models\Race::factory()->create([
