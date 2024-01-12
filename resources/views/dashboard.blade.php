@@ -1,48 +1,66 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}
-                        <a href="{{ route('showScoreForm') }}" class="button">Upload Leaderboard</a>
-                    </div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        <h2>{{ Auth::user()->name }}'s Best 5 Scores</h2>
-                        <table>
-                            <!-- Toon de beste 5 scores van de ingelogde gebruiker -->
-                            @foreach($userBestFiveScores as $score)
-                                <tr>
-                                    <td>{{ $score->driver }}</td>
-                                    <td>{{ $score->best }}</td>
-                                </tr>
-                            @endforeach
-                        </table>
-
-                        <h2>{{ Auth::user()->name }}'s Last 5 Uploaded Scores</h2>
-                        <table>
-                            <!-- Toon de laatste 5 scores geüpload door de ingelogde gebruiker -->
-                            @foreach($userLastFiveScores as $score)
-                                <tr>
-                                    <td>{{ $score->driver }}</td>
-                                    <td>{{ $score->best }}</td>
-                                </tr>
-                            @endforeach
-                        </table>
-
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+<section class="dashboard-container">
+    <h1 class="dashboard-heading">DASHBOARD</h1>
+    <div class="dashboard">
+      <div class="dashboard-username">
+        <h2>{{auth::user() -> name}}</h2>
+      </div>
+      <div class="dashboard-cta">
+        <a href="/editProfile">Profiel bewerken</a>
+      </div>
     </div>
+    <h1 class="history-heading">{{auth::user() -> name}}'s History</h1>
+    <div class="user-history-boards">
+      <div class="user-best-score-history">
+        <h3 class="user-history-heading">{{auth::user() -> name}}'s best 5 scores</h3>
+          {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+          @if ($userBestFiveScores->isEmpty())
+              <tr>
+                  <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
+              </tr>
+          @else
+              {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+        <div class="user-history-table">
+          <div class="user-history-track">Track</div>
+          <div class="user-history-time">Time</div>
+          <div class="user-history-created_at">Created_at</div>
+        </div>
+
+          @foreach($userBestFiveScores as $score)
+        <div class="user-history-value">
+              <div class="user-history-track-value">{{ $score->race->name}}</div>
+              <div class="user-history-time-value">{{ $score->best }}</div>
+              <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+        </div>
+          @endforeach
+          @endif
+      </div>
+      <div class="user-best-score-history">
+        <h3 class="user-history-heading">{{auth::user() -> name}}'s 5 last uploaded scores</h3>
+          {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+          @if ($userLastFiveScores->isEmpty())
+              <tr>
+                  <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
+              </tr>
+          @else
+              {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+        <div class="user-history-table">
+          <div class="user-history-track">Track</div>
+          <div class="user-history-time">Time</div>
+          <div class="user-history-created_at">Created_at</div>
+        </div>
+
+          @foreach($userLastFiveScores as $score)
+        <div class="user-history-value">
+            <div class="user-history-track-value">{{ $score->race->name}}</div>
+            <div class="user-history-time-value">{{ $score->best }}</div>
+            <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+        </div>
+          @endforeach
+          @endif
+      </div>
+    </div>
+  </section>
 @endsection

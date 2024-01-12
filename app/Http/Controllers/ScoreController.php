@@ -9,6 +9,7 @@ use App\Models\Race;
 use App\Models\Team;
 use App\Models\Tire;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ScoreController extends Controller
 {
@@ -100,5 +101,33 @@ class ScoreController extends Controller
 
         return view('successful');
 
+    }
+
+    public function showScoresForm()
+    {
+        $races = DB::table('races')->pluck('name', 'id');
+        $teams = DB::table('teams')->pluck('team', 'id');
+        $tires = DB::table('tires')->pluck('tire', 'id');
+
+        return view('leaderboards.boards', compact('races', 'teams', 'tires'));
+    }
+
+    public function processScores(Request $request)
+    {
+        $raceId = $request->input('race_id');
+
+        $selectedRaceName = DB::table('races')->where('id', $raceId)->value('name');
+
+        $races = DB::table('races')->pluck('name', 'id');
+        $teams = DB::table('teams')->pluck('team', 'id');
+        $tires = DB::table('tires')->pluck('tire', 'id');
+
+        $bestTenScores = DB::table('scores')
+            ->select('driver', 'best', 'team_id', 'tire_id', 'verified')
+            ->where('race_id', $raceId)
+            ->orderBy('best', 'asc') // Order by 'best' column in ascending order
+            ->get();
+
+        return view('leaderboards.boards', compact('races', 'teams', 'tires', 'bestTenScores', 'selectedRaceName'));
     }
 }

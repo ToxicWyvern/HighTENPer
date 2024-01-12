@@ -1,0 +1,214 @@
+/* Dit zijn de stylings voor de Dashboard pagina van de User*/
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-heading {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.history-heading {
+    color: white;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dashboard {
+    background-color: #e10600;
+    width: 1000px;
+    height: 80px;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-history-heading {
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 217, 0);
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.user-history-boards {
+    /* background-color: #e10600; */
+    width: 1200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-history-table {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(0, 0, 0);
+    width: 400px;
+    background-color: #ffffff;
+    padding: 0px 25px;
+    font-weight: bold;
+}
+
+.user-history-value {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
+    border: 0.5px solid rgb(0, 0, 0);
+    background-color: rgb(121, 121, 121);
+    color: whitesmoke;
+    width: 400px;
+}
+
+.user-history-track {
+    border-right: 1px solid black;
+    width: 300px;
+    text-align: start;
+}
+
+.user-history-time {
+    border-right: 1px solid black;
+    width: 200px;
+}
+
+.user-history-created_at {
+    width: 200px;
+}
+
+.user-history-track-value {
+    border-right: 1px solid black;
+    width: 300px;
+    text-align: start;
+}
+
+.user-history-time-value {
+    border-right: 1px solid black;
+    width: 200px;
+}
+
+.user-history-created_at-value {
+    width: 200px;
+}
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-heading {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.history-heading {
+    color: white;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dashboard {
+    background-color: #e10600;
+    width: 1000px;
+    height: 80px;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-history-heading {
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 217, 0);
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.user-history-boards {
+    /* background-color: #e10600; */
+    width: 1200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-history-table {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(0, 0, 0);
+    width: 400px;
+    background-color: #ffffff;
+    padding: 0px 25px;
+    font-weight: bold;
+}
+
+.user-history-value {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
+    border: 0.5px solid rgb(0, 0, 0);
+    background-color: rgb(121, 121, 121);
+    color: whitesmoke;
+    width: 400px;
+}
+
+.user-history-track {
+    border-right: 1px solid black;
+    width: 300px;
+    text-align: start;
+}
+
+.user-history-time {
+    border-right: 1px solid black;
+    width: 200px;
+}
+
+.user-history-created_at {
+    width: 200px;
+}
+
+.user-history-track-value {
+    border-right: 1px solid black;
+    width: 300px;
+    text-align: start;
+}
+
+.user-history-time-value {
+    border-right: 1px solid black;
+    width: 200px;
+}
+
+.user-history-created_at-value {
+    width: 200px;
+}

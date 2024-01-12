@@ -6,20 +6,26 @@
             <section class="hero-container">
             <div class="hero">
                 <h1>Welkom bij <br> Formule 1 Registratie</h1>
-                <p>Race tegen je vrienden <br> en hou de races bij</p>
-                <button href="/register">Registreer nu -></button>
+                <p>Race tegen je vrienden <br> en houdt de scores bij</p>
+                @guest
+                @if (Route::has('register'))
+                <button href="{{ route('register') }}">Registreer nu -></button>
+                @endif
+                @else
+                    <button href="/uploadLeaderboard">Upload Leaderboard</button>
+                @endguest
             </div>
         </section>
         <div class="leaderboard-heading-primary">
             <h1>Bekijk de 10 beste scores van {{$activeRace->name}}</h1>
         </div>
         <section class="leaderboard-container">
+            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
             @if ($getBestTenScores->isEmpty())
-                <tr>
-                    <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
-                </tr>
-            @else
+            <h1 class="heading-noScore">No scores found.</h1>
 
+            @else
+                {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
                     <div class="leaderboard">
                         <div class="leaderboard-property">
                             <div class="rank">Rank</div>
