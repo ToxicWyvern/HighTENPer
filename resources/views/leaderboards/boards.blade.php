@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+<!-- Dit is een knop om een nieuwe race toe te voevgen  -->
     <div class="addRaceBtn">
         <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
     </div>
@@ -22,9 +22,10 @@
 
         {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         @if ($bestTenScores->isEmpty())
-            <tr>
+            <h1 class="heading-noScore">No scores found.</h1>
+            {{-- <tr>
                 <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
-            </tr>
+            </tr> --}}
         @else
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 

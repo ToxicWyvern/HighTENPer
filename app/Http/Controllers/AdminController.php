@@ -10,6 +10,7 @@ use App\Models\Team;
 use App\Models\Tire;
 use App\Models\User;
 
+
 class AdminController extends Controller
 {
     public function dashboard()
@@ -24,10 +25,12 @@ class AdminController extends Controller
     public function manageUsers()
     {
         if (auth()->check() && auth()->user()->admin) {
-            return view('admin.manageUsers');
+            $users = User::all();
+            return view('admin.manageUsers' , compact('users'));
         } else {
             abort(403, 'Unauthorized.');
         }
+        
     }
 
     public function manageLeaderboards()
@@ -38,5 +41,43 @@ class AdminController extends Controller
             abort(403, 'Unauthorized.');
         }
     }
+
+public function deleteUser($id)
+{
+    if (auth()->check() && auth()->user()->admin) {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.manageUsers')->with('success', 'User deleted successfully.');
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+}
+public function approveTime($id)
+{
+    if (auth()->check() && auth()->user()->admin) {
+        $score = Score::findOrFail($id);
+        
+        // Add your logic to check if the user's time is valid
+        if ($score->isValidTime()) {
+            $score->approve();
+            return redirect()->route('admin.manageLeaderboards')->with('success', 'Time approved successfully.');
+        } else {
+            return redirect()->route('admin.manageLeaderboards')->with('error', 'Invalid time. Unable to approve.');
+        }
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+}
+public function manageScores()
+{
+    if (auth()->check() && auth()->user()->admin) {
+        $scores = Score::all();
+        return view('admin.manageLeaderboards', ['scores' => $scores]);
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+}
+    
 }
 
