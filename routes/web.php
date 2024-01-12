@@ -48,6 +48,11 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profi
 
 Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
 
+Route::put('/updateProfile', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+
+
+
+
 Route::get('/successful', function () { return view('successful'); })->middleware('auth');
 
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
@@ -66,3 +71,23 @@ Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.dashboard');
+
+    Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
+    ->middleware('auth')
+    ->name('admin.deleteUser');
+
+    Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageScores'])
+    ->middleware('auth')
+    ->name('admin.manageLeaderboards');
+
+Route::delete('/admin/manage/scores/{id}', [AdminController::class, 'deleteScore'])
+    ->middleware('auth')
+    ->name('admin.deleteLeaderboard');
+
+Route::post('/admin/manage/Leaderboard/{id}/approve', [AdminController::class, 'approveScore'])
+    ->middleware('auth')
+    ->name('admin.approveLeaderboard');
+
+
+
+
