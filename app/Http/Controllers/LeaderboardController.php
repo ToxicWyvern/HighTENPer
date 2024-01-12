@@ -24,9 +24,9 @@ class LeaderboardController extends Controller
         $activeRace = Race::where('active', true)->first();
 
         // Use the existing logic to display the leaderboard data in the view
-        return view('home', [
+        return view('welcome', [
             'activeRace' => $activeRace,
-            'getBestTenScores' => app(\App\Http\Controllers\ScoreController::class)->home(),
+            'getBestTenScores' => app(\App\Http\Controllers\ScoreController::class)->welcome(),
         ]);
     }
 

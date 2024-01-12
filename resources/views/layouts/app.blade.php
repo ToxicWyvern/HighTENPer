@@ -33,6 +33,7 @@
                         <a class="nav-link"  href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="item2">
+                        <a class="nav-link" href="{{ url('/board') }}">Leaderboards</a>
                         <a class="nav-link" href="{{ url('/leaderboards') }}">Leaderboards</a>
                     </li>
                     <li class="item3">
