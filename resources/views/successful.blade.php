@@ -11,6 +11,7 @@
         This will take several working days.<br />
         For now you will see your score in bold.
       </p>
+
       <a class="succes-btn" href="{{ url('/leaderboards') }}">See the main leaderboard</a>
     </div>
   </div>
