@@ -31,3 +31,14 @@
     color: whitesmoke;
     font-size: 20px;
 }
+
+.nav-items ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.nav-items ul li {
+    padding: 0px 15px;
+    list-style: none;
+}

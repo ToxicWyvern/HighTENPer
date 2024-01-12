@@ -9,13 +9,14 @@ use App\Models\Race;
 use App\Models\Team;
 use App\Models\Tire;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ScoreController extends Controller
 {
     /**
      * Toont de beste 10 scores van alle gebruikers op de welkomstpagina.
      */
-    public function welcome()
+    public function home()
     {
         // Get the ID of the currently active race
         $activeRaceId = Race::where('active', true)->value('id');
@@ -32,15 +33,15 @@ class ScoreController extends Controller
     }
 
     /**
-     * Toont op de homepagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
+     * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
      */
-    public function home()
+    public function dashboard()
     {
         $user = Auth::user();
         $userBestFiveScores = $user->scores()->orderBy('best', 'asc')->take(5)->get();
         $userLastFiveScores = $user->scores()->orderBy('created_at', 'desc')->take(5)->get();
 
-        return view('home', [
+        return view('dashboard', [
             'userBestFiveScores' => $userBestFiveScores,
             'userLastFiveScores' => $userLastFiveScores,
         ]);
@@ -100,5 +101,33 @@ class ScoreController extends Controller
 
         return view('successful');
 
+    }
+
+    public function showScoresForm()
+    {
+        $races = DB::table('races')->pluck('name', 'id');
+        $teams = DB::table('teams')->pluck('team', 'id');
+        $tires = DB::table('tires')->pluck('tire', 'id');
+
+        return view('leaderboards.boards', compact('races', 'teams', 'tires'));
+    }
+
+    public function processScores(Request $request)
+    {
+        $raceId = $request->input('race_id');
+
+        $selectedRaceName = DB::table('races')->where('id', $raceId)->value('name');
+
+        $races = DB::table('races')->pluck('name', 'id');
+        $teams = DB::table('teams')->pluck('team', 'id');
+        $tires = DB::table('tires')->pluck('tire', 'id');
+
+        $bestTenScores = DB::table('scores')
+            ->select('driver', 'best', 'team_id', 'tire_id', 'verified')
+            ->where('race_id', $raceId)
+            ->orderBy('best', 'asc') // Order by 'best' column in ascending order
+            ->get();
+
+        return view('leaderboards.boards', compact('races', 'teams', 'tires', 'bestTenScores', 'selectedRaceName'));
     }
 }

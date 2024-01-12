@@ -10,12 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Auth\CanResetPassword;
 
-class User extends Authenticatable implements CanResetPassword
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * De eigenschappen die massaal toegewezen kunnen worden.
      *
      * @var array<int, string>
      */
@@ -27,7 +27,7 @@ class User extends Authenticatable implements CanResetPassword
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * De eigenschappen die verborgen moeten worden bij serialisatie.
      *
      * @var array<int, string>
      */
@@ -37,7 +37,7 @@ class User extends Authenticatable implements CanResetPassword
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * De eigenschappen die gecast moeten worden.
      *
      * @var array<string, string>
      */
@@ -47,7 +47,10 @@ class User extends Authenticatable implements CanResetPassword
     ];
 
     /**
+
      * Hash the user's password before saving to the database.
+     * Hash het wachtwoord van de gebruiker voor het opslaan in de database.
+
      *
      * @param array $attributes
      * @return void
@@ -61,13 +64,15 @@ class User extends Authenticatable implements CanResetPassword
         });
     }
 
+
     /**
-     * Define a one-to-many relationship with the Score model.
+     * Definieer een veel-op-veel relatie met het Score model.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
-    public function scores()
-    {
-        return $this->hasMany(Score::class);
-    }
+
+     public function scores()
+     {
+         return $this->hasMany(Score::class);
+     }
 }

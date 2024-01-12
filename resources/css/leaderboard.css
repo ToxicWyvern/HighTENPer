@@ -7,6 +7,27 @@
     margin-bottom: 50px;
 }
 
+.addRaceBtn {
+    display: flex;
+    justify-content: end;
+    padding: 30px;
+}
+
+.addRaceButton {
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    width: 15%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .leaderboard-property {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -61,4 +82,9 @@
     text-align: center;
     border-bottom: 1px solid rgb(50, 50, 50);
     border-right: 1px solid rgb(50, 50, 50);
+}
+
+.heading-noScore {
+    color: whitesmoke;
+    text-align: center;
 }

@@ -23,14 +23,17 @@
 <div id="app">
     <nav class="header">
         <div class="container">
+            <a href="/">
             <img class="nav-logo" src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
+
+            </a>
             <div class="nav-items">
                 <ul>
                     <li class="item1">
                         <a class="nav-link"  href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="item2">
-                        <a class="nav-link" href="{{ url('/board') }}">Leaderboards</a>
+                        <a class="nav-link" href="{{ url('/leaderboards') }}">Leaderboards</a>
                     </li>
                     <li class="item3">
                         <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
@@ -91,10 +94,10 @@
     <div class="footer-menu">
         <h3>Meer zien?</h3>
         <ul>
-            <li><a href="#">Leaderboards</a></li>
+            <li><a href="/leaderboards">Leaderboards</a></li>
             <li><a href="#">De regels</a></li>
             <li><a href="#">Github</a></li>
-            <li><a href="#">Contact ons</a></li>
+            <li><a href="/contact">Contact ons</a></li>
 
         </ul>
     </div>

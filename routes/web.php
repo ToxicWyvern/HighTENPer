@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
-use App\Http\Controllers\UploadedLeaderboardsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaderboardController;
 
@@ -25,7 +24,8 @@ use App\Http\Controllers\LeaderboardController;
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
-Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
+Route::get('/leaderboards', [ScoreController::class, 'showScoresForm']);
+Route::post('/leaderboards', [ScoreController::class, 'processScores'])->name('process.scores');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -40,15 +40,15 @@ Auth::routes();
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 //Auth::routes();
 
-Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
-
-Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
+Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
 Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
 
-Route::get('/successful', function () { return view('successful'); })->middleware('auth');
+Route::get('/successful', function () {
+    return view('successful');
+})->middleware('auth');
 
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
