@@ -23,14 +23,14 @@
                                 <div class="remember-checkbox">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Onthoud mij') }}
                                     </label>
                                 </div>
 
 
                                     @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Wachtwoord vergeten?') }}
                                     </a>
                                 @endif
                                 <button type="submit" class="btn-login">
