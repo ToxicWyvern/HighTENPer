@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string("profileImage")->nullable();
+            $table->integer("trophies")->default(0);
             $table->rememberToken();
             $table->boolean('admin')->default(false); //zorgt er voor dat iedereen normaal gesproken geen admin is, behalve als het anders aangegeven is
             $table->timestamps();

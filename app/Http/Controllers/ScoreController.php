@@ -59,15 +59,6 @@ class ScoreController extends Controller
     }
 
     /**
-     * Toont beschikbare races voor selectie op het admin-dashboard. (WORDT NOG AAN GEWERKT!)
-     */
-    public function SelectRace()
-    {
-        $races = Race::all();
-        return view('admin.dashboard', ['races' => $races]);
-    }
-
-    /**
      * Verwerkt en slaat de ingediende score op met bijbehorende details.
      */
     public function submitScore(Request $request)

@@ -9,6 +9,7 @@ use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\CoureurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::post('/leaderboards', [ScoreController::class, 'processScores'])->name('p
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// Route to display the dropdown form
+Route::get('/coureurs', [CoureurController::class, 'showCoureurDropdown'])->name('showCoureurDropdown');
+
+// Route to handle the form submission and display selected coureur details
+Route::post('/coureurs', [CoureurController::class, 'showSelectedCoureur'])->name('showSelectedCoureur');
 
 Auth::routes();
 

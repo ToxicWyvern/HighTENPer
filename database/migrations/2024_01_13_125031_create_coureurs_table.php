@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('races', function (Blueprint $table) { //maakt alle columns aan in de tabel 'races'
+        Schema::create('coureurs', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("location")->nullable();
-            $table->date("date");
-            $table->boolean("active")->default(false);
+            $table->string("photo");
+            $table->text("bio");
+            $table->string('team_id')->constrained('teams');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('races');
+        Schema::dropIfExists('coureurs');
     }
 };

@@ -23,9 +23,6 @@
         {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         @if ($bestTenScores->isEmpty())
             <h1 class="heading-noScore">No scores found.</h1>
-            {{-- <tr>
-                <td colspan="5"><strong>{{ 'No scores found.' }}</strong></td>
-            </tr> --}}
         @else
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
