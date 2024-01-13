@@ -12,6 +12,7 @@
 
     @foreach($users as $user)
         <div>
+            <span><img src="/storage/{{$user->profileImage}}"></span>
             <span>{{ $user->name }}</span>
             <span><img src="images/trophy.png" alt="trophy"> {{ $user->trophies }}</span>
             <form method="post" action="{{ route('toggleFollow') }}">

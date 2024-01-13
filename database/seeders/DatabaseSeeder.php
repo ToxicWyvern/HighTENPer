@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
              'password'=> 'leaderboardboard',
-             'profileImage' => 'profileImages/default.jpg',
+             'profileImage' => '/images/default.png',
              'admin' => 1,
          ]);
 
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ebram',
             'email' => 'ebram@example.com',
             'password'=> 'leaderboardboard',
-            'profileImage' => 'profileImages/default.jpg',
+            'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
 
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Pedro',
             'email' => 'pedro@example.com',
             'password'=> 'leaderboardboard',
-            'profileImage' => 'profileImages/default.jpg',
+            'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
 
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Nilo',
             'email' => 'nilo@example.com',
             'password'=> 'leaderboardboard',
-            'profileImage' => 'profileImages/default.jpg',
+            'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
 
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'testuser',
             'email' => 'testuser@example.com',
             'password'=> 'leaderboardboard',
-            'profileImage' => 'profileImages/default.jpg',
+            'profileImage' => '/images/default.png',
             'admin' => 0,
         ]);
 
