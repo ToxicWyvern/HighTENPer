@@ -36,7 +36,7 @@
                     <div class="tires">Tires</div>
                 </div>
                 @foreach($bestTenScores as $score)
-                    <div class="leaderboard-value">
+                    <div class="leaderboard-value" style="color: {{ $score->color }}">
                         @if($score->verified == 0)
                             <div class="rank-value"><strong>#{{ $loop->iteration }}</strong></div>
                             <div class="driver-value"><strong>{{ $score->driver }}</strong></div>

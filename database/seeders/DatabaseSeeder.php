@@ -56,6 +56,18 @@ class DatabaseSeeder extends Seeder
             'admin' => 0,
         ]);
 
+        \App\Models\Follow::factory()->create([
+            'user_id' => 1,
+            'follows' => 2,
+        ]);
+        \App\Models\Follow::factory()->create([
+            'user_id' => 1,
+            'follows' => 3,
+        ]);
+        \App\Models\Follow::factory()->create([
+            'user_id' => 1,
+            'follows' => 4,
+        ]);
 
         //maakt alle tracks aan die er op dit moment zijn in de game
 

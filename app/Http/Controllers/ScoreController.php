@@ -28,6 +28,12 @@ class ScoreController extends Controller
             ->orderBy('best', 'asc')
             ->take(10)
             ->get();
+        foreach ($getBestTenScores as $score) {
+            $trophies = $score->user->trophies ?? 0;
+            $colors = ['black','#f7cac9','#b87333','#878681','#3d2856','#85c1c4','#0f52ba', '#e0115f', '#50c878', '#89E9FF'];
+            $colorIndex = floor($trophies / 10) % count($colors);
+            $score->color = $colors[$colorIndex];
+        }
 
         return $getBestTenScores;
     }
@@ -113,11 +119,18 @@ class ScoreController extends Controller
         $teams = DB::table('teams')->pluck('team', 'id');
         $tires = DB::table('tires')->pluck('tire', 'id');
 
-        $bestTenScores = DB::table('scores')
-            ->select('driver', 'best', 'team_id', 'tire_id', 'verified')
+        $bestTenScores = Score::select('driver', 'best', 'team_id', 'tire_id', 'verified', 'user_id')
+            ->with('user')
             ->where('race_id', $raceId)
-            ->orderBy('best', 'asc') // Order by 'best' column in ascending order
+            ->orderBy('best', 'asc')
             ->get();
+
+        foreach ($bestTenScores as $score) {
+            $trophies = $score->user->trophies ?? 0;
+            $colors = ['black','#f7cac9','#b87333','#878681','#3d2856','#85c1c4','#0f52ba', '#e0115f', '#50c878', '#89E9FF'];
+            $colorIndex = floor($trophies / 10) % count($colors);
+            $score->color = $colors[$colorIndex];
+        }
 
         return view('leaderboards.boards', compact('races', 'teams', 'tires', 'bestTenScores', 'selectedRaceName'));
     }

@@ -10,6 +10,8 @@ use App\Http\Controllers\UploadLeaderboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\CoureurController;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\FriendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +62,15 @@ Route::get('/successful', function () {
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
+
+Route::get('/feed', [FeedController::class, ''])->name('')->middleware('auth');
+
+Route::get('/feed', [FriendController::class, ''])->name('')->middleware('auth');
+
+Route::get('/addFriends', [FriendController::class, 'showAddFriends'])->name('addFriends');
+
+Route::post('/addFriends', [FriendController::class, 'toggleFollowUser'])->name('toggleFollow');
+
 
 // Routes waarvoor je admin moet zijn
 Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])

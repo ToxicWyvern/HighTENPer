@@ -26,6 +26,7 @@
 
             @else
                 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+
                     <div class="leaderboard">
                         <div class="leaderboard-property">
                             <div class="rank">Rank</div>
@@ -37,7 +38,7 @@
 
                         @foreach($getBestTenScores as $score)
                             @if($score->verified == 0)
-                        <div class="leaderboard-value">
+                                <div class="leaderboard-value" style="color: {{ $score->color }}">
                             <div class="rank-value"><strong>#{{ $loop->iteration }}</strong></div>
                             <div class="driver-value"><strong>{{ $score->driver }}</strong></div>
                             <div class="time-value"><strong>{{ $score->best }}</strong></div>
@@ -45,7 +46,7 @@
                             <div class="tires-value"><strong>{{ $score->tire->tire }}</strong></div>
                         </div>
                             @else
-                        <div class="leaderboard-value">
+                                <div class="leaderboard-value" style="color: {{ $score->color }}">
                             <div class="rank-value">#{{ $loop->iteration }}</div>
                             <div class="driver-value">{{ $score->driver }}</div>
                             <div class="time-value">{{ $score->best }}</div>
