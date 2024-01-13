@@ -9,10 +9,10 @@
                 <p>Race tegen je vrienden <br> en houdt de scores bij</p>
                 @guest
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}">Registreer nu -></a>
+                <a href="{{ route('register') }}" class="hero-cta">Registreer nu -></a>
                 @endif
                 @else
-                    <a href="/uploadLeaderboard">Upload Leaderboard</a>
+                    <a href="/uploadLeaderboard" class="hero-cta">Upload Leaderboard</a>
                 @endguest
             </div>
         </section>

@@ -23,13 +23,13 @@
             <form method="POST" action="{{ route('submitScore') }}" enctype="multipart/form-data">
               @csrf
               <!-- CSRF protection token -->
-              <label for="race" class="form-label">{{ __('Track') }}</label>
+              <label for="race" class="form-label">{{ __('Race Locatie') }}</label>
               <select id="race" class="form-control" name="race" required>
                 @foreach($races as $race)
                 <option value="{{ $race->id }}">{{ $race->name }}</option>
                 @endforeach
               </select>
-              <label for="best" class="form-label">{{ __('Best Lap Time') }}</label>
+              <label for="best" class="form-label">{{ __('Beste Gereden tijd') }}</label>
               <input
                 type="text"
                 name="best"
@@ -48,14 +48,14 @@
                 <option value="{{ $team->id }}">{{ $team->team }}</option>
                 @endforeach
               </select>
-              <label for="tires" class="form-label">{{ __('Tires') }}</label>
+              <label for="tires" class="form-label">{{ __('Niveau') }}</label>
               <select id="tire" class="form-control" name="tires" required>
                 @foreach($tires as $tire)
                 <option value="{{ $tire->id }}">{{ $tire->tire }}</option>
                 @endforeach
               </select>
-              <div class="choosefile">
-                <label for="scoreImage" class="col-md-4 col-form-label text-md-end">{{ __('Upload Proof') }}</label>
+              <label for="scoreImage" class="form-label">{{ __('Upload bewijs') }}</label>
+              <div class="upload-proof">
                 <input
                   id="scoreImage"
                   type="file"
