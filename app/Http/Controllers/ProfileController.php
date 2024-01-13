@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\CurrentPasswordRule;
+
 
 class ProfileController extends Controller
 {
@@ -43,18 +48,52 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Profile $profile)
+    public function edit()
     {
-        return view('profile.editProfile');
+        $user = Auth::user();
+        return view('profile.editProfile', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProfileRequest $request, Profile $profile)
-    {
-        //
+    public function update(Request $request)
+{
+    $user = Auth::user();
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+        'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        'current_password' => 'required_with:new_password',
+        'new_password' => 'nullable|string|min:8|confirmed',
+    ]);
+
+    // Validate current password
+    if ($request->filled('current_password') && !Hash::check($request->current_password, $user->password)) {
+        return redirect()->back()->withErrors(['current_password' => 'The current password is incorrect.'])->withInput();
     }
+
+    // Update user information
+    $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+    ]);
+
+    // Handle profile photo upload
+    if ($request->hasFile('profile_photo')) {
+        $profilePhoto = $request->file('profile_photo');
+        $photoPath = $profilePhoto->store('profile_photos', 'public');
+
+        // Save the photo path to the user's profile
+        $user->profile_photo_path = $photoPath;
+        $user->save();
+    }
+
+    // Change password if provided
+    if ($request->filled('new_password')) {
+        $user->update(['password' => Hash::make($request->new_password)]);
+    }
+
+    return redirect()->route('profile.editProfile')->with('success', 'Profile updated successfully');
+}
 
     /**
      * Remove the specified resource from storage.
