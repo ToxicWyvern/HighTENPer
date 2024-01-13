@@ -17,9 +17,10 @@
 <!-- Display selected Coureur details if available -->
 @if(isset($coureur))
     <h1>{{ $coureur->name }}</h1>
+    <p>Team: {{ $coureur->team->team }}</p>
     <img src="{{ $coureur->photo }}" alt="{{ $coureur->name }} Photo">
     <p>{{ $coureur->bio }}</p>
-    <p>Team: {{ $coureur->team->team }}</p>
+
 @endif
 
 @endsection
