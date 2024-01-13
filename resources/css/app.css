@@ -55,7 +55,7 @@ body {
     font-size: 20px;
 }
 
-.hero button {
+.hero-cta {
     background-color: rgb(254, 174, 36);
     color: #000;
     border: none;
@@ -64,4 +64,6 @@ body {
     padding: 10px 5px;
     width: 20%;
     font-weight: bold;
+    text-decoration: none;
+    text-align: center;
 }

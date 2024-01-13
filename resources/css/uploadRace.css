@@ -7,7 +7,8 @@
 }
 
 .uploadRace {
-    height: 850px;
+    padding: 20px;
+    height: 900px;
     width: 550px;
     background-color: #e10600;
     border-radius: 30px;
@@ -17,6 +18,7 @@
     text-align: center;
     color: white;
     font-size: 35px;
+    margin-bottom: 30px;
     text-transform: uppercase;
 }
 
@@ -46,22 +48,20 @@ input[type="file"]::file-selector-button:hover {
     color: black;
 }
 
-.choosefile {
+.upload-proof {
     background-color: whitesmoke;
+    height: 150px;
+    width: 360px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 350px;
-    height: 130px;
-    color: #353839;
-
+    color: #000000;
     border-radius: 10px;
 }
 
 .form-control {
     padding: 20px 30px;
-    width: 50%;
+    width: 70%;
     border-radius: 10px;
     border: none;
     color: black;
@@ -77,9 +77,9 @@ form {
     gap: 20px;
 }
 
-form input {
+input[type="text"] {
     padding: 20px 30px;
-    width: 50%;
+    width: 70%;
     border-radius: 10px;
     border: none;
     color: black;
