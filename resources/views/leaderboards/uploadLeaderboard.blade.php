@@ -48,7 +48,7 @@
                 <option value="{{ $team->id }}">{{ $team->team }}</option>
                 @endforeach
               </select>
-              <label for="tires" class="form-label">{{ __('Niveau') }}</label>
+              <label for="tires" class="form-label">{{ __('Banden') }}</label>
               <select id="tire" class="form-control" name="tires" required>
                 @foreach($tires as $tire)
                 <option value="{{ $tire->id }}">{{ $tire->tire }}</option>
