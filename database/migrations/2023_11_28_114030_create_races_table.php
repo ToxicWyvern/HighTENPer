@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('races', function (Blueprint $table) { //maakt alle columns aan in de tabel 'races'
             $table->id();
             $table->string("name");
-            $table->string("location")->nullable();
             $table->date("date");
             $table->boolean("active")->default(false);
             $table->timestamps();

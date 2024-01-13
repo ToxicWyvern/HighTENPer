@@ -13,8 +13,8 @@ class RaceController extends Controller
      */
     public function index()
     {
-        $races = Race::all();
-        return view('races.index', compact('races'));
+        $tracks = Race::all();
+        return view('tracks', compact('tracks'));
     }
 
     /**

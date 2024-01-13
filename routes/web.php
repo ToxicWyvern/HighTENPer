@@ -42,7 +42,7 @@ Auth::routes();
 
 //Route::get('/contact', function () { return view('contact'); });
 
-//Route::resource('races', RaceController::class);
+Route::get('/tracks', [RaceController::class, 'index']);
 
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
 //Auth::routes();
