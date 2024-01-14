@@ -15,8 +15,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    {{-- @vite(['resources/sass/app.scss', ' --}}
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
 
@@ -46,8 +47,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav">
                 <li class="nav-item dropdown">
-                    <button class="dropbtn">Menu</button>
-                    <div class="drop-content">
+                    <button class="dropbtn" id="dropdown-Btn">Menu</button>
+                    <div class="drop-content" id="dropdown-menu">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -94,6 +95,7 @@
         </ul>
     </div>
 </footer>
+
 
 </body>
 </html>
