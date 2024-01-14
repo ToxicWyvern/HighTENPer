@@ -1,44 +1,103 @@
 .header {
-    background-color: #1d1d27;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    list-style: none;
-    margin-bottom: 50px;
+  background-color: #1d1d27;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  list-style: none;
+  margin-bottom: 50px;
 }
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
+
 .nav-items {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    align-items: center;
-    width: 100%;
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  list-style: none;
 }
+
 .nav-logo {
-    padding-left: 10px;
+  padding-left: 10px;
 }
+
 .nav-link {
-    text-decoration: none;
-    color: whitesmoke;
-    font-size: 20px;
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 20px;
+  transition: color 0.3s ease; /* Add a smooth transition for color change */
+}
+
+.nav-link:hover {
+  color: #FE365F; /* Pink color on hover */
 }
 
 .nav-items ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
 }
 
 .nav-items ul li {
-    padding: 0px 15px;
+  padding: 0px 15px;
+  list-style: none;
+}
+
+.dropbtn {
+  background-color: #1D1D27;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.dropbtn:hover {
+  background-color: #FE365F; /* Pink color on hover */
+}
+
+  .ul {
+    position: relative;
+    display: inline-block;
+  }
+
+  .nav-item{
     list-style: none;
+  }
+
+  .drop-content {
+    display: none;
+    position: absolute;
+    background-color: #1D1D27;
+    min-width: 160px;
+    max-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.nav-item:hover .drop-content {
+  display: block;
+  opacity: 1;
+}
+
+  .drop-content a {
+    color: whitesmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+.drop-content a:hover {
+  background-color: #FE365F; /* Pink color on hover */
+  color: white;
 }

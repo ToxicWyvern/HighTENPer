@@ -35,7 +35,6 @@
                             <div class="team">Team</div>
                             <div class="tires">Tires</div>
                         </div>
-
                         @foreach($getBestTenScores as $score)
                             @if($score->verified == 0)
                                 <div class="leaderboard-value" style="color: {{ $score->color }}">

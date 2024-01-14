@@ -18,6 +18,7 @@
 
 body {
     background-color: #15151e;
+    overflow-x: hidden;
 }
 /* Dit zijn de stylings van de homepage wanneer je de website opent */
 
