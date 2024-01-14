@@ -51,6 +51,8 @@ Route::get('/tracks', [RaceController::class, 'index']);
 
 Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
 
+Route::get('/feed', [FeedController::class, 'feed'])->middleware('auth');
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
 Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
@@ -63,9 +65,7 @@ Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name
 
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
 
-Route::get('/feed', [FeedController::class, ''])->name('')->middleware('auth');
 
-Route::get('/feed', [FriendController::class, ''])->name('')->middleware('auth');
 
 Route::get('/addFriends', [FriendController::class, 'showAddFriends'])->name('addFriends');
 

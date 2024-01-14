@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class ScoreController extends Controller
 {
     /**
-     * Toont de beste 10 scores van alle gebruikers op de welkomstpagina.
+     * Toont de beste 10 scores van alle gebruikers op de homepagina.
      */
     public function home()
     {
