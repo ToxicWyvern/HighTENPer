@@ -22,7 +22,7 @@
 <body>
 
 <div id="app">
-    <nav class="header">
+    <nav class="header" id="header">
         <div class="container">
             <a href="/">
             <img class="nav-logo" src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
