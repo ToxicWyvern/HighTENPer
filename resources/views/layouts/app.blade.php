@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav">
                 <li class="nav-item dropdown">
-                    <a class="dropbtn">Menu</a>
+                    <button class="dropbtn">Menu</button>
                     <div class="drop-content">
                         <!-- Authentication Links -->
                         @guest

@@ -87,7 +87,7 @@
     transition: opacity 0.3s ease;
 }
 
-.dropbtn:focus + a .drop-content,
+.dropbtn:focus + .drop-content,
 .drop-content:focus-within {
     display: block;
     opacity: 1;
@@ -99,6 +99,7 @@
     text-decoration: none;
     display: block;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .drop-content a:hover {
