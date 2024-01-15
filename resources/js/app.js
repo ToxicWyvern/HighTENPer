@@ -5,5 +5,13 @@ const dropdownMenu = document.getElementById("dropdown-menu");
 const header = document.getElementById("header");
 
 dropdownBtn.addEventListener("click", () => {
-    dropdownMenu.style.display = "block";
+    showDropdown();
 });
+
+const showDropdown = () => {
+    dropdownMenu.style.display = "block";
+};
+
+const removeDropdown = () => {
+    dropdownMenu.style.display = "none";
+};
