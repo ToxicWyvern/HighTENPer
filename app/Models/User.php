@@ -72,15 +72,8 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
 
-    public function scores()
-    {
-        return $this->hasMany(Score::class, 'user_id');
- 
-    }
-
-    public function sendPasswordResetNotification($token)
-{
-    $this->notify(new \App\Notifications\ForgotPasswordNotification($token));
-}
-    
+     public function scores()
+     {
+         return $this->hasMany(Score::class);
+     }
 }

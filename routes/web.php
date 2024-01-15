@@ -7,10 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TireController;
 use App\Http\Controllers\UploadLeaderboardController;
-use App\Http\Controllers\UploadedLeaderboardsController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
-use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,27 +22,36 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 */
 
 // Routes die voor iedereen toegankelijk zijn
-Route::get('/', [ScoreController::class, 'welcome']);
+Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
-Route::get('/leaderboard', function () { return view('leaderboards.mainLeaderboard'); });
+Route::get('/leaderboards', [ScoreController::class, 'showScoresForm']);
+Route::post('/leaderboards', [ScoreController::class, 'processScores'])->name('process.scores');
 
-Route::get('/contact', function () { return view('contact'); });
+Route::get('/contact', function () {
+    return view('contact');
+});
 
-Route::resource('races', RaceController::class);
+Auth::routes();
+
+//Route::get('/contact', function () { return view('contact'); });
+
+//Route::resource('races', RaceController::class);
 
 
 // Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [ScoreController::class, 'home'])->middleware('auth');
-
-Route::get('/history', [UploadedLeaderboardsController::class, 'index'])->name('leaderboards.uploadedLeaderboards')->middleware('auth');
+Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
 Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
 
-Route::get('/successful', function () { return view('successful'); })->middleware('auth');
+Route::put('/updateProfile', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+
+Route::get('/successful', function () {
+    return view('successful');
+})->middleware('auth');
 
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
@@ -54,30 +61,44 @@ Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->nam
 
 
 // Routes waarvoor je admin moet zijn
-Route::get('/admin/manage/leaderboards', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.manageLeaderboards');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.manageLeaderboards');
+Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
+    ->middleware('auth')
+    ->name('admin.manageLeaderboards');
 
-Route::get('/admin/manage/users', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.manageUsers');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.dashboard');
+Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
+    ->middleware('auth')
+    ->name('admin.manageUsers');
 
-Route::get('/admin/dashboard', function () {
-    if (auth()->check() && auth()->user()->admin) {
-        return view('admin.dashboard');
-    } else {
-        abort(403, 'Unauthorized.');
-    }
-})->middleware('auth')->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('admin.dashboard');
 
+    Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
+    ->middleware('auth')
+    ->name('admin.deleteUser');
 
+    Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageScores'])
+    ->middleware('auth')
+    ->name('admin.manageLeaderboards');
 
+Route::delete('/admin/manage/scores/{id}', [AdminController::class, 'deleteScore'])
+    ->middleware('auth')
+    ->name('admin.deleteLeaderboard');
 
+    Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
+    ->middleware('auth')
+    ->name('admin.manageLeaderboards');
+
+    Route::delete('/admin/manage/leaderboards/{id}', [AdminController::class, 'deleteLeaderboard'])
+    ->middleware('auth')
+    ->name('admin.deleteLeaderboard');
+
+    Route::post('/admin/manage/leaderboards/{id}/approve', [AdminController::class, 'approveLeaderboard'])
+    ->middleware('auth')
+    ->name('admin.approveLeaderboard');
+
+    Route::get('/manage_leaderboard', 'ScoreController@index')->name('manage_leaderboard.index');
+    
+    Route::patch('/scores/{score}/verify', 'ScoreController@verify')->name('scores.verify');
+
+    Route::delete('/scores/{score}/reject', 'ScoreController@reject')->name('scores.reject');

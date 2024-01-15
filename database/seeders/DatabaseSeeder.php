@@ -60,56 +60,104 @@ class DatabaseSeeder extends Seeder
         //maakt alle tracks aan die er op dit moment zijn in de game
 
         \App\Models\Race::factory()->create([
-            'name' => 'Monza',
-            'location' => 'Monza',
-            'length' => 5.793,
+            'name' => 'Bahrain',
+            'date'=>'24-02-29'
             ]);
+
         \App\Models\Race::factory()->create([
-            'name' => 'Silverstone',
-            'location' => 'Silverstone',
-            'length' => 5.891,
-            ]);
+            'name' => 'Saudi Arabia',
+            'date'=>'24-03-07'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Spa-Francorchamps',
-            'location' => 'Stavelot',
-            'length' => 7.004,
-            ]);
+            'name' => 'Australia',
+            'date'=>'24-03-22'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Japan',
+            'date'=>'24-04-05'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'China',
+            'date'=>'24-04-19'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Miami (USA)',
+            'date'=>'24-05-03'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Emilia Romagna',
+            'date'=>'24-05-17'
+        ]);
         \App\Models\Race::factory()->create([
             'name' => 'Monaco',
-            'location' => 'Monte Carlo',
-            'length' => 3.337,
-            ]);
+            'date'=>'24-05-24'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Suzuka',
-            'location' => 'Suzuka',
-            'length' => 5.807,
-            ]);
+            'name' => 'Canada',
+            'date'=>'24-06-07'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Circuit of the Americas',
-            'location' => 'Austin',
-            'length' => 5.513,
-            ]);
+            'name' => 'Spain',
+            'date'=>'24-06-21'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Baku City Circuit',
-            'location' => 'Baku',
-            'length' => 6.003,
-            ]);
+            'name' => 'Austria',
+            'date'=>'24-06-28'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Melbourne Grand Prix Circuit',
-            'location' => 'Melbourne',
-            'length' => 5.303,
-            ]);
+            'name' => 'United Kingdom',
+            'date'=>'24-07-05'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Shanghai International Circuit',
-            'location' => 'Shanghai',
-            'length' => 5.451,
-            ]);
+            'name' => 'Hungary',
+            'date'=>'24-07-19'
+        ]);
         \App\Models\Race::factory()->create([
-            'name' => 'Hockenheimring',
-            'location' => 'Hockenheim',
-            'length' => 4.574,
-            ]);
-            // Add more tracks here
+            'name' => 'Belgium',
+            'date'=>'24-07-26'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Netherlands',
+            'date'=>'24-08-23'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Italy',
+            'date'=>'24-08-30'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Azerbaijan',
+            'date'=>'24-09-13'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Singapore',
+            'date'=>'24-09-20'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Austin (USA)',
+            'date'=>'24-10-18'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Mexico',
+            'date'=>'24-10-25'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Brazil',
+            'date'=>'24-11-01'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Las Vegas (USA)',
+            'date'=>'24-11-21'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Qatar',
+            'date'=>'24-11-29'
+        ]);
+        \App\Models\Race::factory()->create([
+            'name' => 'Abu Dhabi',
+            'date'=>'24-12-06'
+        ]);
+
+        // Add more tracks here
 
         //maakt alle teams aan die er op dit moment zijn in de game
 

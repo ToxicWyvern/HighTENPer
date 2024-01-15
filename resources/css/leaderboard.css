@@ -1,0 +1,90 @@
+.leaderboard {
+    /* background-color: rgb(0, 0, 0); */
+    /* border: 1px solid red; */
+
+    height: 270px;
+    width: 1200px;
+    margin-bottom: 50px;
+}
+
+.addRaceBtn {
+    display: flex;
+    justify-content: end;
+    padding: 30px;
+}
+
+.addRaceButton {
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    width: 15%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.leaderboard-property {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #e10600;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+.leaderboard-container {
+    display: flex;
+    justify-content: center;
+}
+
+.leaderboard-heading {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.leaderboard-heading-primary {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.rank,
+.time,
+.driver,
+.team,
+.tires {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid rgb(0, 0, 0);
+}
+
+.leaderboard-value {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.rank-value,
+.time-value,
+.driver-value,
+.team-value,
+.tires-value {
+    background-color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    border-right: 1px solid rgb(50, 50, 50);
+}
+
+.heading-noScore {
+    color: whitesmoke;
+    text-align: center;
+}
