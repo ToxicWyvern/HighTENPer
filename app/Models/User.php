@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Auth\CanResetPassword;
+//use Illuminate\Contracts\Auth\CanResetPasswordA
 
 class User extends Authenticatable
 {

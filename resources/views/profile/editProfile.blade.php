@@ -9,19 +9,14 @@
             </div>
         @endif
 
-      
-
-        <form method="POST" action="{{ route('profile.update') }}">
+        <form method="POST" action="{{ route('profile.updateProfile') }}" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
 
             <label for="name">Name:</label>
             <input type="text" name="name" value="{{ old('name', $user->name) }}" required>
 
             <label for="email">Email:</label>
             <input type="email" name="email" value="{{ old('email', $user->email) }}" required>
-            <!-- Display the current profile photo -->
-           
 
             <!-- Password change section -->
             <label for="current_password">Current Password:</label>
@@ -33,20 +28,24 @@
             <label for="new_password_confirmation">Confirm New Password:</label>
             <input type="password" name="new_password_confirmation">
 
-            <!-- Allow user to choose a new profile photo -->
+
+            <!-- Display the current profile photo -->
             @if ($user->profile_photo_path)
                 <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="Profile Photo" style="max-width: 150px; margin-bottom: 10px;">
             @else
                 <p>No profile photo available</p>
             @endif
-            <div class="choosefile">
-                <label for="profileImage">Choose a new profile photo:</label>
-                <input id="profileImage" type="file" class="form-control" name="profileImage" accept="image/*">
-            </div>
 
+
+            <!-- Allow the user to choose a new profile photo -->
+            <div class="choosefile">
+            <label for="profileImages">Choose a new profile photo:</label> <!-- Change this to 'profile_photo' -->
+            <input id="profileImages" type="file" class="form-control" name="profileImages" accept="image/*"> <!-- Change this to 'profile_photo' -->
+                </div>
             <!-- Add more fields as needed -->
 
             <button type="submit">Update Profile</button>
         </form>
     </div>
 @endsection
+

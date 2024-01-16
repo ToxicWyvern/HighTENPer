@@ -26,7 +26,6 @@
 
             @else
                 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
-
                     <div class="leaderboard">
                         <div class="leaderboard-property">
                             <div class="rank">Rank</div>

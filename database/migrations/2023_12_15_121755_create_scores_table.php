@@ -25,7 +25,8 @@ return new class extends Migration
 
             //$table->unique(['user_id', 'driver']); //user id en driver moeten altijd uniek zijn, want 2 exact dezelfde namen wordt erg lastig
 
-            $table->foreign('driver')->references('name')->on('users'); //driver moet het zelfde zijn als de 'name' in tabel 'users'
+            $table->foreign('driver')->references('name')->on('users')->onUpdate('cascade'); //driver moet het zelfde zijn als de 'name' in tabel 'users'
+            
         });
     }
 

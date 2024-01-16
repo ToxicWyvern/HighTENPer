@@ -9,14 +9,12 @@
     list-style: none;
     margin-bottom: 50px;
 }
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-
 .nav-items {
     display: flex;
     justify-content: center;
