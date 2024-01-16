@@ -12,6 +12,7 @@
 @import "tracks.css";
 @import "coureurs.css";
 @import "home.css";
+@import "editProfile.css";
 
 * {
     margin: 0;
