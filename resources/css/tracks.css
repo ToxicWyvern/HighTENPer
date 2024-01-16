@@ -1,0 +1,20 @@
+.tracks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tracks-container h1 {
+    color: whitesmoke;
+    margin-bottom: 20px;
+}
+
+.tracks {
+    background-color: whitesmoke;
+    padding: 20px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

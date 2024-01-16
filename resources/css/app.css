@@ -9,6 +9,7 @@
 @import "dashboard.css";
 @import "succes.css";
 @import "uploadRace.css";
+@import "tracks.css";
 
 * {
     margin: 0;
