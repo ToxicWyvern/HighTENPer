@@ -75,15 +75,24 @@ class AdminController extends Controller
     {
         // Check if the authenticated user is an admin
         if (Auth::check() && Auth::user()->admin) {
+            // Retrieve the user associated with the score
+            $user = $score->user;
+    
             // Perform the verification logic
             $score->update(['verified' => true]);
-
+    
+            // Check if the user is retrieved
+            if ($user) {
+                $user->increment('trophies');
+            }
+    
             return redirect()->route('admin.manageLeaderboards')->with('success', 'Score verified successfully');
         } else {
             // If the user is not an admin, return unauthorized response
             abort(403, 'Unauthorized.');
         }
     }
+    
 
     public function rejectScore(Score $score)
     {
