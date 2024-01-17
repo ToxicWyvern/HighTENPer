@@ -8,7 +8,7 @@
     <div class="coureurs-filter">
     <label for="coureur">Select a Coureur:</label>
     <select name="coureur_id">
-        <option value="" selected disabled>{{ $coureur->name }}</option>
+        <option value="" selected disabled style="color: #cccccc;>{{ $coureur->name }}</option>
         @foreach ($coureurs as $c)
             <option value="{{ $c->id }}">{{ $c->name }}</option>
         @endforeach

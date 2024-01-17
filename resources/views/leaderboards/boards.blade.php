@@ -5,17 +5,17 @@
         <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
     </div>
 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
-    <form method="post" action="{{ route('process.scores') }}">
-        @csrf
-        <label for="race">Search Leaderboards By Track:</label>
-        <select name="race_id" id="race">
-            <option value="" selected disabled>{{ $selectedRaceName }}</option>
-            @foreach($races as $raceId => $raceName)
-                <option value="{{ $raceId }}">{{ $raceName }}</option>
-            @endforeach
-        </select>
-        <button type="submit">Search</button>
-    </form>
+<form method="post" action="{{ route('process.scores') }}">
+    @csrf
+    <label for="race">Search Leaderboards By Track:</label>
+    <select name="race_id" id="race">
+        <option value="" selected disabled style="color: #cccccc;">{{ $selectedRaceName ?? 'Bahrain' }}</option>
+        @foreach($races as $raceId => $raceName)
+            <option value="{{ $raceId }}">{{ $raceName }}</option>
+        @endforeach
+    </select>
+    <button type="submit">Search</button>
+</form>
     {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
     @if(isset($bestTenScores))
