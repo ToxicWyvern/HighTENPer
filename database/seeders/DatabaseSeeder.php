@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory()->create([
              'name' => 'Thijs',
              'email' => 'thijs@example.com',
-             'password'=> 'leaderboardboard',
+             'password' => Hash::make('leaderboardboard'),
              'profileImage' => '/images/default.png',
              'admin' => 1,
          ]);
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Ebram',
             'email' => 'ebram@example.com',
-            'password'=> 'leaderboardboard',
+            'password' => Hash::make('leaderboardboard'),
             'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Pedro',
             'email' => 'pedro@example.com',
-            'password'=> 'leaderboardboard',
+            'password' => Hash::make('leaderboardboard'),
             'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
@@ -43,7 +44,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Nilo',
             'email' => 'nilo@example.com',
-            'password'=> 'leaderboardboard',
+            'password' => Hash::make('leaderboardboard'),
             'profileImage' => '/images/default.png',
             'admin' => 1,
         ]);
@@ -51,7 +52,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'testuser',
             'email' => 'testuser@example.com',
-            'password'=> 'leaderboardboard',
+            'password' => Hash::make('leaderboardboard'),
             'profileImage' => '/images/default.png',
             'admin' => 0,
         ]);

@@ -96,11 +96,15 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.deleteUser');
 
+Route::put('/admin/manage/users/{id}/block', [AdminController::class, 'blockUser'])
+    ->middleware('auth')
+    ->name('admin.blockUser');
+
 
     Route::post('/admin/verifyScore/{score}', [AdminController::class, 'verifyScore'])->name('admin.verifyScore');
-   
+
     Route::match(['post', 'delete'], '/admin/rejectScore/{id}', [AdminController::class, 'rejectScore'])
-    ->name('admin.rejectScore');    
-  
-    
-  
+    ->name('admin.rejectScore');
+
+
+

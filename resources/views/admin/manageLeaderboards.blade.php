@@ -4,16 +4,16 @@
 
 @section('content')
     <div class="container">
-        <h1>Manage Leaderboard</h1>
+        <h1>Beheer Leaderboard</h1>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Driver</th>
-                    <th>Track</th>
-                    <th>Time</th>
-                    <th>Score Image</th>
-                    <th>Created At</th>
+                    <th>Coureur</th>
+                    <th>Baan</th>
+                    <th>Tijd</th>
+                    <th>Bewijs Materiaal</th>
+                    <th>Geüpload Op</th>
                     <th>Verifiëren</th>
                 </tr>
             </thead>
@@ -29,13 +29,13 @@
                             @if(!$score->verified)
                             <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">
     @csrf
-                            <button type="submit" class="btn btn-success">Verify</button>
+                            <button type="submit" class="btn btn-success">Goedkeuren</button>
                             </form>
 
                             <form method="post" action="{{ route('admin.rejectScore', $score->id) }}">
     @csrf
     @method('delete')
-    <button type="submit" class="btn btn-danger">Reject</button>
+    <button type="submit" class="btn btn-danger">Afwijzen</button>
 </form>
                             @endif
                         </td>

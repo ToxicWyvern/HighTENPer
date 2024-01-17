@@ -3,11 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-
 
 class LoginController extends Controller
 {
@@ -29,10 +25,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::DASHBOARD;
+    protected $redirectTo = '/dashboard';
 
     /**
-     * Create a new controller instanace.
+     * Create a new controller instance.
      *
      * @return void
      */
@@ -40,21 +36,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    protected function attemptLogin(Request $request)
-    {
-        $user = $this->guard()->getProvider()->retrieveByCredentials(['email' => $request->email]);
-
-        if ($user) {
-            // Successful login (no Hash::check)
-            return $this->guard()->login($user, $request->filled('remember'));
-        }
-
-        // Failed login
-        return false;
-    }
-
-
-
-
 }
