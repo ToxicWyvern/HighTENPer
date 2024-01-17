@@ -45,6 +45,7 @@ header a {
     background-color: #e10600;
     width: 500px;
     height: 1000px;
+    border-radius: 30px;
 }
 
 .editprofile h3 {
