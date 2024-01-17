@@ -384,7 +384,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\coureur::factory()->create([
             'name' => 'Tsunoda',
             'photo' => 'images/coureurs/Tsunoda.jpg',
-            'bio' => 'Yuki Tsunoda',
+            'bio' => 'Yuki Tsunoda, de Japanse rookie, heeft indruk gemaakt met zijn snelheid en vastberadenheid. Als een van de jongste coureurs in de sport, belooft Tsunoda een veelbelovende toekomst in de Formule 1.',
             'team_id' => 8,
         ]);
 

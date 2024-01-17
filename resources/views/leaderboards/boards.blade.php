@@ -9,6 +9,7 @@
         @csrf
         <label for="race">Search Leaderboards By Track:</label>
         <select name="race_id" id="race">
+            <option value="" selected disabled>{{ $selectedRaceName }}</option>
             @foreach($races as $raceId => $raceName)
                 <option value="{{ $raceId }}">{{ $raceName }}</option>
             @endforeach

@@ -8,7 +8,7 @@
         <img src="{{ $track->image }}" alt="{{ $track->name }}">
         <img src="{{ $track->flag }}" alt="{{ $track->name }}">
       <div class="tracks-name">{{$track->name}} </div>
-      <div class="tracks-date">{{$track->date}}</div>
+      <div class="tracks-date">{{ \Carbon\Carbon::parse($track->date)->format('d-m-Y') }}</div>
     </div>
     @endforeach
   </div>
