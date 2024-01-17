@@ -15,13 +15,14 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    {{-- @vite(['resources/sass/app.scss', ' --}}
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
 
 <div id="app">
-    <nav class="header">
+    <nav class="header" id="header">
         <div class="container">
             <a href="/">
             <img class="nav-logo" src="{{ asset('images/F1.png') }}" alt="F1 Logo" height="30">
@@ -46,8 +47,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav">
                 <li class="nav-item dropdown">
-                    <button class="dropbtn">...</button>
-                    <div class="drop-content">
+                    <button class="dropbtn" id="dropdown-Btn">Menu</button>
+                    <div class="drop-content" id="dropdown-menu">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

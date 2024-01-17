@@ -1,107 +1,101 @@
 .header {
-  background-color: #1d1d27;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
-  list-style: none;
-  margin-bottom: 50px;
+    background-color: #1d1d27;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    list-style: none;
+    margin-bottom: 50px;
 }
-
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-
 .nav-items {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  align-items: center;
-  width: 100%;
-  list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    list-style: none;
 }
 
 .nav-logo {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .nav-link {
-  text-decoration: none;
-  color: whitesmoke;
-  font-size: 20px;
-  transition: color 0.3s ease;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #fe365f;
+    color: #fe365f;
 }
 
 .nav-items ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
 }
 
 .nav-items ul li {
-  padding: 0px 15px;
-  list-style: none;
+    padding: 0px 15px;
+    list-style: none;
 }
 
 .dropbtn {
-  background-color: #1d1d27;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  outline: none; /* Remove default focus outline */
+    background-color: #1d1d27;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none; /* Remove default focus outline */
 }
 
 .dropbtn:hover {
-  background-color: #fe365f;
+    background-color: #fe365f;
 }
 
 .ul {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .nav-item {
-  list-style: none;
+    list-style: none;
 }
 
 .drop-content {
-  display: none;
-  position: absolute;
-  background-color: #1d1d27;
-  min-width: 160px;
-  max-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  transition: opacity 0.3s ease;
-}
-
-.dropbtn:focus + .drop-content,
-.drop-content:focus-within {
-  display: block;
-  opacity: 1;
+    display: none;
+    position: absolute;
+    background-color: #1d1d27;
+    min-width: 160px;
+    max-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* z-index: ; */
+    transition: opacity 0.3s ease;
+    visibility: none;
 }
 
 .drop-content a {
-  color: whitesmoke;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.3s ease;
+    color: whitesmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .drop-content a:hover {
-  background-color: #fe365f;
-  color: white;
+    background-color: #fe365f;
+    color: white;
 }

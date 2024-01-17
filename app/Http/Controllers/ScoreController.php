@@ -40,6 +40,7 @@ class ScoreController extends Controller
 
     /**
      * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
+     * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
      */
     public function dashboard()
     {

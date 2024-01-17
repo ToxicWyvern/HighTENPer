@@ -55,7 +55,14 @@ Route::get('/feed', [FeedController::class, 'feed'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
 
-Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.editProfile')->middleware('auth');
+Route::get('/editProfile', [ProfileController::class, 'editProfile'])
+    ->name('profile.editProfile')
+    ->middleware('auth');
+
+// Route for updating the user profile (POST request)
+Route::post('/editProfile', [ProfileController::class, 'updateProfile'])
+    ->name('profile.updateProfile')
+    ->middleware('auth');
 
 Route::get('/successful', function () {
     return view('successful');
@@ -84,3 +91,16 @@ Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.dashboard');
+
+    Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
+    ->middleware('auth')
+    ->name('admin.deleteUser');
+
+
+    Route::post('/admin/verifyScore/{score}', [AdminController::class, 'verifyScore'])->name('admin.verifyScore');
+   
+    Route::match(['post', 'delete'], '/admin/rejectScore/{id}', [AdminController::class, 'rejectScore'])
+    ->name('admin.rejectScore');    
+  
+    
+  

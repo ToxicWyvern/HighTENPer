@@ -22,19 +22,88 @@ class AdminController extends Controller
     }
 
     public function manageUsers()
+{
+    if (auth()->check() && auth()->user()->admin) {
+        // Fetch the users from the database
+        $users = User::all();
+
+        // Return the view with the users
+        return view('admin.manageUsers', compact('users'));
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+}
+    public function deleteUser($id)
     {
         if (auth()->check() && auth()->user()->admin) {
-            return view('admin.manageUsers');
+            $user = User::findOrFail($id);
+            $user->delete();
+    
+            return redirect()->route('admin.manageUsers')->with('success', 'User deleted successfully.');
+
         } else {
             abort(403, 'Unauthorized.');
         }
     }
 
+
     public function manageLeaderboards()
+{
+    if (auth()->check() && auth()->user()->admin) {
+        // Fetch only the scores that are not verified
+        $scores = Score::where('verified', false)->get();
+
+        return view('admin.manageLeaderboards', compact('scores'));
+    } else {
+        abort(403, 'Unauthorized.');
+    }
+}
+    // public function approveLeaderboard($id)
+    // {
+    //     if (auth()->check() && auth()->user()->admin) {
+    //         $scores = score::findOrFail($id);
+    //         // Perform logic to approve the leaderboard entry (update the approved column, for example)
+
+    //         return redirect()->route('admin.manageLeaderboards')->with('success', 'Leaderboard entry approved successfully.');
+
+    //     } else {
+    //         abort(403, 'Unauthorized.');
+    //     }
+    // }
+
+    public function verifyScore(Score $score)
     {
-        if (auth()->check() && auth()->user()->admin) {
-            return view('admin.manageLeaderboards');
+        // Check if the authenticated user is an admin
+        if (Auth::check() && Auth::user()->admin) {
+            // Retrieve the user associated with the score
+            $user = $score->user;
+    
+            // Perform the verification logic
+            $score->update(['verified' => true]);
+    
+            // Check if the user is retrieved
+            if ($user) {
+                $user->increment('trophies');
+            }
+    
+            return redirect()->route('admin.manageLeaderboards')->with('success', 'Score verified successfully');
         } else {
+            // If the user is not an admin, return unauthorized response
+            abort(403, 'Unauthorized.');
+        }
+    }
+    
+
+    public function rejectScore(Score $score)
+    {
+        // Check if the authenticated user is an admin
+        if (Auth::check() && Auth::user()->admin) {
+            // Perform the rejection logic
+            $score->delete(); // You may need different logic based on your requirements
+
+            return redirect()->route('admin.manageLeaderboards')->with('success', 'Score rejected successfully');
+        } else {
+            // If the user is not an admin, return unauthorized response
             abort(403, 'Unauthorized.');
         }
     }

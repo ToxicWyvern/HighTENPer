@@ -1,0 +1,54 @@
+.coureurs-filter label {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.coureurs-filter select {
+    font-size: 20px;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.coureurs-filter button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.coureurs-container {
+    padding: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: whitesmoke;
+}
+
+.coureurs-details {
+    width: 30%;
+}
+
+.coureurs-details h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.coureurs-details h3 {
+    margin-bottom: 10px;
+}
+
+.coureurs-details p {
+    font-size: 20px;
+}
+
+.coureur-imag {
+    width: 70%;
+}
+
+.coureur-image {
+    height: 500px;
+}
