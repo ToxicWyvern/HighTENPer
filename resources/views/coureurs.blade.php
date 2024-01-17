@@ -6,7 +6,7 @@
 <form method="post" action="{{ route('showSelectedCoureur') }}">
     @csrf
     <div class="coureurs-filter">
-    <label for="coureur">Select a Coureur:</label>
+    <label for="coureur">Selecteer een Coureur:</label>
     <select name="coureur_id">
         <option value="" selected disabled style="color: #cccccc;>{{ $coureur->name }}</option>
         @foreach ($coureurs as $c)

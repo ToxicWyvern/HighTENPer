@@ -20,7 +20,7 @@
               rows="10"
               placeholder="Bericht"
             ></textarea>
-            <input type="submit" value="Send" />
+            <input type="submit" value="Verstuur" />
           </form>
         </div>
       </div>

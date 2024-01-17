@@ -7,14 +7,14 @@
 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 <form method="post" action="{{ route('process.scores') }}">
     @csrf
-    <label for="race">Search Leaderboards By Track:</label>
+    <label for="race">Zoek leaderboard bij circuit:</label>
     <select name="race_id" id="race">
         <option value="" selected disabled style="color: #cccccc;">{{ $selectedRaceName ?? 'Bahrain' }}</option>
         @foreach($races as $raceId => $raceName)
             <option value="{{ $raceId }}">{{ $raceName }}</option>
         @endforeach
     </select>
-    <button type="submit">Search</button>
+    <button type="submit">Zoek</button>
 </form>
     {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
@@ -23,7 +23,7 @@
 
         {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         @if ($bestTenScores->isEmpty())
-            <h1 class="heading-noScore">No scores found.</h1>
+            <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
         @else
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 

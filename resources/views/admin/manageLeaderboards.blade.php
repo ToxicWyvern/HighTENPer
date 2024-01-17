@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th>Coureur</th>
-                    <th>Baan</th>
+                    <th>Circuit</th>
                     <th>Tijd</th>
                     <th>Bewijs Materiaal</th>
                     <th>Geüpload Op</th>

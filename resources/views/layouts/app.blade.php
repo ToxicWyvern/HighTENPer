@@ -55,7 +55,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endif
                             @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registreer') }}</a>
                             @endif
                         @else
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/editProfile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,6 +64,9 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/dashboard" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dashboard
                             </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/feed" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Feed
+                            </a>
                             @if(auth()->user()->admin == 1)
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/admin/dashboard" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin Dashboard
@@ -71,7 +74,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Log-uit') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -94,9 +97,9 @@
     <div class="footer-menu">
         <h3>Meer zien?</h3>
         <ul>
-            <li><a href="/leaderboards">Leaderboards</a></li>
-            <li><a href="#">De regels</a></li>
-            <li><a href="#">Github</a></li>
+            <li><a href="/tracks">Circuits</a></li>
+            <li><a href="/coureurs">F1 Coureurs</a></li>
+            <li><a href="https://github.com/ToxicWyvern/HighTENPer" target="_blank">Github</a></li>
             <li><a href="/contact">Contact ons</a></li>
 
         </ul>

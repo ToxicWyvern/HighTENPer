@@ -5,13 +5,13 @@
 <div class="succes-container">
     <div class="succes">
       <img src="images/checked.png" alt="succes-image" class="succes-img" />
-      <h1>Successfully Uploaded!</h1>
+      <h1>Succesvol geüpload!</h1>
       <p>
-        The entered score is still being considered.<br />
-        This will take several working days.<br />
-        For now you will see your score in bold.
+        De ingevoerde score wordt nog beoordeeld.<br />
+        Dit kan enkele werkdagen duren.<br />
+        Voorlopig zie je je score vetgedrukt op de leaderboard.
       </p>
-      <a class="succes-btn" href="{{ url('/leaderboards') }}">See the main leaderboard</a>
+      <a class="succes-btn" href="{{ url('/leaderboards') }}">Zie alle leaderboards</a>
     </div>
   </div>
 @endsection

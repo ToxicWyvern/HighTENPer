@@ -16,19 +16,19 @@
                 <a href="/editProfile">Profiel bewerken</a>
             </div>
         </div>
-        <h1 class="history-heading">{{ auth::user()->name }}'s History</h1>
+        <h1 class="history-heading">{{ auth::user()->name }}'s Geschiedenis</h1>
         <div class="user-history-boards">
             <div class="user-best-score-history">
-                <h3 class="user-history-heading">{{ auth::user()->name }}'s best 5 scores</h3>
+                <h3 class="user-history-heading">{{ auth::user()->name }}'s beste 5 scores</h3>
                 @if ($userBestFiveScores->isEmpty())
                     <tr>
-                        <h1 class="heading-noScore">No scores found.</h1>
+                        <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
                     </tr>
                 @else
                     <div class="user-history-table">
-                        <div class="user-history-track">Track</div>
-                        <div class="user-history-time">Time</div>
-                        <div class="user-history-created_at">Created_at</div>
+                        <div class="user-history-track">Circuit</div>
+                        <div class="user-history-time">Tijd</div>
+                        <div class="user-history-created_at">Gemaakt Op</div>
                     </div>
 
                     @foreach($userBestFiveScores as $score)
@@ -41,16 +41,16 @@
                 @endif
             </div>
             <div class="user-best-score-history">
-                <h3 class="user-history-heading">{{ auth::user()->name }}'s 5 last uploaded scores</h3>
+                <h3 class="user-history-heading">{{ auth::user()->name }}'s 5 laatst geüploade scores</h3>
                 @if ($userLastFiveScores->isEmpty())
                     <tr>
-                        <h1 class="heading-noScore">No scores found.</h1>
+                        <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
                     </tr>
                 @else
                     <div class="user-history-table">
-                        <div class="user-history-track">Track</div>
-                        <div class="user-history-time">Time</div>
-                        <div class="user-history-created_at">Created_at</div>
+                        <div class="user-history-track">Circuit</div>
+                        <div class="user-history-time">Tijd</div>
+                        <div class="user-history-created_at">Gemaakt Op</div>
                     </div>
 
                     @foreach($userLastFiveScores as $score)

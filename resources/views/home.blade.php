@@ -22,17 +22,17 @@
         <section class="leaderboard-container">
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
             @if ($getBestTenScores->isEmpty())
-            <h1 class="heading-noScore">No scores found.</h1>
+            <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
 
             @else
                 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
                     <div class="leaderboard">
                         <div class="leaderboard-property">
-                            <div class="rank">Rank</div>
-                            <div class="driver">Driver</div>
-                            <div class="time">Time</div>
+                            <div class="rank">Rang</div>
+                            <div class="driver">Racer</div>
+                            <div class="time">Tijd</div>
                             <div class="team">Team</div>
-                            <div class="tires">Tires</div>
+                            <div class="tires">Banden</div>
                         </div>
                         @foreach($getBestTenScores as $score)
                             @if($score->verified == 0)
