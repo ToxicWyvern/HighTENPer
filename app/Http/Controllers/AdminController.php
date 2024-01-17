@@ -48,23 +48,32 @@ class AdminController extends Controller
         }
     }
 
-    public function blockUser($id)
+    public function toggleBlockUser($id)
     {
         if (auth()->check() && auth()->user()->admin) {
             $user = User::findOrFail($id);
 
-            // Change user's password to something random
-            $newPassword = Str::random(12); // You may need to import Str class
-            $user->password = Hash::make($newPassword);
+            if ($user->blocked) {
+                // Unblock user
+                $user->blocked = false;
+                $user->password = Hash::make('12345678');
+                $message = 'User unblocked successfully.';
+            } else {
+                // Block user
+                $newPassword = Str::random(12);
+                $user->blocked = true;
+                $user->password = Hash::make($newPassword);
+                $message = 'User blocked successfully.';
+            }
+
+            // Save the changes to the user
             $user->save();
 
-            return redirect()->route('admin.manageUsers')->with('success', 'User blocked successfully.');
-
+            return redirect()->route('admin.manageUsers')->with('success', $message);
         } else {
             abort(403, 'Unauthorized.');
         }
     }
-
 
     public function manageLeaderboards()
 {

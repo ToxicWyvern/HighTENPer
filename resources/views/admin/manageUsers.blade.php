@@ -15,10 +15,13 @@
                             <button type="submit" class="btn btn-danger">Verwijderen</button>
                         </form>
 
-                        <form action="{{ route('admin.blockUser', ['id' => $user->id]) }}" method="post">
+                        <form action="{{ route('admin.toggleBlockUser', ['id' => $user->id]) }}" method="post">
                             @csrf
                             @method('PUT')
-                            <button type="submit" class="btn btn-warning">Blokkeren</button>
+
+                            <button type="submit" class="btn {{ $user->blocked ? 'btn-success' : 'btn-warning' }}">
+                                {{ $user->blocked ? 'Deblokkeren' : 'Blokkeren' }}
+                            </button>
                         </form>
                     </td>
                     <!-- Add other columns as needed -->

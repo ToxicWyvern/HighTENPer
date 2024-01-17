@@ -58,12 +58,16 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/editProfile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }} {{ Auth::user()->trophies }} <img src="images/trophy.png" class="trophy-image">
                             </a>
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/dashboard" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dashboard
                             </a>
+                            @if(auth()->user()->admin == 1)
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/admin/dashboard" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin Dashboard
+                            @endif
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

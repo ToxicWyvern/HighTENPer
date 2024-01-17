@@ -96,10 +96,9 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.deleteUser');
 
-Route::put('/admin/manage/users/{id}/block', [AdminController::class, 'blockUser'])
+Route::put('/admin/manage/users/{id}/toggle-block', [AdminController::class, 'toggleBlockUser'])
     ->middleware('auth')
-    ->name('admin.blockUser');
-
+    ->name('admin.toggleBlockUser');
 
     Route::post('/admin/verifyScore/{score}', [AdminController::class, 'verifyScore'])->name('admin.verifyScore');
 
