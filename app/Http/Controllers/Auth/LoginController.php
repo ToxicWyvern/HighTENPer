@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -42,9 +43,18 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        return $this->guard()->attempt(
-            $this->credentials($request),
-            $request->filled('remember')
-        );
+        $user = $this->guard()->getProvider()->retrieveByCredentials(['email' => $request->email]);
+
+        if ($user) {
+            // Successful login (no Hash::check)
+            return $this->guard()->login($user, $request->filled('remember'));
+        }
+
+        // Failed login
+        return false;
     }
+
+
+
+
 }
