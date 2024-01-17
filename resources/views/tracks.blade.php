@@ -5,6 +5,8 @@
     <h1>Tracks</h1>
     @foreach($tracks as $track)
     <div class="tracks">
+        <img src="{{ $track->image }}" alt="{{ $track->name }}">
+        <img src="{{ $track->flag }}" alt="{{ $track->name }}">
       <div class="tracks-name">{{$track->name}} </div>
       <div class="tracks-date">{{$track->date}}</div>
     </div>

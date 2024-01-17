@@ -9,22 +9,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Race</th>
-                    <th>Score Image</th>
                     <th>Driver</th>
-                    <th>Verified</th>
-                    <th>Action</th>
+                    <th>Track</th>
+                    <th>Time</th>
+                    <th>Score Image</th>
+                    <th>Created At</th>
+                    <th>Verifiëren</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($scores as $score)
                     <tr>
-                        <td>{{ optional($score->users)->name }}</td>
-                        <td>{{ $score->race->name }}</td>
-                        <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
                         <td>{{ $score->driver }}</td>
-                        <td>{{ $score->verified ? 'Yes' : 'No' }}</td>
+                        <td>{{ $score->race->name }}</td>
+                        <td>{{ $score->best }}</td>
+                        <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
+                        <td>{{ $score->created_at }}</td>
                         <td>
                             @if(!$score->verified)
                             <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">

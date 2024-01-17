@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string("name");
             $table->date("date");
             $table->boolean("active")->default(false);
+            $table->string("image");
+            $table->string("flag");
             $table->timestamps();
         });
     }

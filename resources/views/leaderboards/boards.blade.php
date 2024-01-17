@@ -38,11 +38,11 @@
                 @foreach($bestTenScores as $score)
                     <div class="leaderboard-value" style="color: {{ $score->color }}">
                         @if($score->verified == 0)
-                            <div class="rank-value"><strong>#{{ $loop->iteration }}</strong></div>
-                            <div class="driver-value"><strong>{{ $score->driver }}</strong></div>
-                            <div class="time-value"><strong>{{ $score->best }}</strong></div>
-                            <div class="team-value"><strong>{{ $teams[$score->team_id] }}</strong></div>
-                            <div class="tires-value"><strong>{{ $tires[$score->tire_id] }}</strong></div>
+                            <div class="rank-value" style="color:black"><strong>#{{ $loop->iteration }}</strong></div>
+                            <div class="driver-value" style="color:black"><strong>{{ $score->driver }}</strong></div>
+                            <div class="time-value" style="color:black"><strong>{{ $score->best }}</strong></div>
+                            <div class="team-value" style="color:black"><strong>{{ $teams[$score->team_id] }}</strong></div>
+                            <div class="tires-value" style="color:black"><strong>{{ $tires[$score->tire_id] }}</strong></div>
                         @else
                             <div class="rank-value">#{{ $loop->iteration }}</div>
                             <div class="driver-value">{{ $score->driver }}</div>
