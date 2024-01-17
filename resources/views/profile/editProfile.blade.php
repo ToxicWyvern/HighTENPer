@@ -20,6 +20,12 @@
                     <p>Geen Profielfoto Beschikbaar</p>
                 @endif
 
+                <!-- Allow the user to choose a new profile photo -->
+                <div class="choosefile">
+                    <label for="profileImages">Kies een nieuwe profielfoto:</label> <!-- Change this to 'profile_photo' -->
+                    <input id="profileImages" type="file" class="form-control" name="profileImages" accept="image/*"> <!-- Change this to 'profile_photo' -->
+                </div>
+
                 <label for="name">Naam:</label>
                 <input type="text" name="name" value="{{ old('name', $user->name) }}" required>
 
@@ -36,11 +42,6 @@
                 <label for="new_password_confirmation">Nieuw Wachtwoord Herhalen:</label>
                 <input type="password" name="new_password_confirmation">
 
-                <!-- Allow the user to choose a new profile photo -->
-                <div class="choosefile">
-                <label for="profileImages">Kies een nieuwe profielfoto:</label> <!-- Change this to 'profile_photo' -->
-                <input id="profileImages" type="file" class="form-control" name="profileImages" accept="image/*"> <!-- Change this to 'profile_photo' -->
-                    </div>
                 <!-- Add more fields as needed -->
 
                 <button type="submit" class="btn-register">Werk Profiel Bij</button>
