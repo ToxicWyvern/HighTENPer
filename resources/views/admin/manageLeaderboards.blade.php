@@ -4,12 +4,12 @@
 
 @section('content')
     <div class="container">
-        <h1>Beheer Leaderboard</h1>
+        <h1>Beheer Leaderboards</h1>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Coureur</th>
+                    <th>Racer</th>
                     <th>Circuit</th>
                     <th>Tijd</th>
                     <th>Bewijs Materiaal</th>
