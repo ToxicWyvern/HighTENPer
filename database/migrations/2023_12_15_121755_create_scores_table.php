@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {  //maakt alle columns aan in de tabel 'scores'
             $table->id();                               //creëert een primair key met auto increment
-            $table->foreignId('user_id')->constrained('users'); //foreignkey van de tabel 'users'
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); //foreignkey van de tabel 'users'
             $table->foreignId('race_id')->constrained('races'); //foreignkey van de tabel 'races'
             $table->foreignId('tire_id')->constrained('tires'); //foreignkey van de tabel 'tires'
             $table->foreignId('team_id')->constrained('teams'); //foreignkey van de tabel 'teams'
@@ -26,7 +26,7 @@ return new class extends Migration
             //$table->unique(['user_id', 'driver']); //user id en driver moeten altijd uniek zijn, want 2 exact dezelfde namen wordt erg lastig
 
             $table->foreign('driver')->references('name')->on('users')->onUpdate('cascade'); //driver moet het zelfde zijn als de 'name' in tabel 'users'
-            
+
         });
     }
 

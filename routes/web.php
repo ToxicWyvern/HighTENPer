@@ -88,25 +88,27 @@ Route::post('/addFriends', [FriendController::class, 'toggleFollowUser'])->name(
 
 
 // Routes waarvoor je admin moet zijn
-Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
-    ->middleware('auth')
-    ->name('admin.manageLeaderboards');
+
 
 Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
     ->middleware('auth')
     ->name('admin.manageUsers');
 
+    Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
+        ->middleware('auth')
+        ->name('admin.deleteUser');
+
+    Route::put('/admin/manage/users/{id}/toggle-block', [AdminController::class, 'toggleBlockUser'])
+        ->middleware('auth')
+        ->name('admin.toggleBlockUser');
+
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.dashboard');
 
-    Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
+Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
     ->middleware('auth')
-    ->name('admin.deleteUser');
-
-Route::put('/admin/manage/users/{id}/toggle-block', [AdminController::class, 'toggleBlockUser'])
-    ->middleware('auth')
-    ->name('admin.toggleBlockUser');
+    ->name('admin.manageLeaderboards');
 
     Route::post('/admin/verifyScore/{score}', [AdminController::class, 'verifyScore'])->name('admin.verifyScore');
 
