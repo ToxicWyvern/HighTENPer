@@ -68,7 +68,7 @@
                 </span>
                 @enderror
               </div>
-              <button type="submit" class="btn-uploadRace">{{ __('Submit Scoreboard') }}</button>
+              <button type="submit" class="btn-uploadRace">{{ __('Score Indienen') }}</button>
             </form>
           </div>
         </div>

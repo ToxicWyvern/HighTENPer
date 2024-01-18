@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer("trophies")->default(0);
             $table->rememberToken();
             $table->boolean('admin')->default(false); //zorgt er voor dat iedereen normaal gesproken geen admin is, behalve als het anders aangegeven is
+            $table->boolean('blocked')->default(false);
             $table->timestamps();
         });
     }

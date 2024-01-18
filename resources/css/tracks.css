@@ -1,0 +1,41 @@
+.tracks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tracks-container h1 {
+    font-size: 45px;
+    color: whitesmoke;
+    margin-bottom: 30px;
+}
+
+.tracks {
+    background-color: rgb(225, 225, 225);
+    padding: 20px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+        rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+}
+
+.tracks-location-image {
+    height: 80px;
+}
+
+.tracks-name {
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 800;
+}
+
+.tracks-date {
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 800;
+}

@@ -9,6 +9,10 @@
 @import "dashboard.css";
 @import "succes.css";
 @import "uploadRace.css";
+@import "tracks.css";
+@import "coureurs.css";
+@import "home.css";
+@import "editProfile.css";
 
 * {
     margin: 0;
@@ -20,51 +24,9 @@ body {
     background-color: #15151e;
     overflow-x: hidden;
 }
+
+.trophy-image {
+    height: 25px;
+}
+
 /* Dit zijn de stylings van de homepage wanneer je de website opent */
-
-.hero-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-.hero {
-    background-image: linear-gradient(to bottom, #e10700c1, #e107009e),
-        url("/public/images/hero-img.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 600px;
-    width: 1200px;
-    border-radius: 25px;
-    color: white;
-    padding: 5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.hero h1 {
-    font-size: 4em;
-    font-weight: 100;
-}
-
-.hero p {
-    font-size: 1.5em;
-}
-
-.hero-cta {
-    background-color: rgb(254, 174, 36);
-    color: #000;
-    border: none;
-    border-radius: 15px;
-    font-size: 18px;
-    padding: 10px 5px;
-    width: 20%;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-}

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Manage Leaderboard</h1>
+        <h1>Beheer Leaderboards</h1>
 
         @if(session('success'))
             <div class="alert alert-success">
@@ -15,12 +15,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Race</th>
-                    <th>Score Image</th>
-                    <th>Driver</th>
-                    <th>Verified</th>
-                    <th>Action</th>
+                    <th>Racer</th>
+                    <th>Circuit</th>
+                    <th>Tijd</th>
+                    <th>Bewijs Materiaal</th>
+                    <th>Geüpload Op</th>
+                    <th>Verifiëren</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,18 +30,21 @@
                         <td>{{ $score->race->name }}</td>
                         <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
                         <td>{{ $score->driver }}</td>
-                        <td>{{ $score->verified ? 'Yes' : 'No' }}</td>
+                        <td>{{ $score->race->name }}</td>
+                        <td>{{ $score->best }}</td>
+                        <td><img src="/storage/{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
+                        <td>{{ $score->created_at }}</td>
                         <td>
                             @if(!$score->verified)
                             <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">
     @csrf
-                            <button type="submit" class="btn btn-success">Verify</button>
+                            <button type="submit" class="btn btn-success">Goedkeuren</button>
                             </form>
 
                             <form method="post" action="{{ route('admin.rejectScore', $score->id) }}">
     @csrf
     @method('delete')
-    <button type="submit" class="btn btn-danger">Reject</button>
+    <button type="submit" class="btn btn-danger">Afwijzen</button>
 </form>
                             @endif
                         </td>

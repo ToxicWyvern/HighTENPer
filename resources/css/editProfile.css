@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1d1d27;
+}
+
+header {
+    background-color: #1d1d27;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid white;
+    margin-bottom: 100px;
+}
+.logo-img {
+    height: 50px;
+}
+header ul {
+    list-style: none;
+}
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a {
+    padding: 0px 10px;
+}
+.menu-list ul {
+    display: flex;
+}
+
+.editProfile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editprofile {
+    background-color: #e10600;
+    width: 500px;
+    height: 1000px;
+    border-radius: 30px;
+}
+
+.editprofile h3 {
+    text-align: center;
+    font-size: 32px;
+    margin: 20px;
+}
+
+.editprofile form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.editprofile label {
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 20px 30px;
+    width: 70%;
+    border-radius: 10px;
+    border: none;
+    color: #353839;
+}
+.btn-register {
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffd000;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.choosefile {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 130px;
+    color: #353839;
+
+    border-radius: 10px;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #ffd000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #000000;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    content: "Upload profielfoto";
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #ffe209;
+    color: black;
+}

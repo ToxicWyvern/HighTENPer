@@ -9,6 +9,8 @@ use App\Models\Race;
 use App\Models\Team;
 use App\Models\Tire;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -38,7 +40,7 @@ class AdminController extends Controller
         if (auth()->check() && auth()->user()->admin) {
             $user = User::findOrFail($id);
             $user->delete();
-    
+
             return redirect()->route('admin.manageUsers')->with('success', 'User deleted successfully.');
 
         } else {
@@ -46,6 +48,32 @@ class AdminController extends Controller
         }
     }
 
+    public function toggleBlockUser($id)
+    {
+        if (auth()->check() && auth()->user()->admin) {
+            $user = User::findOrFail($id);
+
+            if ($user->blocked) {
+                // Unblock user
+                $user->blocked = false;
+                $user->password = Hash::make('12345678');
+                $message = 'User unblocked successfully.';
+            } else {
+                // Block user
+                $newPassword = Str::random(12);
+                $user->blocked = true;
+                $user->password = Hash::make($newPassword);
+                $message = 'User blocked successfully.';
+            }
+
+            // Save the changes to the user
+            $user->save();
+
+            return redirect()->route('admin.manageUsers')->with('success', $message);
+        } else {
+            abort(403, 'Unauthorized.');
+        }
+    }
 
     public function manageLeaderboards()
 {
@@ -58,18 +86,6 @@ class AdminController extends Controller
         abort(403, 'Unauthorized.');
     }
 }
-    // public function approveLeaderboard($id)
-    // {
-    //     if (auth()->check() && auth()->user()->admin) {
-    //         $scores = score::findOrFail($id);
-    //         // Perform logic to approve the leaderboard entry (update the approved column, for example)
-
-    //         return redirect()->route('admin.manageLeaderboards')->with('success', 'Leaderboard entry approved successfully.');
-
-    //     } else {
-    //         abort(403, 'Unauthorized.');
-    //     }
-    // }
 
     public function verifyScore(Score $score)
     {
@@ -77,22 +93,22 @@ class AdminController extends Controller
         if (Auth::check() && Auth::user()->admin) {
             // Retrieve the user associated with the score
             $user = $score->user;
-    
+
             // Perform the verification logic
             $score->update(['verified' => true]);
-    
+
             // Check if the user is retrieved
             if ($user) {
                 $user->increment('trophies');
             }
-    
+
             return redirect()->route('admin.manageLeaderboards')->with('success', 'Score verified successfully');
         } else {
             // If the user is not an admin, return unauthorized response
             abort(403, 'Unauthorized.');
         }
     }
-    
+
 
     public function rejectScore(Score $score)
     {

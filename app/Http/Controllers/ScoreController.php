@@ -45,15 +45,44 @@ class ScoreController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
+
         $userBestFiveScores = $user->scores()->orderBy('best', 'asc')->take(5)->get();
         $userLastFiveScores = $user->scores()->orderBy('created_at', 'desc')->take(5)->get();
+
+        // Area Chart Logic
+        $userScoresForChart = Score::where('user_id', $user->id)->get(['best', 'created_at']);
+
+        $chartData = [];
+        foreach ($userScoresForChart as $score) {
+            $chartData[] = [
+                'x' => $score->created_at->toDateTimeString(), // Adjust the format as needed
+                'y' => $score->best,
+            ];
+        }
 
         return view('dashboard', [
             'userBestFiveScores' => $userBestFiveScores,
             'userLastFiveScores' => $userLastFiveScores,
+            'chartData' => $chartData,
         ]);
     }
 
+
+    public function showAreaChart()
+    {
+        $userScores = Score::where('user_id', auth()->user()->id)
+            ->get(['best', 'created_at']);
+
+        $chartData = [];
+        foreach ($userScores as $score) {
+            $chartData[] = [
+                'x' => $score->created_at->format('Y-m-d H:i:s'),
+                'y' => $score->best,
+            ];
+        }
+
+        return view('dashboard', compact('chartData'));
+    }
     /**
      * Toont het formulier voor het uploaden van scores met lijsten van races, teams en banden.
      */

@@ -2,20 +2,22 @@
 @section('content')
 
     <section class="dashboard-container">
-
+        <div class="dashboard-cta">
+            <a href="/addFriends">Vrienden Toevoegen</a>
+        </div>
         @foreach ($followedUsersWithScores as $user)
-            <h1 class="history-heading">{{ $user->name }}'s History</h1>
+            <h1 class="history-heading">{{ $user->name }}'s Geschiedenis</h1>
 
             <div class="user-best-score-history">
-                <h3 class="user-history-heading">{{ $user->name }}'s best 5 scores</h3>
+                <h3 class="user-history-heading">{{ $user->name }}'s beste 5 scores</h3>
 
                 @if ($user->scores->isEmpty())
-                    <h1 class="heading-noScore">No scores found.</h1>
+                    <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
                 @else
                     <div class="user-history-table">
-                        <div class="user-history-track">Track</div>
-                        <div class="user-history-time">Time</div>
-                        <div class="user-history-created_at">Created_at</div>
+                        <div class="user-history-track">Circuit</div>
+                        <div class="user-history-time">Tijd</div>
+                        <div class="user-history-created_at">Gemaakt Op</div>
                     </div>
 
                     @foreach ($user->scores->sortBy('best')->take(5) as $score)
@@ -29,15 +31,15 @@
             </div>
 
             <div class="user-best-score-history">
-                <h3 class="user-history-heading">{{ $user->name }}'s 5 last uploaded scores</h3>
+                <h3 class="user-history-heading">{{ $user->name }}'s 5 laatst geüploade scores</h3>
 
                 @if ($user->scores->isEmpty())
-                    <h1 class="heading-noScore">No scores found.</h1>
+                    <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
                 @else
                     <div class="user-history-table">
-                        <div class="user-history-track">Track</div>
-                        <div class="user-history-time">Time</div>
-                        <div class="user-history-created_at">Created_at</div>
+                        <div class="user-history-track">Circuit</div>
+                        <div class="user-history-time">Tijd</div>
+                        <div class="user-history-created_at">Gemaakt Op</div>
                     </div>
 
                     @foreach ($user->scores->sortByDesc('created_at')->take(5) as $score)
