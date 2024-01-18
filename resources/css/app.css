@@ -13,6 +13,7 @@
 @import "coureurs.css";
 @import "home.css";
 @import "editProfile.css";
+@import "adminDashboard.css";
 
 * {
     margin: 0;
