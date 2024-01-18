@@ -26,14 +26,11 @@
             <tbody>
                 @foreach($scores as $score)
                     <tr>
-                        <td>{{ optional($score->user)->name }}</td>
-                        <td>{{ $score->race->name }}</td>
-                        <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
                         <td>{{ $score->driver }}</td>
                         <td>{{ $score->race->name }}</td>
                         <td>{{ $score->best }}</td>
                         <td><img src="/storage/{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
-                        <td>{{ $score->created_at }}</td>
+                        <td>{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</td>
                         <td>
                             @if(!$score->verified)
                             <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">

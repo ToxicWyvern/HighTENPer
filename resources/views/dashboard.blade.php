@@ -35,7 +35,7 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif
@@ -57,7 +57,7 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif
