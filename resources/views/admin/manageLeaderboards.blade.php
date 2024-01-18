@@ -6,6 +6,12 @@
     <div class="container">
         <h1>Manage Leaderboard</h1>
 
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <table class="table">
             <thead>
                 <tr>
@@ -20,7 +26,7 @@
             <tbody>
                 @foreach($scores as $score)
                     <tr>
-                        <td>{{ optional($score->users)->name }}</td>
+                        <td>{{ optional($score->user)->name }}</td>
                         <td>{{ $score->race->name }}</td>
                         <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
                         <td>{{ $score->driver }}</td>

@@ -74,7 +74,7 @@ public function updateProfile(Request $request)
 
     
 
-        // Update user information
+        // Updatde de users
         $user->update([
             'name' => $request->name,
             'email' => $request->email,

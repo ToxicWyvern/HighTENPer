@@ -13,6 +13,7 @@ use App\Http\Controllers\CoureurController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FriendController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,13 @@ use App\Http\Controllers\FriendController;
 | "web" middleware-groep. Maak iets geweldigs!
 |
 */
+
+// Show the password reset request form
+
+
+
+
+
 
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');

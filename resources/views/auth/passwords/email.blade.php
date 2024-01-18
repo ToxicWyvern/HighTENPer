@@ -10,19 +10,21 @@
                             {{ session('status') }}
                         </div>
                     @endif
-          <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+                    <form method="POST" action="{{ route('password.email') }}">
+    @csrf
+    <input id="email" type="email" placeholder="E-mail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-            <input id="email" type="email"  placeholder="E-mail"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-             <button type="submit" class="btn btn-primary">
-                                    {{ __('Stuur Wachtwoord Link') }}
-                                </button>
-          </form>
+    @error('email')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+
+    <button type="submit" class="btn btn-primary">
+        {{ __('Stuur Wachtwoord Link') }}
+    </button>
+</form>
+
         </div>
       </div>
     </section>
