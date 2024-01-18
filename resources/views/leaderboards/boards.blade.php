@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<section class="leaderboard-container">
 <!-- Dit is een knop om een nieuwe race toe te voevgen  -->
     <div class="addRaceBtn">
         <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
@@ -7,14 +8,17 @@
 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 <form method="post" action="{{ route('process.scores') }}">
     @csrf
-    <label for="race">Zoek leaderboard bij circuit:</label>
-    <select name="race_id" id="race">
+    <div class="filterLeaderboard">
+        <label for="race">Zoek leaderboard bij circuit:</label>
+    <select name="race_id" class="form-control" id="race">
         <option value="" selected disabled style="color: #cccccc;">{{ $selectedRaceName ?? 'Bahrain' }}</option>
         @foreach($races as $raceId => $raceName)
             <option value="{{ $raceId }}">{{ $raceName }}</option>
         @endforeach
     </select>
-    <button type="submit">Zoek</button>
+    <button type="submit" class="filter-btn">Zoek</button>
+    </div>
+    
 </form>
     {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
@@ -27,7 +31,7 @@
         @else
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
-        <section class="leaderboard-container">
+        
             <div class="leaderboard">
                 <div class="leaderboard-property">
                     <div class="rank">Rang</div>
