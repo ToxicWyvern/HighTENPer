@@ -15,7 +15,8 @@
 @import "editProfile.css";
 @import "adminDashboard.css";
 @import "manageRaces.css";
-
+@import "manageUsers.css";
+@import "feed.css";
 * {
     margin: 0;
     padding: 0;

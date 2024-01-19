@@ -4,26 +4,29 @@
 
     <section class="dashboard-container">
         <h1 class="admin-uploadRace-heading">Beheer Gebruikers</h1>
-        <div class="user-upload-races">
-            <div class="user-admin-upload-races">
-                <!-- Search Bar -->
-                <form action="{{ route('admin.manageUsers') }}" method="get">
+        <!-- Search Bar -->
+        
+            <form action="{{ route('admin.manageUsers') }}" method="get">
+                <div class="filter-users">
                     <input type="text" name="search" placeholder="Zoek bij naam">
                     <button type="submit">Zoek</button>
-                </form>
-
+                </div>
+            </form>
+        
+        <div class="user-upload-races">
+            <div class="user-admin-upload-races">
                 <!-- User Table -->
                 <div class="admin-race-table">
-                    <div class="admin-race-driver">Naam</div>
-                    <div class="admin-race-track">Email</div>
+                    <div class="admin-race-name">Naam</div>
+                    <div class="admin-race-email">Email</div>
                     <div class="user-upload-accept">Verwijderen</div>
                     <div class="user-upload-reject">Blokkeren</div>
                 </div>
 
                 @foreach($users as $user)
                     <div class="admin-race-value">
-                        <div class="admin-race-driver-value">{{ $user->name }}</div>
-                        <div class="admin-race-track-value">{{ $user->email }}</div>
+                        <div class="admin-race-name-value">{{ $user->name }}</div>
+                        <div class="admin-race-email-value">{{ $user->email }}</div>
                         <div class="user-upload-accept-cta">
                             <form action="{{ route('admin.deleteUser', ['id' => $user->id]) }}" method="post">
                                 @csrf

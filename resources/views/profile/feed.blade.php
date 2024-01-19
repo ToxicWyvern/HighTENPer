@@ -3,7 +3,7 @@
 
     <section class="dashboard-container">
         <div class="dashboard-cta">
-            <a href="/addFriends">Vrienden Toevoegen</a>
+            <a href="/addFriends" class="feedAddButton">Vrienden Toevoegen</a>
         </div>
         @foreach ($followedUsersWithScores as $user)
             <h1 class="history-heading">{{ $user->name }}'s Geschiedenis</h1>

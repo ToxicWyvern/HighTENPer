@@ -3,6 +3,7 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    height: 150vh;
 }
 
 .admin-uploadRace-heading {
@@ -12,11 +13,33 @@
     margin-bottom: 30px;
 }
 
+.filter-users {
+    width: 40%;
+    margin-bottom: 50px;
+}
+
+.filter-users form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter-users button {
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffd000;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .admin-race-table {
     display: flex;
     /* justify-content: space-around; */
     border: 1px solid rgb(0, 0, 0);
-    width: 1007px;
+    width: 750px;
     height: 30px;
     font-size: 22px;
     background-color: #e10600;
@@ -30,31 +53,31 @@
     border: 0.5px solid rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    width: 1007px;
+    width: 750px;
     font-size: 20px;
 }
 
-.admin-race-driver {
+.admin-race-name {
     border-right: 1px solid black;
     width: 200px;
     text-align: center;
 }
 
-.admin-race-driver-value {
+.admin-race-name-value {
     border-right: 1px solid black;
     width: 200px;
     text-align: center;
 }
 
-.admin-race-track {
+.admin-race-email {
     border-right: 1px solid black;
-    width: 150px;
+    width: 250px;
     text-align: center;
 }
 
-.admin-race-track-value {
+.admin-race-email-value {
     border-right: 1px solid black;
-    width: 150px;
+    width: 250px;
     text-align: center;
 }
 

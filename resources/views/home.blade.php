@@ -19,7 +19,7 @@
         <div class="leaderboard-heading-primary">
             <h1>Bekijk de 10 beste scores van {{$activeRace->name}}</h1>
         </div>
-        <section class="leaderboard-container">
+        <section class="leaderboard-home-container">
             {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
             @if ($getBestTenScores->isEmpty())
             <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
