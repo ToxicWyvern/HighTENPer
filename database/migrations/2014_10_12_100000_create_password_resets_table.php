@@ -11,6 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
+/**
+ * De functie maakt een tabel met de naam "password_resets" met kolommen voor e-mail, token en
+ * create_at.
+ */
     public function up()
     {
         Schema::create('password_resets', function (Blueprint $table) {

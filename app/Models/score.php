@@ -12,6 +12,11 @@ class score extends Model
      *
      * @var array<int, string>
      */
+    /* 
+    
+    De eigenschap `protected ` wordt in Laravel's Eloquent ORM gebruikt om te specificeren
+    welke attributen van een model massaal kunnen worden toegewezen. Massatoewijzing is een handige
+    manier om meerdere attributen van een model tegelijk in te stellen met behulp van een array. */
     protected $fillable = [
         'user_id',
         'race_id',
@@ -35,6 +40,12 @@ class score extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+   /**
+    * De functie "gebruiker" behoort tot een klasse en retourneert een relatie met de klasse
+    * "Gebruiker".
+    * 
+    * return een relatie tussen het huidige model en het gebruikersmodel.
+    */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -51,7 +62,7 @@ class score extends Model
     }
 
     /**
-     * Definieer een relatie van veel naar één met het Team-model.
+    
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

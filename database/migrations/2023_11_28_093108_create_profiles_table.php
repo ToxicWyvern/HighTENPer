@@ -9,6 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+/**
+ * De functie maakt een nieuwe tabel aan met de naam "profielen" met een externe sleutel "user_id" die
+ * verwijst naar de tabel "users".
+ */
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {

@@ -1,4 +1,6 @@
 <?php
+/* De klasse ResetPasswordController verzorgt de logica voor het opnieuw instellen van het wachtwoord
+van een gebruiker in een PHP Laravel-applicatie. */
 
 namespace App\Http\Controllers\Auth;
 
@@ -12,6 +14,9 @@ use App\Http\Controllers\Controller;
 
 class ResetPasswordController extends Controller
 {
+   
+    /* De functie `resetPassword` is verantwoordelijk voor het afhandelen van de logica van het opnieuw
+   instellen van het wachtwoord van een gebruiker in een PHP Laravel-applicatie. */
     public function resetPassword(Request $request)
     {
         $request->validate([
@@ -34,9 +39,28 @@ class ResetPasswordController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
-                    : back()->withErrors(['email' => [__($status)]]);
+                    ? $this->sendResetResponse($status)
+                    : $this->sendResetFailedResponse($status);
     }
 
-    
+  /**
+   * De bovenstaande code definieert twee functies in PHP voor het verzenden van reset-reacties en
+   * mislukte reset-reacties.
+   * 
+   * param status De parameter "status" is een tekenreeks die het bericht of de status van het reset-
+   * of foutantwoord vertegenwoordigt. Het wordt gebruikt om feedback te geven aan de gebruiker over de
+   * uitkomst van de wachtwoordresetbewerking.
+   * 
+   * return Bij de `sendResetResponse`-methode wordt een omleidingsantwoord geretourneerd. Het leidt
+   * de gebruiker door naar de 'inlog'-route en bevat een flashbericht met de status.
+   */
+    protected function sendResetResponse($status)
+    {
+        return redirect()->route('login')->with('status', __($status));
+    }
+
+    protected function sendResetFailedResponse($status)
+    {
+        return back()->withErrors(['email' => [__($status)]]);
+    }
 }

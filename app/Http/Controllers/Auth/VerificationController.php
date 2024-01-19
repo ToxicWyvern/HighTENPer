@@ -1,5 +1,6 @@
 <?php
-
+/* De klasse VerificationController is verantwoordelijk voor het afhandelen van e-mailverificatie voor
+nieuw geregistreerde gebruikers in een Laravel-applicatie. */
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

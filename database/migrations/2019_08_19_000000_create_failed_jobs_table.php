@@ -9,6 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+/**
+ * De bovenstaande functie maakt een tabel met de naam 'failed_jobs' met verschillende kolommen om
+ * informatie over mislukte taakpogingen op te slaan.
+ */
     public function up(): void
     {
         Schema::create('failed_jobs', function (Blueprint $table) {

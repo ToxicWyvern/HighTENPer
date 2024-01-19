@@ -10,6 +10,8 @@
                 <div class="card-body">
                     {{ __('Please confirm your password before continuing.') }}
 
+                    <!-- /* dit is een formulier waarmee je een wachtwoord kunt
+                    bevestigen. */ -->
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
@@ -33,6 +35,12 @@
                                     {{ __('Confirm Password') }}
                                 </button>
 
+                          <!-- /* Het codeblok controleert of de route `password.request` bestaat. Als dit
+                          het geval is, wordt er een link weergegeven met de titel "Wachtwoord
+                          vergeten?" dat de gebruiker zal omleiden naar de `password.request`-route
+                          wanneer erop wordt geklikt. Dit wordt doorgaans gebruikt in een
+                          wachtwoordbevestigingsformulier om gebruikers de mogelijkheid te bieden
+                          hun wachtwoord opnieuw in te stellen als ze het zijn vergeten. */ -->
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}

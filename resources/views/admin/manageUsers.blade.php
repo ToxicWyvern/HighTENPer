@@ -3,12 +3,16 @@
 @section('content')
     <div class="container">
         <h1>Beheer Gebruikers</h1>
+       <!-- dit is een PHP-codefragment dat wordt gebruikt om een tabel met
+       gebruikers weer te geven. */ -->
         <table class="table">
             @foreach($users as $user)
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
+                    <!-- /* hier worden twee formulieren gemaakt met knoppen
+                    voor het beheren van gebruikersacties. */ -->
                         <form action="{{ route('admin.deleteUser', ['id' => $user->id]) }}" method="post">
                             @csrf
                             @method('DELETE')
@@ -24,7 +28,7 @@
                             </button>
                         </form>
                     </td>
-                    <!-- Add other columns as needed -->
+               
                 </tr>
             @endforeach
         </table>

@@ -1,5 +1,6 @@
 <?php
-
+/* De klasse LoginController verzorgt de gebruikersauthenticatie en leidt deze na het inloggen om naar
+het dashboard. */
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

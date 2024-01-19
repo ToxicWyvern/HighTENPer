@@ -1,5 +1,6 @@
 <?php
-
+/* De klasse RegisterController verzorgt de registratie van nieuwe gebruikers, inclusief de validatie
+en het aanmaken van gebruikersaccounts. */
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -66,6 +67,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    
+
+   /**
+    * De functie maakt een nieuwe gebruiker aan met een profielafbeelding, indien opgegeven, en
+    * retourneert het gebruikersobject.
+    * 
+    * //param array data Een array met de gegevens van de gebruiker, zoals naam, e-mailadres, wachtwoord
+    * en profielafbeelding.
+    * 
+    * return het gemaakte gebruikersobject.
+    */
+   /**
+    
+    */
     protected function create(array $data)
     {
         $profileImage = null;

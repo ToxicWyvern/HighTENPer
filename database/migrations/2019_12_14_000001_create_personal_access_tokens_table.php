@@ -9,6 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+ /**
+  * De functie maakt een tabel met de naam 'personal_access_tokens' met verschillende kolommen,
+  * waaronder user_id, name, token, mogelijkheden, last_used_at, expires_at en tijdstempels.
+  */
     public function up(): void
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {

@@ -1,6 +1,14 @@
+
 <!-- manage_leaderboard.blade.php -->
 
+<!-- /* De code die u hebt opgegeven, is een Blade-sjabloonbestand in PHP. Het wordt gebruikt om de
+HTML-inhoud voor de pagina "Klassementen beheren" te genereren. */ -->
+
 @extends('layouts.app')
+
+<!-- /* De `section('content')` is een Blade-richtlijn in Laravel, die wordt gebruikt om een sectie met
+inhoud in een weergavebestand te definiëren. In dit geval definieert het de inhoudssectie voor het
+bestand "manage_leaderboard.blade.php". */ -->
 
 @section('content')
     <div class="container">
@@ -24,6 +32,8 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- /* dit is een lus die een reeks `` doorloopt en een
+                tabelrij genereert (`<tr> `) voor elke score. */ -->
                 @foreach($scores as $score)
                     <tr>
                         <td>{{ optional($score->user)->name }}</td>

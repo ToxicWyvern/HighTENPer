@@ -1,5 +1,6 @@
 <?php
-
+// The ConfirmPasswordController class is responsible for handling password confirmations and includes
+//the ConfirmsPasswords trait. 
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

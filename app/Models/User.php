@@ -9,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Auth\CanResetPassword;
-//use Illuminate\Contracts\Auth\CanResetPasswordA
+
+
 
 class User extends Authenticatable
 {
@@ -20,6 +21,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+   /* De eigenschap `protected ` in het `User`-model wordt gebruikt om te specificeren welke
+   attributen kunnen worden toegewezen.  In dit geval kunnen de attributen `name`,
+   `email`, `password` en `admin`, wat betekent dat ze kunnen worden
+   ingesteld met behulp van een array van waarden. */
     protected $fillable = [
         'name',
         'email',
@@ -68,6 +73,13 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
 
+     /**
+      * De functie definieert relaties tussen het huidige model en de Score en Follow-modellen in een
+      * PHP-applicatie.
+      * 
+      * return De methode `scores()` retourneert een `hasMany`-relatie met het `Score`-model. Dit
+      * betekent dat aan het 'Gebruiker'-model meerdere 'Score'-modellen zijn gekoppeld.
+      */
      public function scores()
      {
          return $this->hasMany(Score::class);
@@ -76,4 +88,5 @@ class User extends Authenticatable
     public function follows() {
         return $this->hasMany(Follow::class);
     }
+    
 }

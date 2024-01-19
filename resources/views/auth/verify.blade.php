@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">
+                   <!-- /* Het codeblok `@if (session('resent'))` controleert of de sessievariabele met de
+                   naam 'resent' bestaat en waar is. Als dit het geval is, wordt er een
+                   succeswaarschuwing weergegeven die aangeeft dat er een nieuwe verificatielink
+                   naar het e-mailadres van de gebruiker is verzonden. */ -->
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{ __('A fresh verification link has been sent to your email address.') }}

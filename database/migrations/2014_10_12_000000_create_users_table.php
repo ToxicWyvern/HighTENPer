@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /*  is een migratiebestand in Laravel, dat wordt gebruikt om
+        databasetabellen te definiëren en aan te passen. */
         Schema::create('users', function (Blueprint $table) { //maakt alle columns aan in de tabel 'users'
+        /* Hier is een overzicht van wat elke regel doet: */
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->unique();
