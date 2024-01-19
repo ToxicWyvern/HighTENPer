@@ -1,33 +1,39 @@
 @extends('layouts.app')
 @section('content')
 <!-- Dit is een knop om een nieuwe race toe te voevgen  -->
-    <div class="addRaceBtn">
-        <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
-    </div>
-{{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+<div class="addRaceBtn">
+    <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
+</div>
+<section class="leaderboard-container">
+
+/* Dit codeblok creëert een formulier waarmee de gebruiker het klassement kan filteren op basis van een
+geselecteerde race. */
 <form method="post" action="{{ route('process.scores') }}">
     @csrf
-    <label for="race">Zoek leaderboard bij circuit:</label>
-    <select name="race_id" id="race">
+    <div class="filterLeaderboard">
+        <label for="race">Zoek leaderboard bij circuit:</label>
+    <select name="race_id" class="form-control" id="race">
         <option value="" selected disabled style="color: #cccccc;">{{ $selectedRaceName ?? 'Bahrain' }}</option>
         @foreach($races as $raceId => $raceName)
             <option value="{{ $raceId }}">{{ $raceName }}</option>
         @endforeach
     </select>
-    <button type="submit">Zoek</button>
+    <button type="submit" class="filter-btn">Zoek</button>
+    </div>
+    
 </form>
-    {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
+
+    <!-- Dit codeblok is verantwoordelijk voor het weergeven van de leaderboards voor een geselecteerde
+    race. -->
     @if(isset($bestTenScores))
         <h1 class="leaderboard-heading">Leaderboard for {{ $selectedRaceName }}</h1>
 
-        {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         @if ($bestTenScores->isEmpty())
             <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
         @else
-            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
-        <section class="leaderboard-container">
+        
             <div class="leaderboard">
                 <div class="leaderboard-property">
                     <div class="rank">Rang</div>

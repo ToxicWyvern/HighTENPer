@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Maak een nieuwe instantie van de controller aan.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); // Middleware voor authenticatie
     }
 
     /**
-     * Show the application dashboard.
+     * Toon het dashboard van de applicatie.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

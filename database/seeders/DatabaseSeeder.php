@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create(); //kan 10 fake users maken, maar aan 1 hebben we ook genoeg
 
-        //zorgt dat er altijd een account is voor Thijs, Ebram, Pedro, Nilo en een testuser
+        //zorgt dat er altijd een account is voor Thijs, Ebram, Pedro, Nilo, Stephan en Sjon en een testuser
 
          \App\Models\User::factory()->create([
              'name' => 'Thijs',
@@ -50,24 +50,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
+            'name' => 'Stephan Hoeksema',
+            'email' => 's.hoeksema@windesheim.nl',
+            'password' => Hash::make('leaderboardboard'),
+            'profileImage' => '/images/default.png',
+            'admin' => 1,
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Sjon Huisman',
+            'email' => 's.huisman@windesheim.nl',
+            'password' => Hash::make('leaderboardboard'),
+            'profileImage' => '/images/default.png',
+            'admin' => 1,
+        ]);
+
+        \App\Models\User::factory()->create([
             'name' => 'testuser',
             'email' => 'testuser@example.com',
             'password' => Hash::make('leaderboardboard'),
             'profileImage' => '/images/default.png',
             'admin' => 0,
-        ]);
-
-        \App\Models\Follow::factory()->create([
-            'user_id' => 1,
-            'follows' => 2,
-        ]);
-        \App\Models\Follow::factory()->create([
-            'user_id' => 1,
-            'follows' => 3,
-        ]);
-        \App\Models\Follow::factory()->create([
-            'user_id' => 1,
-            'follows' => 4,
         ]);
 
         //maakt alle tracks aan die er op dit moment zijn in de game
@@ -277,6 +280,9 @@ class DatabaseSeeder extends Seeder
             'tire' => 'Hard'
         ]);
 
+
+        //maakt alle coureurs aan
+        
         \App\Models\coureur::factory()->create([
             'name' => 'Max Verstappen',
             'photo' => 'images/coureurs/Max.jpg',

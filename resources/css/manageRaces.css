@@ -1,0 +1,136 @@
+.leaderboardManage-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-uploadRace-heading {
+    color: white;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.admin-race-table {
+    display: flex;
+    /* justify-content: space-around; */
+    border: 1px solid rgb(0, 0, 0);
+    width: 1007px;
+    height: 30px;
+    font-size: 22px;
+    background-color: #e10600;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.admin-race-value {
+    display: flex;
+    /* justify-content: space-around; */
+    border: 0.5px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 1007px;
+    font-size: 20px;
+}
+
+.admin-race-driver {
+    border-right: 1px solid black;
+    width: 200px;
+    text-align: center;
+}
+
+.admin-race-driver-value {
+    border-right: 1px solid black;
+    width: 200px;
+    text-align: center;
+}
+
+.admin-race-track {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.admin-race-track-value {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.admin-race-time {
+    border-right: 1px solid black;
+    width: 100px;
+    text-align: center;
+}
+
+.admin-race-time-value {
+    border-right: 1px solid black;
+    width: 100px;
+    text-align: center;
+}
+
+.admin-race-created_at {
+    width: 150px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+.admin-race-created_at-value {
+    width: 150px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.user-upload-value {
+    border-right: 1px solid black;
+    width: 100px;
+    text-align: center;
+}
+
+.user-upload-accept {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.user-upload-reject {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.user-upload-accept-cta {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.user-upload-reject-cta {
+    border-right: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.user-upload-accept-cta a {
+    text-decoration: none;
+    color: rgb(0, 194, 0);
+}
+
+.user-upload-reject-cta a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+
+.user-upload-accept-cta button {
+    color: rgb(9, 162, 9);
+    padding: 3px 10px;
+    border: none;
+    background-color: white;
+}
+
+.user-upload-reject-cta button {
+    color: red;
+    padding: 3px 10px;
+    border: none;
+    background-color: white;
+}

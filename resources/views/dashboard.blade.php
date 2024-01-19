@@ -9,14 +9,19 @@
     <section class="dashboard-container">
         <h1 class="dashboard-heading">DASHBOARD</h1>
         <div class="dashboard">
+
+        <!-- geeft username weer -->
             <div class="dashboard-username">
                 <h2>{{ auth::user()->name }}</h2>
             </div>
+            <!-- profiel bewerken knop -->
             <div class="dashboard-cta">
                 <a href="/editProfile">Profiel bewerken</a>
             </div>
         </div>
         <h1 class="history-heading">{{ auth::user()->name }}'s Geschiedenis</h1>
+        
+         <!-- laat beste 5 scores zien -->
         <div class="user-history-boards">
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ auth::user()->name }}'s beste 5 scores</h3>
@@ -35,11 +40,13 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif
             </div>
+
+            <!-- laat 5 laatst geüploade scores zien -->
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ auth::user()->name }}'s 5 laatst geüploade scores</h3>
                 @if ($userLastFiveScores->isEmpty())
@@ -57,16 +64,15 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif
             </div>
         </div>
 
-
+<!-- Gebruikersstatestieken weergeven doormiddel van een chart -->
         <div class="container">
-            <!-- Your other dashboard content goes here -->
 
             <canvas id="myChart" width="400" height="200"></canvas>
 
@@ -103,11 +109,5 @@
                 });
             </script>
         </div>
-
-
-
-
-
-
     </section>
 @endsection

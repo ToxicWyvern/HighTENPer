@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /* De code `Schema::create('tires', function (Blueprint ) { ... })` maakt een nieuwe
+        tabel aan met de naam 'tires' in het databaseschema. */
         Schema::create('tires', function (Blueprint $table) {  //maakt alle columns aan in de tabel 'tires'
             $table->id();
             $table->string('tire');

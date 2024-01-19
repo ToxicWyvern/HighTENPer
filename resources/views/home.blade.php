@@ -9,23 +9,22 @@
                 <p>Race tegen je vrienden <br> en houdt de scores bij</p>
                 @guest
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="hero-cta">Registreer nu -></a>
+                <a href="/rules" class="hero-cta">Zo werkt het!</a>
                 @endif
                 @else
                     <a href="/uploadLeaderboard" class="hero-cta">Upload Leaderboard</a>
                 @endguest
             </div>
         </section>
+
+        <!-- zie de 10 beste scores van de huidige race -->
         <div class="leaderboard-heading-primary">
             <h1>Bekijk de 10 beste scores van {{$activeRace->name}}</h1>
         </div>
-        <section class="leaderboard-container">
-            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+        <section class="leaderboard-home-container">
             @if ($getBestTenScores->isEmpty())
             <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
-
             @else
-                {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
                     <div class="leaderboard">
                         <div class="leaderboard-property">
                             <div class="rank">Rang</div>

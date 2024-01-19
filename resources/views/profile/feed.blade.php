@@ -3,11 +3,12 @@
 
     <section class="dashboard-container">
         <div class="dashboard-cta">
-            <a href="/addFriends">Vrienden Toevoegen</a>
+            <a href="/addFriends" class="feedAddButton">Vrienden Toevoegen</a>
         </div>
         @foreach ($followedUsersWithScores as $user)
             <h1 class="history-heading">{{ $user->name }}'s Geschiedenis</h1>
 
+            <!-- /* De sectie toont de beste 5 scores van de gevolgde gebruiker. */ -->
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ $user->name }}'s beste 5 scores</h3>
 
@@ -24,12 +25,13 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at->format('Y-m-d H:i:s') }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif
             </div>
 
+            <!-- /* De sectie toont de 5 laatst geüploade scores van de gevolgde gebruiker. */ -->
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ $user->name }}'s 5 laatst geüploade scores</h3>
 
@@ -46,7 +48,7 @@
                         <div class="user-history-value">
                             <div class="user-history-track-value">{{ $score->race->name }}</div>
                             <div class="user-history-time-value">{{ $score->best }}</div>
-                            <div class="user-history-created_at-value">{{ $score->created_at->format('Y-m-d H:i:s') }}</div>
+                            <div class="user-history-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('s:m:h d-m-Y') }}</div>
                         </div>
                     @endforeach
                 @endif

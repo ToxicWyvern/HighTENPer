@@ -69,10 +69,14 @@ class AdminController extends Controller
     {
         if (auth()->check() && auth()->user()->admin) {
             $user = User::findOrFail($id);
+
+            // Delete associated scores
+            $user->scores()->delete();
+
+            // Delete the user
             $user->delete();
 
-            return redirect()->route('admin.manageUsers')->with('success', 'User deleted successfully.');
-
+            return redirect()->route('admin.manageUsers')->with('success', 'User and associated scores deleted successfully.');
         } else {
             abort(403, 'Unauthorized.');
         }
@@ -159,7 +163,8 @@ class AdminController extends Controller
                 $user->increment('trophies');
             }
 
-            return redirect()->route('admin.manageLeaderboards')->with('success', 'Score verified successfully');
+            return redirect()->route('admin.manageLeaderboards')->with('success', '<span style="color: white;">Score verified successfully</span>');
+
         } else {
             // If the user is not an admin, return unauthorized response
             abort(403, 'Unauthorized.');
@@ -181,10 +186,18 @@ class AdminController extends Controller
     {
         // Check if the authenticated user is an admin
         if (Auth::check() && Auth::user()->admin) {
-            // Perform the rejection logic
-            $score->delete(); // You may need different logic based on your requirements
+            // Find the score by ID
+            $score = Score::find($id);
 
-            return redirect()->route('admin.manageLeaderboards')->with('success', 'Score rejected successfully');
+            // Check if the score exists
+            if ($score) {
+                // Delete the score
+                $score->delete();
+
+                return redirect()->route('admin.manageLeaderboards')->with('success', 'Score deleted successfully');
+            } else {
+                return redirect()->route('admin.manageLeaderboards')->with('error', 'Score not found');
+            }
         } else {
             // If the user is not an admin, return unauthorized response
             abort(403, 'Unauthorized.');

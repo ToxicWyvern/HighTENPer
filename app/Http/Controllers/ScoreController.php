@@ -40,7 +40,6 @@ class ScoreController extends Controller
 
     /**
      * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
-     * Toont op de dashboardpagina de beste 5 en laatste 5 scores van de ingelogde gebruiker.
      */
     public function dashboard()
     {
@@ -130,6 +129,13 @@ class ScoreController extends Controller
 
     }
 
+    /**
+     * De functie "showScoresForm" haalt gegevens op uit de database en geeft deze door aan een
+     * weergave voor het weergeven van scoreborden.
+     * 
+     * return een weergave met de naam 'leaderboards.boards' en het doorgeven van de variabelen
+     * ,  en  aan de weergave.
+     */
     public function showScoresForm()
     {
         $races = DB::table('races')->pluck('name', 'id');
@@ -139,6 +145,17 @@ class ScoreController extends Controller
         return view('leaderboards.boards', compact('races', 'teams', 'tires'));
     }
 
+    /**
+     * De functie verwerkt scores voor een specifieke race en retourneert een weergave met de
+     * klassementgegevens.
+     * 
+     * param Request request De parameter  is een exemplaar van de klasse Request, die wordt
+     * gebruikt om gegevens uit het HTTP-verzoek op te halen. In dit geval wordt het gebruikt om de
+     * 'race_id'-invoer uit het verzoek op te halen.
+     * 
+     * return een weergave genaamd 'leaderboards.boards' met de volgende variabelen: 'races', 'teams',
+     * 'banden', 'bestTenScores' en 'selectedRaceName'.
+     */
     public function processScores(Request $request)
     {
         $raceId = $request->input('race_id');

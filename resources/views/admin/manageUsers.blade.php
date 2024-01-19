@@ -19,9 +19,9 @@
                             <button type="submit" class="btn btn-danger">Verwijderen</button>
                         </form>
 
-                        <form action="{{ route('admin.toggleBlockUser', ['id' => $user->id]) }}" method="post">
-                            @csrf
-                            @method('PUT')
+    <section class="manageusers-container">
+        <h1 class="admin-uploadRace-heading">Beheer Gebruikers</h1>
+        <!-- Search Bar -->
 
                             <button type="submit" class="btn {{ $user->blocked ? 'btn-success' : 'btn-warning' }}">
                                 {{ $user->blocked ? 'Deblokkeren' : 'Blokkeren' }}

@@ -60,6 +60,9 @@ class ProfileController extends Controller
 }
 
 
+/* De functie `updateProfile` is verantwoordelijk voor het bijwerken van de profielinformatie van de
+gebruiker. Er is een `Request`-object als parameter nodig, dat de bijgewerkte profielgegevens bevat
+die door de gebruiker zijn ingediend. */
 public function updateProfile(Request $request)
 {
     $user = Auth::user();
@@ -74,24 +77,24 @@ public function updateProfile(Request $request)
 
     
 
-        // Updatde de users
+        
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'profileImages' => $request->profileImages, // Change this to 'profile_photo'
+            'profileImages' => $request->profileImages,
         ]);
         
-        // Handle profile photo upload
+        
         if ($request->hasFile('profileImages')) {
             $profilePhoto = $request->file('profileImages');
             $photoPath = $profilePhoto->store('profileImages', 'public');
         
-            // Save the photo path to the user's profile
+            
             $user->profileImage = $photoPath;
             $user->save();
         }
 
-        // Change password if provided
+        
         if ($request->filled('new_password')) {
             $user->update(['password' => Hash::make($request->new_password)]);
         }

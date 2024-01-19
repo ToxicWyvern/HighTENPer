@@ -3,6 +3,7 @@
 @section('content')
 <div class="tracks-container">
     <h1>Circuits</h1>
+<!-- laat alle races (tracks) zien -->
     @foreach($tracks as $track)
     <div class="tracks">
       <div class="tracks-location"><img src="{{ $track->flag }}" class="tracks-location-image" alt="{{ $track->name }}" ></div>

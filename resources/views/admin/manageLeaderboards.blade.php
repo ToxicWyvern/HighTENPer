@@ -11,12 +11,12 @@ inhoud in een weergavebestand te definiëren. In dit geval definieert het de inh
 bestand "manage_leaderboard.blade.php". */ -->
 
 @section('content')
-    <div class="container">
-        <h1>Beheer Leaderboards</h1>
 
+    <section class="leaderboardManage-container">
+        <h1 class="admin-uploadRace-heading">Beheer Leaderboards</h1>
         @if(session('success'))
             <div class="alert alert-success">
-                {{ session('success') }}
+                {!! session('success') !!}
             </div>
         @endif
 

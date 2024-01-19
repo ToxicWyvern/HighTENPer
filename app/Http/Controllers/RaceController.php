@@ -9,7 +9,10 @@ use App\Http\Requests\UpdateRaceRequest;
 class RaceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * De indexfunctie haalt alle racebanen op en geeft deze door aan de circuitweergave.
+     * 
+     * return een weergave genaamd 'tracks' en het doorgeven van de variabele 'tracks' aan de
+     * weergave.
      */
     public function index()
     {
