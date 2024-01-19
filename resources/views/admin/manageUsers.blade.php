@@ -1,36 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Beheer Gebruikers</h1>
-       <!-- dit is een PHP-codefragment dat wordt gebruikt om een tabel met
-       gebruikers weer te geven. */ -->
-        <table class="table">
-            @foreach($users as $user)
-                <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                    <!-- /* hier worden twee formulieren gemaakt met knoppen
-                    voor het beheren van gebruikersacties. */ -->
-                        <form action="{{ route('admin.deleteUser', ['id' => $user->id]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Verwijderen</button>
-                        </form>
 
     <section class="manageusers-container">
         <h1 class="admin-uploadRace-heading">Beheer Gebruikers</h1>
         <!-- Search Bar -->
 
-                            <button type="submit" class="btn {{ $user->blocked ? 'btn-success' : 'btn-warning' }}">
-                                {{ $user->blocked ? 'Deblokkeren' : 'Blokkeren' }}
-                            </button>
-                        </form>
-                    </td>
-               
-                </tr>
-            @endforeach
-        </table>
-    </div>
+            <form action="{{ route('admin.manageUsers') }}" method="get">
+                <div class="filter-users">
+                    <input type="text" name="search" placeholder="Zoek bij naam">
+                    <button type="submit">Zoek</button>
+                </div>
+            </form>
+
+        <div class="user-upload-races">
+            <div class="user-admin-upload-races">
+                <!-- User Table -->
+                <div class="admin-user-table">
+                    <div class="admin-race-name">Naam</div>
+                    <div class="admin-race-email">Email</div>
+                    <div class="user-upload-accept">Verwijderen</div>
+                    <div class="user-upload-reject">Blokkeren</div>
+                </div>
+
+                @foreach($users as $user)
+                    @if($user->id !== auth()->id())
+                    <div class="admin-userTable-value">
+                        <div class="admin-race-name-value">{{ $user->name }}</div>
+                        <div class="admin-race-email-value">{{ $user->email }}</div>
+                        <div class="user-upload-accept-cta">
+                            <form action="{{ route('admin.deleteUser', ['id' => $user->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <div class="user-upload-accept-cta"><button type="submit" class="btn btn-danger">Verwijderen</button></div>
+                            </form>
+                        </div>
+                        <div class="user-upload-reject-cta">
+                            <form action="{{ route('admin.toggleBlockUser', ['id' => $user->id]) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <div class="user-upload-reject-cta"><button type="submit" class="btn {{ $user->blocked ? 'btn-success' : 'btn-warning' }}">
+                                        {{ $user->blocked ? 'Deblokkeren' : 'Blokkeren' }}
+                                    </button></div>
+                            </form>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection

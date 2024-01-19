@@ -19,48 +19,42 @@ bestand "manage_leaderboard.blade.php". */ -->
                 {!! session('success') !!}
             </div>
         @endif
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Racer</th>
-                    <th>Circuit</th>
-                    <th>Tijd</th>
-                    <th>Bewijs Materiaal</th>
-                    <th>Geüpload Op</th>
-                    <th>Verifiëren</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- /* dit is een lus die een reeks `` doorloopt en een
-                tabelrij genereert (`<tr> `) voor elke score. */ -->
-                @foreach($scores as $score)
-                    <tr>
-                        <td>{{ optional($score->user)->name }}</td>
-                        <td>{{ $score->race->name }}</td>
-                        <td><img src="/proofs{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
-                        <td>{{ $score->driver }}</td>
-                        <td>{{ $score->race->name }}</td>
-                        <td>{{ $score->best }}</td>
-                        <td><img src="/storage/{{ $score->scoreImage }}" alt="Score Image" width="50"></td>
-                        <td>{{ $score->created_at }}</td>
-                        <td>
-                            @if(!$score->verified)
-                            <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">
-    @csrf
-                            <button type="submit" class="btn btn-success">Goedkeuren</button>
-                            </form>
-
-                            <form method="post" action="{{ route('admin.rejectScore', $score->id) }}">
-    @csrf
-    @method('delete')
-    <button type="submit" class="btn btn-danger">Afwijzen</button>
-</form>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+        <div class="user-upload-races">
+          <div class="user-admin-upload-races">
+            <div class="admin-race-table">
+              <div class="admin-race-driver">Coureur</div>
+              <div class="admin-race-track">Circuit</div>
+              <div class="admin-race-time">Tijd</div>
+              <div class="user-upload-value">Bewijs</div>
+              <div class="admin-race-created_at">Gemaakt Op</div>
+              <div class="user-upload-accept">V</div>
+              <div class="user-upload-reject">X</div>
+            </div>
+              @foreach($scores as $score)
+            <div class="admin-race-value">
+              <div class="admin-race-driver-value">{{ $score->driver }}</div>
+              <div class="admin-race-track-value">{{ $score->race->name }}</div>
+              <div class="admin-race-time-value">{{ $score->best }}</div>
+              <div class="user-upload-value"><a href="/storage/{{ $score->scoreImage }}" target="_blank">foto</a></div>
+              <div class="admin-race-created_at-value">{{ \Carbon\Carbon::parse($score->created_at)->format('d-m-Y') }}</div>
+                @if(!$score->verified)
+                    <div class="user-upload-accept-cta">
+                    <form method="post" action="{{ route('admin.verifyScore', $score->id) }}">
+                        @csrf
+                            <div class="user-upload-accept-cta"><button type="submit">Accepteren</button></div>
+                    </form>
+                    </div>
+                    <div class="user-upload-reject-cta">
+                    <form method="post" action="{{ route('admin.rejectScore', ['id' => $score->id]) }}">
+                        @csrf
+                        @method('delete')
+                            <div class="user-upload-reject-cta"><button type="submit">Afwijzen</button></div>
+                    </form>
+                    </div>
+                @endif
+            </div>
+              @endforeach
+          </div>
+        </div>
+      </section>
 @endsection
