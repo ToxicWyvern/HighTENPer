@@ -17,6 +17,7 @@
 @import "manageRaces.css";
 @import "manageUsers.css";
 @import "feed.css";
+@import "rules.css";
 * {
     margin: 0;
     padding: 0;
