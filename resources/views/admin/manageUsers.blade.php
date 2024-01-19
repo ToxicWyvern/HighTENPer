@@ -5,14 +5,14 @@
     <section class="manageusers-container">
         <h1 class="admin-uploadRace-heading">Beheer Gebruikers</h1>
         <!-- Search Bar -->
-        
+
             <form action="{{ route('admin.manageUsers') }}" method="get">
                 <div class="filter-users">
                     <input type="text" name="search" placeholder="Zoek bij naam">
                     <button type="submit">Zoek</button>
                 </div>
             </form>
-        
+
         <div class="user-upload-races">
             <div class="user-admin-upload-races">
                 <!-- User Table -->
@@ -24,6 +24,7 @@
                 </div>
 
                 @foreach($users as $user)
+                    @if($user->id !== auth()->id())
                     <div class="admin-userTable-value">
                         <div class="admin-race-name-value">{{ $user->name }}</div>
                         <div class="admin-race-email-value">{{ $user->email }}</div>
@@ -44,6 +45,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

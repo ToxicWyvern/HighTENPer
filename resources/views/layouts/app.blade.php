@@ -40,12 +40,9 @@
                         <a class="nav-link" href="{{ url('/tracks') }}">Circuits</a>
                     </li>
                     <li class="item4">
-                        <a class="nav-link" href="{{ url('/feed') }}">Feed</a>
-                    </li>
-                    <li class="item5">
                         <a class="nav-link" href="{{ url('/coureurs') }}">Coureurs</a>
                     </li>
-                    <li class="item6">
+                    <li class="item5">
                         <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                     </li>
                 </ul>
@@ -80,7 +77,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/admin/dashboard" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin-Dashboard
                             @endif
-                           
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Log-uit') }}
@@ -88,7 +85,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                           
+
                         @endguest
                     </div>
                 </li>

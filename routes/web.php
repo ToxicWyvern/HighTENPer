@@ -42,6 +42,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/rules', function () {
+    return view('rules');
+});
 // Route to display the dropdown form
 Route::get('/coureurs', [CoureurController::class, 'showCoureurDropdown'])->name('showCoureurDropdown');
 
@@ -49,8 +52,6 @@ Route::get('/coureurs', [CoureurController::class, 'showCoureurDropdown'])->name
 Route::post('/coureurs', [CoureurController::class, 'showSelectedCoureur'])->name('showSelectedCoureur');
 
 Auth::routes();
-
-//Route::get('/contact', function () { return view('contact'); });
 
 Route::get('/tracks', [RaceController::class, 'index']);
 

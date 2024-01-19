@@ -9,7 +9,7 @@
         @endif
         <section class="editProfile-container">
             <div class="editprofile">
-                <h3>Profiel Bewerken</h3>
+                <h3 style="color: white">Profiel Bewerken</h3>
             <form method="POST" action="{{ route('profile.updateProfile') }}" enctype="multipart/form-data">
                 @csrf
 
