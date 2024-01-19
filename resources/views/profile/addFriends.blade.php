@@ -20,7 +20,7 @@
         <div class="feed-add-friends-container">
 
             <div class="feeds">
-                <div class="feeds-profileImage"> <img src="/storage/{{$user->profileImage}}"></div>
+                <div class="feeds-profileImage"> <img src="/storage/{{$user->profileImage}}" class="feed-profile_image"></div>
                 <div class="feeds-name"> <img src="images/trophy.png" alt="trophy" class="trophy"> {{ $user->trophies }}</div>
                   <div class="feeds-name">{{ $user->name }}</div>
                 <div class="feed-button"><form method="post" action="{{ route('toggleFollow') }}">

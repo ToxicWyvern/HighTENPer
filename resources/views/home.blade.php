@@ -9,7 +9,7 @@
                 <p>Race tegen je vrienden <br> en houdt de scores bij</p>
                 @guest
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="hero-cta">Registreer nu -></a>
+                <a href="/rules" class="hero-cta">Zo werkt het!</a>
                 @endif
                 @else
                     <a href="/uploadLeaderboard" class="hero-cta">Upload Leaderboard</a>

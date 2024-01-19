@@ -84,3 +84,7 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.feed-profile_image {
+    height: 100px;
+}
