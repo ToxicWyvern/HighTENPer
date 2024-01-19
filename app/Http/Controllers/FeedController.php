@@ -14,6 +14,13 @@ use App\Models\Follow;
 
 class FeedController extends Controller
 {
+    /**
+     * De functie haalt de scores op van gebruikers die de geverifieerde gebruiker volgt, sorteert ze
+     * op aanmaakdatum en retourneert ze voor weergave in de profielfeedweergave.
+     * 
+     * return een weergave met de naam 'profile.feed' waaraan de variabele 'followedUsersWithScores'
+     * wordt doorgegeven.
+     */
     public function feed()
     {
         $authenticatedUserId = auth()->user()->id;

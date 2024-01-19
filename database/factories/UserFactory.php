@@ -18,6 +18,12 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    /**
+     * De functie retourneert een array met willekeurig gegenereerde naam, e-mailadres, tijdstempel
+     * voor e-mailverificatie, gehasht wachtwoord, onthoudtoken en een willekeurig aantal trofeeën.
+     * 
+     * return array Er wordt een array geretourneerd.
+     */
     public function definition(): array
     {
         return [

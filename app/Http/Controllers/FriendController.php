@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
+    /**
+     * De functie `showAddFriends` haalt een lijst met gebruikers uit de database, exclusief de
+     * geauthenticeerde gebruiker, en filtert de lijst op basis van een zoekopdracht.
+     * 
+     * return een weergave genaamd 'profile.addFriends' met de variabelen 'users' en 'followedUsers'.
+     */
     public function showAddFriends()
     {
         $authUserId = auth()->user()->id;
@@ -25,6 +31,16 @@ class FriendController extends Controller
         return view('profile.addFriends', ['users' => $users, 'followedUsers' => $followedUsers]);
     }
 
+    /**
+     * De functie schakelt de volgstatus van een gebruiker om door te controleren of de gebruiker al
+     * volgt en dienovereenkomstig te ontvolgen of te volgen.
+     * 
+     * request De parameter  is een exemplaar van de klasse Request, die een
+     * HTTP-verzoek vertegenwoordigt. Het bevat informatie over het verzoek, zoals de verzoekmethode,
+     * headers en invoergegevens.
+     * 
+     * return een omleiding naar de 'addFriends'-route.
+     */
     public function toggleFollowUser(Request $request)
     {
         $userId = $request->input('user_id');

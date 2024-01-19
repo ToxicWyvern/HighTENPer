@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /* De code `Schema::create('follows', function (Blueprint ) { ... })` maakt een nieuwe
+        databasetabel aan met de naam "follows" met behulp van Laravel's Schema Builder. */
         Schema::create('follows', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('users');
             $table->integer('follows')->nullable();

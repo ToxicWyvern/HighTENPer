@@ -16,16 +16,15 @@
                 @endguest
             </div>
         </section>
+
+        <!-- zie de 10 beste scores van de huidige race -->
         <div class="leaderboard-heading-primary">
             <h1>Bekijk de 10 beste scores van {{$activeRace->name}}</h1>
         </div>
         <section class="leaderboard-home-container">
-            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
             @if ($getBestTenScores->isEmpty())
             <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
-
             @else
-                {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
                     <div class="leaderboard">
                         <div class="leaderboard-property">
                             <div class="rank">Rang</div>

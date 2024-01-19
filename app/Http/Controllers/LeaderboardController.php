@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class LeaderboardController extends Controller
 {
+    /**
+     * De functie __construct voert vóór elk verzoek de methode updateRaceStatus uit.
+     * 
+     * return De () wordt geretourneerd.
+     */
     public function __construct()
     {
         // Run the updateRaceStatus method before each request
@@ -18,6 +23,12 @@ class LeaderboardController extends Controller
         });
     }
 
+    /**
+     * De indexfunctie haalt de momenteel actieve race op en geeft deze samen met de klassementgegevens
+     * door aan de startweergave.
+     * 
+     * return een weergave genaamd 'home' met twee variabelen: 'activeRace' en 'getBestTenScores'.
+     */
     public function index()
     {
         // Get the currently active race
@@ -30,22 +41,22 @@ class LeaderboardController extends Controller
         ]);
     }
 
-    // Add other methods related to the leaderboard controller as needed
+    
 
     private function updateRaceStatus()
     {
-        // Get the current date and time
+        // Krijg de huidige datum en tijd
         $currentDate = Carbon::now();
 
-        //to test other dates, use:
-        //$currentDate = now()->setYear(2024)->setMonth(4)->setDay(4)->setHour(12)->setMinute(0)->setSecond(0);
+        // Gebruik om andere datums te testen:
+        // $ currentDate = now ()-> setyear (2024)-> setmonth (4)-> setday (4)-> sethour (12)-> setminute (0)-> setSecond (0);
 
-        // Deactivate all races that have a date on or before the current date
+        // deactiveer alle races met een datum op of vóór de huidige datum
         DB::table('races')
             ->where('date', '<=', $currentDate)
             ->update(['active' => false]);
 
-        // Find the race with the earliest future date and activate it
+        // Vind de race met de vroegste toekomstige datum en activeer deze
         DB::table('races')
             ->where('date', '>', $currentDate)
             ->orderBy('date', 'asc')

@@ -9,6 +9,7 @@
     </div>
 @endif
 @section('content')
+
 <!-- Dit is een pagina waarin je de race doormiddel van een formulier in kan voeren.-->
     <div class="card-body">
         @if(session('success'))
@@ -22,13 +23,17 @@
           <div class="form">
             <form method="POST" action="{{ route('submitScore') }}" enctype="multipart/form-data">
               @csrf
-              <!-- CSRF protection token -->
+
+              <!-- /* Deze code creëert een vervolgkeuzemenu voor het selecteren van de racelocatie. */ -->
               <label for="race" class="form-label">{{ __('Race Locatie') }}</label>
               <select id="race" class="form-control" name="race" required>
                 @foreach($races as $race)
                 <option value="{{ $race->id }}">{{ $race->name }}</option>
                 @endforeach
               </select>
+
+              <!-- /* Deze code creëert een formulierinvoerveld voor de "Beste Gereden tijd" met een
+              bijbehorend label. */ -->
               <label for="best" class="form-label">{{ __('Beste Gereden tijd') }}</label>
               <input
                 type="text"
@@ -42,18 +47,25 @@
                 <strong>{{ $message }}</strong>
               </span>
                @enderror
+
+              <!-- /* Deze code creëert een vervolgkeuzemenu voor het selecteren van een team. */ -->
               <label for="team" class="form-label">{{ __('Team') }}</label>
               <select id="team" class="form-control" name="team" required>
                 @foreach($teams as $team)
                 <option value="{{ $team->id }}">{{ $team->team }}</option>
                 @endforeach
               </select>
+
+              <!-- /* Deze code creëert een vervolgkeuzemenu voor het selecteren van het type banden. */ -->
               <label for="tires" class="form-label">{{ __('Banden') }}</label>
               <select id="tire" class="form-control" name="tires" required>
                 @foreach($tires as $tire)
                 <option value="{{ $tire->id }}">{{ $tire->tire }}</option>
                 @endforeach
               </select>
+
+              <!-- /* Deze code maakt een veld voor het uploaden van bestanden aan, zodat de gebruiker een
+              bestand als bewijs kan uploaden. */ -->
               <label for="scoreImage" class="form-label">{{ __('Upload bewijs') }}</label>
               <div class="upload-proof">
                 <input
@@ -68,6 +80,7 @@
                 </span>
                 @enderror
               </div>
+
               <button type="submit" class="btn-uploadRace">{{ __('Score Indienen') }}</button>
             </form>
           </div>

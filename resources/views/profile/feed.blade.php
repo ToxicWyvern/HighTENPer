@@ -8,6 +8,7 @@
         @foreach ($followedUsersWithScores as $user)
             <h1 class="history-heading">{{ $user->name }}'s Geschiedenis</h1>
 
+            <!-- /* De sectie toont de beste 5 scores van de gevolgde gebruiker. */ -->
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ $user->name }}'s beste 5 scores</h3>
 
@@ -30,6 +31,7 @@
                 @endif
             </div>
 
+            <!-- /* De sectie toont de 5 laatst geüploade scores van de gevolgde gebruiker. */ -->
             <div class="user-best-score-history">
                 <h3 class="user-history-heading">{{ $user->name }}'s 5 laatst geüploade scores</h3>
 

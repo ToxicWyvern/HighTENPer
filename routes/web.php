@@ -25,12 +25,6 @@ use App\Http\Controllers\FriendController;
 |
 */
 
-// Show the password reset request form
-
-
-
-
-
 
 // Routes die voor iedereen toegankelijk zijn
 Route::get('/', [LeaderboardController::class, 'index'])->name('leaderboard.index');
@@ -45,44 +39,48 @@ Route::get('/contact', function () {
 Route::get('/rules', function () {
     return view('rules');
 });
-// Route to display the dropdown form
+// Route om de dropdown weer te geven voor coureurs
 Route::get('/coureurs', [CoureurController::class, 'showCoureurDropdown'])->name('showCoureurDropdown');
 
-// Route to handle the form submission and display selected coureur details
+// Route om de inzending van het formulier af te handelen en geselecteerde coureur -details weer te geven
 Route::post('/coureurs', [CoureurController::class, 'showSelectedCoureur'])->name('showSelectedCoureur');
 
-Auth::routes();
-
+// Route om alle tracks te zien
 Route::get('/tracks', [RaceController::class, 'index']);
 
-// Routes waarvoor je moet zijn ingelogd (gebruik: Route::get('/[route hier]', [App\Http\Controllers\[controllerNaam hier]Controller::class, 'index'])->name('[view naam hier]')->middleware('auth'); )
-//Auth::routes();
+// Routes waarvoor je moet zijn ingelogd (gebruik: ->middleware('auth'); )
+Auth::routes();
 
+// route voor dashboard
 Route::get('/dashboard', [ScoreController::class, 'dashboard'])->middleware('auth');
 
+// route voor feed
 Route::get('/feed', [FeedController::class, 'feed'])->middleware('auth');
 
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile.Profile')->middleware('auth');
-
+// route om je profiel aan te passen
 Route::get('/editProfile', [ProfileController::class, 'editProfile'])
     ->name('profile.editProfile')
     ->middleware('auth');
 
-// Route for updating the user profile (POST request)
+// Route voor het bijwerken van het gebruikersprofiel
 Route::post('/editProfile', [ProfileController::class, 'updateProfile'])
     ->name('profile.updateProfile')
     ->middleware('auth');
 
+
+// route voor de succes pagina
 Route::get('/successful', function () {
     return view('successful');
 })->middleware('auth');
 
+
+//routes om een score te uploaden
 Route::post('/uploadLeaderboard', [ScoreController::class, 'submitScore'])->name('submitScore')->middleware('auth');
 
 Route::get('/uploadLeaderboard', [ScoreController::class, 'showScoreForm'])->name('showScoreForm')->middleware('auth');
 
 
-
+//routes om vrienden te volgen
 Route::get('/addFriends', [FriendController::class, 'showAddFriends'])->name('addFriends');
 
 Route::post('/addFriends', [FriendController::class, 'toggleFollowUser'])->name('toggleFollow');
@@ -90,23 +88,23 @@ Route::post('/addFriends', [FriendController::class, 'toggleFollowUser'])->name(
 
 // Routes waarvoor je admin moet zijn
 
-
+// route voor manageUsers
 Route::get('/admin/manage/users', [AdminController::class, 'manageUsers'])
     ->middleware('auth')
     ->name('admin.manageUsers');
-
+// route om gebruikers te deleten
     Route::delete('/admin/manage/users/{id}', [AdminController::class, 'deleteUser'])
         ->middleware('auth')
         ->name('admin.deleteUser');
-
+// route om gebruikers te blokkeren
     Route::put('/admin/manage/users/{id}/toggle-block', [AdminController::class, 'toggleBlockUser'])
         ->middleware('auth')
         ->name('admin.toggleBlockUser');
-
+// route voor de admin dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware('auth')
     ->name('admin.dashboard');
-
+// routes voor het beheren van scores
 Route::get('/admin/manage/leaderboards', [AdminController::class, 'manageLeaderboards'])
     ->middleware('auth')
     ->name('admin.manageLeaderboards');

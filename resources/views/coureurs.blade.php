@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <!-- Display the dropdown form -->
+    <!-- Geef het dropdown menu weer -->
     <form method="post" action="{{ route('showSelectedCoureur') }}">
         @csrf
         <div class="coureurs-filter">
@@ -17,7 +17,7 @@
         </div>
     </form>
 
-    <!-- Display selected Coureur details if available -->
+    <!-- Geselecteerde coureur -details weergeven indien beschikbaar -->
     <div class="coureurs-container">
         <div class="coureurs-details">
             @if(isset($coureur))

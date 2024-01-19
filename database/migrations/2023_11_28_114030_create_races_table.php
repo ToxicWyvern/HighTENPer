@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('races', function (Blueprint $table) { //maakt alle columns aan in de tabel 'races'
+        /* De code `Schema::create('races', function (Blueprint ) { ... })` maakt een nieuwe
+        databasetabel aan met de naam "races" met behulp van Laravel's Schema Builder. */
+        Schema::create('races', function (Blueprint $table) { 
             $table->id();
             $table->string("name");
             $table->date("date");

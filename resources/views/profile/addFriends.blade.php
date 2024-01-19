@@ -5,7 +5,7 @@
 <div class="feed-heading">
     <h2>Vrienden Toevoegen</h2>
 </div>
-    <!-- Search Bar -->
+    <!-- Zoekbalk -->
     <form method="get" action="{{ route('addFriends') }}">
         <div class="addfriends-searchbar">
             <input type="text" name="search" placeholder="Zoek bij Naam" value="{{ request('search') }}">
@@ -14,9 +14,11 @@
         
     </form>
     
+   
     @foreach($users as $user)
     
 
+        <!-- /*een lijst met gebruikers weer te geven en een optie te bieden om ze te volgen of niet meer te volgen. */ -->
         <div class="feed-add-friends-container">
 
             <div class="feeds">

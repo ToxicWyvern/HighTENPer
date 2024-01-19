@@ -6,7 +6,8 @@
 </div>
 <section class="leaderboard-container">
 
-{{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
+/* Dit codeblok creëert een formulier waarmee de gebruiker het klassement kan filteren op basis van een
+geselecteerde race. */
 <form method="post" action="{{ route('process.scores') }}">
     @csrf
     <div class="filterLeaderboard">
@@ -21,16 +22,16 @@
     </div>
     
 </form>
-    {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
+
+    <!-- Dit codeblok is verantwoordelijk voor het weergeven van de leaderboards voor een geselecteerde
+    race. -->
     @if(isset($bestTenScores))
         <h1 class="leaderboard-heading">Leaderboard for {{ $selectedRaceName }}</h1>
 
-        {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
         @if ($bestTenScores->isEmpty())
             <h1 class="heading-noScore">Geen Scores Gevonden.</h1>
         @else
-            {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 
         
             <div class="leaderboard">
