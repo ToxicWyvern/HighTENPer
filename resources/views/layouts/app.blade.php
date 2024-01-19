@@ -40,9 +40,12 @@
                         <a class="nav-link" href="{{ url('/tracks') }}">Circuits</a>
                     </li>
                     <li class="item4">
-                        <a class="nav-link" href="{{ url('/coureurs') }}">Coureurs</a>
+                        <a class="nav-link" href="{{ url('/feed') }}">Feed</a>
                     </li>
                     <li class="item5">
+                        <a class="nav-link" href="{{ url('/coureurs') }}">Coureurs</a>
+                    </li>
+                    <li class="item6">
                         <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                     </li>
                 </ul>
