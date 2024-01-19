@@ -20,7 +20,6 @@
 
         <!-- /*een lijst met gebruikers weer te geven en een optie te bieden om ze te volgen of niet meer te volgen. */ -->
         <div class="feed-add-friends-container">
-
             <div class="feeds">
                 <div class="feeds-profileImage"> <img src="/storage/{{$user->profileImage}}" class="feed-profile_image"></div>
                 <div class="feeds-name"> <img src="images/trophy.png" alt="trophy" class="trophy"> {{ $user->trophies }}</div>
@@ -35,12 +34,9 @@
                             Volgen
                         @endif
                     </button>
-                </form></div>
-              </div>
-            <span></span>
-            <span></span>
-            <span></span>
-            
+                    </form>
+                </div>
+            </div>
         </div>
     @endforeach
 

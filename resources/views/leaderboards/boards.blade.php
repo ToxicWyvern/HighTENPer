@@ -6,8 +6,8 @@
 </div>
 <section class="leaderboard-container">
 
-/* Dit codeblok creëert een formulier waarmee de gebruiker het klassement kan filteren op basis van een
-geselecteerde race. */
+<!-- Dit codeblok creëert een formulier waarmee de gebruiker het klassement kan filteren op basis van een
+geselecteerde race. -->
 <form method="post" action="{{ route('process.scores') }}">
     @csrf
     <div class="filterLeaderboard">
