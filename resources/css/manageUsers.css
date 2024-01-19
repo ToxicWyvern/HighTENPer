@@ -1,9 +1,8 @@
-.dashboard-container {
+.manageusers-container {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    height: 150vh;
 }
 
 .admin-uploadRace-heading {
@@ -35,7 +34,7 @@
     cursor: pointer;
 }
 
-.admin-race-table {
+.admin-user-table {
     display: flex;
     /* justify-content: space-around; */
     border: 1px solid rgb(0, 0, 0);
@@ -47,7 +46,7 @@
     font-weight: bold;
 }
 
-.admin-race-value {
+.admin-userTable-value {
     display: flex;
     /* justify-content: space-around; */
     border: 0.5px solid rgb(0, 0, 0);

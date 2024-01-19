@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <section class="dashboard-container">
+    <section class="leaderboardManage-container">
         <h1 class="admin-uploadRace-heading">Beheer Leaderboards</h1>
         @if(session('success'))
             <div class="alert alert-success">

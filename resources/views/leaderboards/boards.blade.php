@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<section class="leaderboard-container">
 <!-- Dit is een knop om een nieuwe race toe te voevgen  -->
-    <div class="addRaceBtn">
-        <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
-    </div>
+<div class="addRaceBtn">
+    <a href="{{ route('showScoreForm') }}" class="addRaceButton">+ Upload Leaderboard</a>
+</div>
+<section class="leaderboard-container">
+
 {{----------------------------------------FRONT-END REQUIRED-----------------------------------------------}}
 <form method="post" action="{{ route('process.scores') }}">
     @csrf

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="dashboard-container">
+    <section class="manageusers-container">
         <h1 class="admin-uploadRace-heading">Beheer Gebruikers</h1>
         <!-- Search Bar -->
         
@@ -16,7 +16,7 @@
         <div class="user-upload-races">
             <div class="user-admin-upload-races">
                 <!-- User Table -->
-                <div class="admin-race-table">
+                <div class="admin-user-table">
                     <div class="admin-race-name">Naam</div>
                     <div class="admin-race-email">Email</div>
                     <div class="user-upload-accept">Verwijderen</div>
@@ -24,7 +24,7 @@
                 </div>
 
                 @foreach($users as $user)
-                    <div class="admin-race-value">
+                    <div class="admin-userTable-value">
                         <div class="admin-race-name-value">{{ $user->name }}</div>
                         <div class="admin-race-email-value">{{ $user->email }}</div>
                         <div class="user-upload-accept-cta">
