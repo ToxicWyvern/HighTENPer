@@ -182,7 +182,7 @@ class AdminController extends Controller
      * return een omleidingsreactie op de route "admin.manageLeaderboards" met een
      * succes-flashbericht.
      */
-    public function rejectScore(Score $score)
+    public function rejectScore($id)
     {
         // Check if the authenticated user is an admin
         if (Auth::check() && Auth::user()->admin) {
